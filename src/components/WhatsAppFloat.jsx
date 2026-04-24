@@ -41,7 +41,8 @@ export default function WhatsAppFloat() {
           <motion.a
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
-            href="https://wa.me/918930296001?text=Hi%2C%20mujhe%20website%20ya%20app%20banwani%20hai"
+            href="https://wa.me/918930296001
+            ?text=Hi%2C%20mujhe%20website%20ya%20app%20banwani%20hai"
             target="_blank"
             rel="noopener noreferrer"
             className="w-14 h-14 rounded-full flex items-center justify-center shadow-xl"
