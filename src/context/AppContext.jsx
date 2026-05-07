@@ -6,7 +6,7 @@ import {
 } from "react";
 
 import AppReducer from "./AppReducer";
-import initialState from "./initialState";
+import initialState from "./initialState"
 
 const AppContext = createContext();
 
