@@ -1,4 +1,4 @@
-import logo from "../../public/favicon.png";
+import logo from "/favicon.png";
 import React from "react";
 import {
   MapPin,

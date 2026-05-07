@@ -1,4 +1,4 @@
-import logo from "../../public/favicon.png"
+import logo from "/favicon.png"
 import { useEffect } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { motion, AnimatePresence, useScroll } from "framer-motion";
