@@ -9,7 +9,7 @@ import {
 
 import { useAppContext } from "../context/AppContext";
 
-import hero from "../assets/hero.webp";
+import image from "../assets/hero.webp";
 
 const rotatingWords = [
   "schools",
@@ -344,7 +344,7 @@ export default function Hero() {
               <div className="p-6">
                 <div className="rounded-3xl overflow-hidden border border-black/5 dark:border-white/10">
                   <img
-                    src={hero}
+                    src={image}
                     alt="Project Preview"
                     className="w-full h-[360px] object-cover"
                   />
