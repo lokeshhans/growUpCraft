@@ -1,125 +1,197 @@
-import React, { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X } from 'lucide-react'
+import logo from "../../public/favicon.png"
+import { useEffect } from "react";
+import { NavLink, useLocation } from "react-router-dom";
+import { motion, AnimatePresence, useScroll } from "framer-motion";
+import { Menu, X, ArrowUpRight, Phone, Moon, Sun } from "lucide-react";
+import { useAppContext } from "../context/AppContext"
 
 const navLinks = [
-  { label: 'Services', href: '#services' },
-  { label: 'Projects', href: '#projects' },
-  { label: 'How We Work', href: '#how-we-work' },
-  { label: 'Contact', href: '#contact' },
-]
-
+  { label: "Home", path: "/" },
+  { label: "Services", path: "/services" },
+  { label: "Projects", path: "/projects" },
+  { label: "Contact", path: "/contact" },
+];
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false)
-  const [mobileOpen, setMobileOpen] = useState(false)
-
+  const { mobileMenu, toggleMenu, closeMenu, theme, toggleTheme } =
+    useAppContext();
+  const { scrollYProgress } = useScroll();
+  const location = useLocation();
   useEffect(() => {
-    const handler = () => setScrolled(window.scrollY > 30)
-    window.addEventListener('scroll', handler)
-    return () => window.removeEventListener('scroll', handler)
-  }, [])
+    closeMenu();
+  }, [location.pathname]);
 
   return (
     <>
-      <motion.nav
-        initial={{ y: -20, opacity: 0 }}
+      <motion.div
+        className="fixed top-0 left-0 right-0 h-[2px] bg-black origin-left z-[70]"
+        style={{ scaleX: scrollYProgress }}
+      />
+      <motion.header
+        initial={{ y: -80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5 }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled
-            ? 'bg-paper/95 backdrop-blur-md border-b border-ink/8 shadow-sm'
-            : 'bg-transparent'
-        }`}
+        className="fixed top-0 left-0 right-0 z-50 bg-white/70 backdrop-blur-xl border-b border-black/5"
       >
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
-          {/* Logo */}
-          <a href="#" className="flex items-center gap-2 group">
-            <div className="w-8 h-8 bg-ink rounded-lg flex items-center justify-center">
-              <span className="text-paper font-display font-bold text-sm">G</span>
-            </div>
-            <span className="font-display font-bold text-ink text-lg">
-              GrowUp<span className="text-moss">Craft</span>
-            </span>
-          </a>
-
-          {/* Desktop links */}
-          <div className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                className="text-sm font-medium text-ink/70 hover:text-ink transition-colors"
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="h-[78px] flex items-center justify-between">
+            <NavLink to="/" className="flex items-center gap-3 group">
+              <motion.div
+                whileHover={{ rotate: 8, scale: 1.05 }}
+                className="w-11 h-11 rounded-2xl bg-black text-white flex items-center justify-center font-black text-lg"
               >
-                {link.label}
-              </a>
-            ))}
-          </div>
-
-          {/* CTA */}
-          <div className="hidden md:flex items-center gap-3">
-            <a
-              href="https://wa.me/918930296001?text=Hi%2C%20I%20want%20to%20discuss%20a%20project"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-whatsapp text-xs px-4 py-2"
+                <img src={logo} alt="" />
+              </motion.div>
+              <div>
+                <h2 className="font-black text-lg tracking-tight">
+                  GrowUpCraft
+                </h2>
+                <p className="text-xs text-neutral-500">
+                  Modern Web Experiences
+                </p>
+              </div>
+            </NavLink>
+            <nav
+              role="navigation"
+              className="hidden lg:flex items-center gap-2"
             >
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-              </svg>
-              WhatsApp
-            </a>
-            <a href="#contact" className="btn-primary text-xs px-4 py-2">
-              Get Free Demo
-            </a>
-          </div>
-
-          {/* Mobile hamburger */}
-          <button
-            className="md:hidden p-2"
-            onClick={() => setMobileOpen(!mobileOpen)}
-          >
-            {mobileOpen ? <X size={20} /> : <Menu size={20} />}
-          </button>
-        </div>
-      </motion.nav>
-
-      {/* Mobile menu */}
-      <AnimatePresence>
-        {mobileOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            className="fixed top-14 left-0 right-0 z-40 bg-paper border-b border-ink/10 px-4 py-4 md:hidden"
-          >
-            <div className="flex flex-col gap-4">
-              {navLinks.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  className="text-ink font-medium py-1"
-                  onClick={() => setMobileOpen(false)}
+              {navLinks.map((item) => (
+                <NavLink
+                  key={item.path}
+                  to={item.path}
+                  className={({ isActive }) =>
+                    `relative px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${isActive ? "text-black" : "text-neutral-600 hover:text-black hover:bg-black/5"}`
+                  }
                 >
-                  {link.label}
-                </a>
+                  {({ isActive }) => (
+                    <>
+                      {isActive && (
+                        <motion.div
+                          layoutId="navbar-active"
+                          className="absolute inset-0 bg-black/5 rounded-full"
+                        />
+                      )}
+                      <span className="relative z-10 flex items-center gap-2">
+                        {isActive && (
+                          <span className="w-1.5 h-1.5 rounded-full bg-black" />
+                        )}
+                        {item.label}
+                      </span>
+                    </>
+                  )}
+                </NavLink>
               ))}
-              <div className="flex flex-col gap-2 pt-2 border-t border-ink/10">
+            </nav>
+            <div className="hidden lg:flex items-center gap-3">
+              <motion.button
+                whileHover={{ scale: 1.05, y: -2 }}
+                onClick={toggleTheme}
+                className="w-11 h-11 rounded-full border border-black/10 flex items-center justify-center"
+              >
+                {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
+              </motion.button>
+              <motion.a
+                whileHover={{ scale: 1.05, y: -2 }}
+                href="tel:+918930296001"
+                className="flex items-center gap-2 px-4 py-2.5 rounded-full border border-black/10 hover:border-black transition-all duration-300"
+              >
+                <Phone size={16} />
+                <span className="text-sm font-medium">Call Now</span>
+              </motion.a>
+              <motion.a
+                whileHover={{ scale: 1.05, y: -2 }}
+                href="https://wa.me/918930296001"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-2 px-5 py-3 rounded-full bg-black text-white font-medium"
+              >
+                <span>Start Project</span>
+                <ArrowUpRight
+                  size={17}
+                  className="transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1"
+                />
+              </motion.a>
+            </div>
+            <button
+              aria-label="Open menu"
+              onClick={toggleMenu}
+              className="lg:hidden w-11 h-11 rounded-xl border border-black/10 flex items-center justify-center"
+            >
+              {mobileMenu ? <X size={20} /> : <Menu size={20} />}
+            </button>
+          </div>
+        </div>
+      </motion.header>
+      <AnimatePresence>
+        {mobileMenu && (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={closeMenu}
+              className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40 lg:hidden"
+            />
+            <motion.div
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ type: "spring", damping: 24 }}
+              className="fixed top-0 right-0 w-[85%] max-w-sm h-screen bg-white z-50 p-6 shadow-2xl flex flex-col"
+            >
+              <div className="flex items-center justify-between mb-10">
+                <h2 className="font-black text-xl">GrowUpCraft</h2>
+                <button onClick={closeMenu}>
+                  <X size={22} />
+                </button>
+              </div>
+              <motion.div
+                initial="hidden"
+                animate="visible"
+                variants={{
+                  hidden: {},
+                  visible: { transition: { staggerChildren: 0.08 } },
+                }}
+                className="flex flex-col gap-3"
+              >
+                {navLinks.map((item) => (
+                  <motion.div
+                    key={item.path}
+                    variants={{
+                      hidden: { opacity: 0, x: 30 },
+                      visible: { opacity: 1, x: 0 },
+                    }}
+                  >
+                    <NavLink
+                      to={item.path}
+                      className={({ isActive }) =>
+                        `block px-5 py-4 rounded-2xl text-base font-medium transition-all duration-300 ${isActive ? "bg-black text-white" : "hover:bg-neutral-100"}`
+                      }
+                    >
+                      {item.label}
+                    </NavLink>
+                  </motion.div>
+                ))}
+              </motion.div>
+              <div className="mt-auto pt-6 flex flex-col gap-3">
                 <a
-                  href="https://wa.me/918930296001?text=Hi%2C%20I%20want%20to%20discuss%20a%20project"
+                  href="https://wa.me/918930296001"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-whatsapp text-sm text-center"
+                  className="w-full py-4 rounded-2xl bg-black text-white text-center font-semibold"
                 >
-                  WhatsApp Karo
+                  Start Your Project
                 </a>
-                <a href="#contact" className="btn-primary text-sm text-center" onClick={() => setMobileOpen(false)}>
-                  Free Demo Lo
+                <a
+                  href="tel:+918930296001"
+                  className="w-full py-4 rounded-2xl border border-black/10 text-center font-medium"
+                >
+                  Call Us
                 </a>
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </>
-  )
+  );
 }

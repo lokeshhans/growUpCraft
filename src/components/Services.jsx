@@ -1,5 +1,12 @@
-import React, { useState } from "react";
-import { motion } from "framer-motion";
+import React, {
+  useState,
+} from "react";
+
+import {
+  motion,
+  AnimatePresence,
+} from "framer-motion";
+
 import {
   Globe,
   LayoutDashboard,
@@ -7,281 +14,455 @@ import {
   CalendarCheck,
   RefreshCw,
   ArrowRight,
+  CheckCircle2,
+  Sparkles,
 } from "lucide-react";
 
 const services = [
   {
     icon: Globe,
-    title: "Business Website",
+
+    title:
+      "Business Website",
+
     tag: "Online Presence",
-    problem: "Log Google pe dhundhte hain, aap nahi milte.",
-    solution:
-      "Fast, mobile-friendly website jo aapko credible banaye aur customers attract kare.",
+
+    description:
+      "Modern websites that help your business look professional and generate more enquiries online.",
+
     includes: [
-      "Google-ready SEO",
-      "WhatsApp button",
-      "Fast loading",
-      "Mobile first",
+      "SEO optimized",
+
+      "WhatsApp integration",
+
+      "Mobile-first design",
+
+      "Fast loading performance",
     ],
-    price: "From ₹8,000",
-    color: "#2D5016",
-    bg: "rgba(45,80,22,0.06)",
+
+    price: "₹8k+",
+
+    result:
+      "Build stronger trust online",
   },
+
   {
     icon: LayoutDashboard,
-    title: "Custom Web Application",
-    tag: "Admin Panel / Dashboard",
-    problem:
-      "Excel aur registers se thak gaye? Data track karna mushkil ho gaya?",
-    solution:
-      "Custom dashboard banate hain — apna data apni screen pe, organized aur safe.",
+
+    title:
+      "Custom Web Application",
+
+    tag:
+      "Dashboard System",
+
+    description:
+      "Custom admin panels and business systems for managing data, operations and workflows efficiently.",
+
     includes: [
       "Login system",
-      "Data management",
-      "Reports & analytics",
+
+      "Analytics dashboard",
+
       "Role-based access",
+
+      "Secure database",
     ],
-    price: "From ₹18,000",
-    color: "#1565C0",
-    bg: "rgba(21,101,192,0.06)",
+
+    price: "₹18k+",
+
+    result:
+      "Save hours of manual work",
   },
+
   {
     icon: Users,
-    title: "Lead Management System",
-    tag: "Sales Tracker",
-    problem: "Enquiries aati hain, follow-up nahi hota, lead kho jaati hai.",
-    solution:
-      "Sab leads ek jagah, follow-up reminder ke saath. Koi lead miss nahi hogi.",
+
+    title:
+      "Lead Management System",
+
+    tag: "Sales Tracking",
+
+    description:
+      "Track leads, follow-ups and enquiries from one organized dashboard without losing potential customers.",
+
     includes: [
-      "Lead capture form",
+      "Lead pipeline",
+
       "WhatsApp alerts",
-      "Follow-up tracker",
-      "Status pipeline",
+
+      "Follow-up reminders",
+
+      "Status tracking",
     ],
-    price: "From ₹12,000",
-    color: "#E65100",
-    bg: "rgba(230,81,0,0.06)",
+
+    price: "₹12k+",
+
+    result:
+      "Never miss important leads",
   },
+
   {
     icon: CalendarCheck,
-    title: "Booking & Enquiry System",
+
+    title:
+      "Booking System",
+
     tag: "Automation",
-    problem: "Phone pe booking lena time waste hai, confusion bhi hota hai.",
-    solution:
-      "Online booking system — customer khud book kare, aapko notification aaye.",
+
+    description:
+      "Online booking and enquiry systems that automate appointments and customer scheduling.",
+
     includes: [
-      "Online booking form",
-      "Calendar view",
-      "Email/WhatsApp notification",
-      "Payment link",
+      "Booking calendar",
+
+      "Automated notifications",
+
+      "WhatsApp updates",
+
+      "Payment integration",
     ],
-    price: "From ₹10,000",
-    color: "#6A1B9A",
-    bg: "rgba(106,27,154,0.06)",
+
+    price: "₹10k+",
+
+    result:
+      "Reduce manual coordination",
   },
+
   {
     icon: RefreshCw,
-    title: "Website Redesign",
-    tag: "Modernization",
-    problem:
-      "Purani website hai jo mobile pe kaam nahi karti, ya dikhne mein bekaar hai.",
-    solution:
-      "Aapki existing site ko modern, fast aur conversion-ready banate hain.",
+
+    title:
+      "Website Redesign",
+
+    tag: "Modern Upgrade",
+
+    description:
+      "Upgrade outdated websites into modern, responsive and conversion-focused digital experiences.",
+
     includes: [
-      "Modern design",
-      "Mobile optimization",
-      "Speed improvements",
-      "SEO fix",
+      "Modern UI redesign",
+
+      "Performance optimization",
+
+      "Responsive layout",
+
+      "SEO improvements",
     ],
-    price: "From ₹6,000",
-    color: "#00695C",
-    bg: "rgba(0,105,92,0.06)",
+
+    price: "₹6k+",
+
+    result:
+      "Improve credibility instantly",
   },
 ];
 
 export default function Services() {
-  const [active, setActive] = useState(0);
-  const Icon = services[active].icon;
+  const [active, setActive] =
+    useState(0);
+
+  const service =
+    services[active];
+
   return (
-    <section id="services" className="py-24 bg-cream">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        {/* Header */}
-        <div className="mb-14">
-          <motion.span
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="section-tag mb-4 inline-flex"
-          >
-            🛠 What We Build
-          </motion.span>
-          <motion.h2
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="font-display font-bold text-ink text-4xl sm:text-5xl mb-4"
-          >
-            Koi ek size fit nahi karta
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="text-ink/60 text-lg max-w-xl"
-          >
-            Isliye hum generic templates nahi dete. Aapke business ki asli
-            problem sunke custom solution banate hain.
-          </motion.p>
-        </div>
+    <section
+  id="services"
+  className="relative overflow-hidden bg-[#f8f8f6] text-black py-32 lg:py-40 [transform-style:preserve-3d] perspective-[2000px]"
+>
+  {/* BACKGROUND GRID */}
+  <div className="absolute inset-0 opacity-[0.04] pointer-events-none">
+    <div
+      className="absolute inset-0"
+      style={{
+        backgroundImage: `
+          linear-gradient(rgba(0,0,0,.06) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(0,0,0,.06) 1px, transparent 1px)
+        `,
+        backgroundSize: "70px 70px",
+      }}
+    />
+  </div>
 
-        <div className="grid lg:grid-cols-5 gap-6">
-          {/* Sidebar */}
-          <div className="lg:col-span-2 flex lg:flex-col gap-3 overflow-x-auto lg:overflow-visible pb-2 lg:pb-0">
-            {services.map((s, i) => (
-              <button
-                key={i}
-                onClick={() => setActive(i)}
-                className={`flex items-center gap-3 p-4 rounded-2xl text-left transition-all duration-200 min-w-[200px] lg:min-w-0 ${
-                  active === i
-                    ? "bg-ink text-paper shadow-lg scale-[1.02]"
-                    : "bg-white border border-ink/8 text-ink hover:border-ink/20"
-                }`}
-              >
-                <div
-                  className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"
-                  style={{
-                    background: active === i ? "rgba(255,255,255,0.15)" : s.bg,
-                  }}
-                >
-                  <s.icon
-                    size={18}
-                    style={{ color: active === i ? "#fff" : s.color }}
-                  />
-                </div>
-                <div>
-                  <div className="font-semibold text-sm leading-tight">
-                    {s.title}
-                  </div>
-                  <div
-                    className={`text-[11px] mt-0.5 ${active === i ? "text-paper/60" : "text-ink/40"}`}
-                  >
-                    {s.tag}
-                  </div>
-                </div>
-              </button>
-            ))}
-          </div>
+  {/* HERO GLOW */}
+  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[850px] h-[850px] rounded-full bg-lime-200/40 blur-3xl" />
 
-          {/* Detail */}
-          <motion.div
-            key={active}
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.3 }}
-            className="lg:col-span-3"
-          >
-            <div
-              className="rounded-3xl p-8 h-full border border-ink/8"
-              style={{ background: services[active].bg }}
+  {/* EXTRA GLOW */}
+  <div className="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full bg-black/[0.03] blur-3xl" />
+
+  {/* NOISE */}
+  <div className="absolute inset-0 opacity-[0.015] mix-blend-multiply bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.04)_1px,transparent_1px)] bg-[size:24px_24px]" />
+
+  <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+    {/* HEADER */}
+    <div className="max-w-3xl">
+      <motion.span
+        initial={{
+          opacity: 0,
+          y: 10,
+        }}
+        whileInView={{
+          opacity: 1,
+          y: 0,
+        }}
+        viewport={{ once: true }}
+        className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-black/10 bg-white/80 backdrop-blur-xl text-sm font-medium shadow-sm"
+      >
+        🛠 Services
+      </motion.span>
+
+      <motion.h2
+        initial={{
+          opacity: 0,
+          y: 15,
+        }}
+        whileInView={{
+          opacity: 1,
+          y: 0,
+        }}
+        transition={{
+          delay: 0.1,
+        }}
+        viewport={{ once: true }}
+        className="mt-8 text-5xl sm:text-7xl lg:text-[88px] font-black tracking-[-0.04em] leading-[0.9]"
+      >
+        Solutions built
+        <br />
+        for real businesses.
+      </motion.h2>
+
+      <motion.p
+        initial={{
+          opacity: 0,
+          y: 15,
+        }}
+        whileInView={{
+          opacity: 1,
+          y: 0,
+        }}
+        transition={{
+          delay: 0.2,
+        }}
+        viewport={{ once: true }}
+        className="mt-7 text-xl leading-relaxed text-black/60 max-w-2xl"
+      >
+        We create websites, systems and
+        digital products that improve
+        operations, generate leads and help
+        businesses grow online.
+      </motion.p>
+    </div>
+
+    {/* MAIN */}
+    <div className="mt-24 grid lg:grid-cols-[340px_1fr] gap-10 items-start">
+      {/* LEFT */}
+      <div className="space-y-4 lg:sticky lg:top-28">
+        {services.map(
+          (item, index) => (
+            <button
+              key={item.title}
+              onClick={() =>
+                setActive(index)
+              }
+              className={`group relative w-full rounded-[32px] p-5 text-left border transition-all duration-300 overflow-hidden ${
+                active === index
+                  ? "border-lime-300/40 bg-white shadow-[0_20px_60px_rgba(163,230,53,0.12)]"
+                  : "border-black/6 bg-white/70 hover:bg-white hover:border-black/10"
+              }`}
             >
-              <div
-                className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium mb-5"
-                style={{
-                  background: services[active].color,
-                  color: "#fff",
-                }}
-              >
-                <Icon size={12} />
+              {active === index && (
+                <motion.div
+                  layoutId="active-service"
+                  className="absolute inset-0 bg-gradient-to-b from-lime-100/40 to-transparent"
+                />
+              )}
 
-                {services[active].tag}
-              </div>
-
-              <h3 className="font-display font-bold text-2xl text-ink mb-6">
-                {services[active].title}
-              </h3>
-
-              <div className="space-y-4 mb-8">
-                <div>
-                  <div className="text-xs font-mono text-ink/40 uppercase tracking-wider mb-1">
-                    ❌ Problem
-                  </div>
-                  <p className="text-ink/70">{services[active].problem}</p>
-                </div>
-                <div>
-                  <div className="text-xs font-mono text-ink/40 uppercase tracking-wider mb-1">
-                    ✅ Our Solution
-                  </div>
-                  <p className="text-ink font-medium">
-                    {services[active].solution}
-                  </p>
-                </div>
-              </div>
-
-              <div className="mb-8">
-                <div className="text-xs font-mono text-ink/40 uppercase tracking-wider mb-3">
-                  Includes
-                </div>
-                <div className="grid grid-cols-2 gap-2">
-                  {services[active].includes.map((item) => (
-                    <div
-                      key={item}
-                      className="flex items-center gap-2 text-sm text-ink/70"
-                    >
-                      <div className="w-1.5 h-1.5 rounded-full bg-moss" />
-                      {item}
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="flex flex-wrap items-center justify-between gap-4">
-                <div>
-                  <div className="text-xs text-ink/40 font-mono">Starting</div>
-                  <div className="font-display font-bold text-2xl text-ink">
-                    {services[active].price}
-                  </div>
-                </div>
-                <a
-                  href={`https://wa.me/918930296001?text=Hi%2C%20mujhe%20${encodeURIComponent(services[active].title)}%20chahiye`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-whatsapp"
+              <div className="relative z-10 flex items-start gap-4">
+                <div
+                  className={`w-14 h-14 rounded-2xl flex items-center justify-center transition-all ${
+                    active === index
+                      ? "bg-black text-white"
+                      : "bg-black/[0.04] text-black"
+                  }`}
                 >
-                  Discuss Karo
-                  <ArrowRight size={14} />
-                </a>
-              </div>
-            </div>
-          </motion.div>
-        </div>
+                  <item.icon size={24} />
+                </div>
 
-        {/* Custom CTA */}
+                <div className="flex-1">
+                  <p className="text-xs uppercase tracking-[0.2em] text-black/35 mb-2">
+                    {item.tag}
+                  </p>
+
+                  <h3 className="font-black text-xl tracking-tight">
+                    {item.title}
+                  </h3>
+
+                  <div className="mt-4 flex items-center justify-between">
+                    <span className="text-sm text-black/40">
+                      Starting
+                    </span>
+
+                    <span className="text-lg font-black">
+                      {item.price}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </button>
+          )
+        )}
+      </div>
+
+      {/* RIGHT */}
+      <AnimatePresence mode="wait">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mt-10 p-6 rounded-2xl bg-ink text-paper flex flex-col sm:flex-row items-center justify-between gap-4"
+          key={service.title}
+          initial={{
+            opacity: 0,
+            y: 20,
+          }}
+          animate={{
+            opacity: 1,
+            y: 0,
+          }}
+          exit={{
+            opacity: 0,
+            y: -20,
+          }}
+          transition={{
+            duration: 0.35,
+          }}
+          whileHover={{
+            y: -4,
+          }}
+          className="rounded-[40px] border border-black/6 bg-white/80 backdrop-blur-2xl overflow-hidden shadow-[0_20px_80px_rgba(0,0,0,0.06)]"
         >
-          <div>
-            <div className="font-display font-bold text-xl mb-1">
-              Kuch alag chahiye?
-            </div>
-            <div className="text-paper/60 text-sm">
-              Custom app ya automation tool — batao, banate hain.
+          {/* BROWSER TOP */}
+          <div className="h-14 border-b border-black/6 bg-black/[0.02] flex items-center px-5 gap-2">
+            <div className="w-3 h-3 rounded-full bg-red-400" />
+            <div className="w-3 h-3 rounded-full bg-yellow-400" />
+            <div className="w-3 h-3 rounded-full bg-green-400" />
+
+            <div className="ml-4 text-xs text-black/30 font-medium">
+              growupcraft.in/services
             </div>
           </div>
-          <a
-            href="https://wa.me/918930296001?text=Hi%2C%20mujhe%20ek%20custom%20app%20banwani%20hai"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-whatsapp whitespace-nowrap"
-          >
-            Request Custom App →
-          </a>
+
+          {/* TOP */}
+          <div className="border-b border-black/6 p-8 lg:p-10">
+            <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-8">
+              <div className="max-w-2xl">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-lime-100 text-black text-sm font-semibold">
+                  <Sparkles size={15} />
+                  {service.tag}
+                </div>
+
+                <h3 className="mt-7 text-5xl font-black tracking-tight leading-none">
+                  {service.title}
+                </h3>
+
+                <p className="mt-6 text-xl leading-relaxed text-black/60">
+                  {service.description}
+                </p>
+              </div>
+
+              {/* PRICE */}
+              <div className="rounded-[32px] bg-black text-white px-8 py-7 min-w-fit shadow-2xl">
+                <p className="text-sm text-white/50">
+                  Starting from
+                </p>
+
+                <h4 className="mt-2 text-5xl font-black tracking-tight">
+                  {service.price}
+                </h4>
+              </div>
+            </div>
+          </div>
+
+          {/* BODY */}
+          <div className="p-8 lg:p-10">
+            {/* RESULT */}
+            <div className="rounded-[32px] bg-lime-100 p-7">
+              <div className="flex items-start gap-5">
+                <div className="w-14 h-14 rounded-2xl bg-black text-white flex items-center justify-center">
+                  <CheckCircle2 size={24} />
+                </div>
+
+                <div>
+                  <p className="text-sm font-medium text-black/50">
+                    Expected Result
+                  </p>
+
+                  <h4 className="mt-2 text-3xl font-black tracking-tight">
+                    {service.result}
+                  </h4>
+                </div>
+              </div>
+            </div>
+
+            {/* FEATURES */}
+            <div className="mt-10 grid sm:grid-cols-2 gap-4">
+              {service.includes.map(
+                (item, index) => (
+                  <motion.div
+                    key={item}
+                    initial={{
+                      opacity: 0,
+                      y: 10,
+                    }}
+                    animate={{
+                      opacity: 1,
+                      y: 0,
+                    }}
+                    transition={{
+                      delay:
+                        index * 0.05,
+                    }}
+                    className="rounded-2xl border border-black/6 bg-black/[0.02] px-5 py-4 flex items-center gap-3"
+                  >
+                    <div className="w-2 h-2 rounded-full bg-lime-500" />
+
+                    <span className="text-black/70 text-sm">
+                      {item}
+                    </span>
+                  </motion.div>
+                )
+              )}
+            </div>
+
+            {/* CTA */}
+            <div className="mt-12 flex flex-wrap gap-4">
+              <motion.a
+                whileHover={{
+                  scale: 1.03,
+                  y: -2,
+                }}
+                whileTap={{
+                  scale: 0.98,
+                }}
+                href={`https://wa.me/918930296001?text=Hi%2C%20I%20want%20${encodeURIComponent(
+                  service.title
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group h-14 px-8 rounded-2xl bg-black text-white font-semibold flex items-center gap-2 shadow-2xl"
+              >
+                Discuss Your Project
+
+                <ArrowRight
+                  size={18}
+                  className="transition-transform duration-300 group-hover:translate-x-1"
+                />
+              </motion.a>
+
+              <div className="h-14 px-6 rounded-2xl border border-black/8 bg-white/80 backdrop-blur-xl flex items-center text-sm text-black/50">
+                Typical delivery:
+                5–15 days
+              </div>
+            </div>
+          </div>
         </motion.div>
-      </div>
-    </section>
+      </AnimatePresence>
+    </div>
+  </div>
+</section>
   );
 }
