@@ -32,11 +32,8 @@ const services = [
 
     includes: [
       "SEO optimized",
-
       "WhatsApp integration",
-
       "Mobile-first design",
-
       "Fast loading performance",
     ],
 
@@ -60,11 +57,8 @@ const services = [
 
     includes: [
       "Login system",
-
       "Analytics dashboard",
-
       "Role-based access",
-
       "Secure database",
     ],
 
@@ -87,11 +81,8 @@ const services = [
 
     includes: [
       "Lead pipeline",
-
       "WhatsApp alerts",
-
       "Follow-up reminders",
-
       "Status tracking",
     ],
 
@@ -114,11 +105,8 @@ const services = [
 
     includes: [
       "Booking calendar",
-
       "Automated notifications",
-
       "WhatsApp updates",
-
       "Payment integration",
     ],
 
@@ -141,11 +129,8 @@ const services = [
 
     includes: [
       "Modern UI redesign",
-
       "Performance optimization",
-
       "Responsive layout",
-
       "SEO improvements",
     ],
 
@@ -165,304 +150,387 @@ export default function Services() {
 
   return (
     <section
-  id="services"
- className="relative overflow-hidden bg-[#f8f8f6] text-black py-32 lg:py-40"
->
-  {/* BACKGROUND GRID */}
-  <div className="absolute inset-0 opacity-[0.04] pointer-events-none">
-    <div
-      className="absolute inset-0"
-      style={{
-        backgroundImage: `
-          linear-gradient(rgba(0,0,0,.06) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(0,0,0,.06) 1px, transparent 1px)
-        `,
-        backgroundSize: "70px 70px",
-      }}
-    />
-  </div>
+      id="services"
+      className="relative overflow-hidden bg-[#f8f8f6] dark:bg-black text-black dark:text-white py-32 lg:py-40 transition-colors duration-500"
+    >
+      {/* BACKGROUND */}
 
-  {/* HERO GLOW */}
-  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[850px] h-[850px] rounded-full bg-lime-200/40 blur-3xl" />
+      <div className="absolute inset-0 opacity-[0.04] dark:opacity-[0.03] pointer-events-none">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `
+              linear-gradient(rgba(0,0,0,.06) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(0,0,0,.06) 1px, transparent 1px)
+            `,
+            backgroundSize:
+              "70px 70px",
+          }}
+        />
+      </div>
 
-  {/* EXTRA GLOW */}
-  <div className="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full bg-black/[0.03] blur-3xl" />
+      {/* GLOW */}
 
-  {/* NOISE */}
-  <div className="absolute inset-0 opacity-[0.015] mix-blend-multiply bg-[radial-gradient(circle,rgba(0,0,0,0.04)_1px,transparent_1px)] bg-[size:24px_24px]" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[850px] h-[850px] rounded-full bg-lime-200/40 dark:bg-lime-500/10 blur-3xl" />
 
-  <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-    {/* HEADER */}
-    <div className="max-w-3xl">
-      <motion.span
-        initial={{
-          opacity: 0,
-          y: 10,
-        }}
-        whileInView={{
-          opacity: 1,
-          y: 0,
-        }}
-        viewport={{ once: true }}
-        className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-black/10 bg-white/80 backdrop-blur-xl text-sm font-medium shadow-sm"
-      >
-        🛠 Services
-      </motion.span>
+      {/* EXTRA GLOW */}
 
-      <motion.h2
-        initial={{
-          opacity: 0,
-          y: 15,
-        }}
-        whileInView={{
-          opacity: 1,
-          y: 0,
-        }}
-        transition={{
-          delay: 0.1,
-        }}
-        viewport={{ once: true }}
-        className="mt-8 text-5xl sm:text-7xl lg:text-[88px] font-black tracking-[-0.04em] leading-[0.9]"
-      >
-        Solutions built
-        <br />
-        for real businesses.
-      </motion.h2>
+      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full bg-black/[0.03] dark:bg-white/[0.03] blur-3xl" />
 
-      <motion.p
-        initial={{
-          opacity: 0,
-          y: 15,
-        }}
-        whileInView={{
-          opacity: 1,
-          y: 0,
-        }}
-        transition={{
-          delay: 0.2,
-        }}
-        viewport={{ once: true }}
-        className="mt-7 text-xl leading-relaxed text-black/60 max-w-2xl"
-      >
-        We create websites, systems and
-        digital products that improve
-        operations, generate leads and help
-        businesses grow online.
-      </motion.p>
-    </div>
+      <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+        {/* HEADER */}
 
-    {/* MAIN */}
-    <div className="mt-24 grid lg:grid-cols-[340px_1fr] gap-10 items-start">
-      {/* LEFT */}
-      <div className="space-y-4 lg:sticky lg:top-28">
-        {services.map(
-          (item, index) => (
-            <button
-              key={item.title}
-              onClick={() =>
-                setActive(index)
-              }
-              className={`group relative w-full rounded-[32px] p-5 text-left border transition-all duration-300 overflow-hidden ${
-                active === index
-                  ? "border-lime-300/40 bg-white shadow-[0_20px_60px_rgba(163,230,53,0.12)]"
-                  : "border-black/6 bg-white/70 hover:bg-white hover:border-black/10"
-              }`}
-            >
-              {active === index && (
-                <motion.div
-                  layoutId="active-service"
-                  className="absolute inset-0 bg-gradient-to-b from-lime-100/40 to-transparent"
-                />
-              )}
+        <div className="max-w-3xl">
+          <motion.span
+            initial={{
+              opacity: 0,
+              y: 10,
+            }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+            }}
+            viewport={{
+              once: true,
+            }}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-black/10 dark:border-white/10 bg-white/80 dark:bg-white/5 backdrop-blur-xl text-sm font-medium shadow-sm"
+          >
+            🛠 Services
+          </motion.span>
 
-              <div className="relative z-10 flex items-start gap-4">
-                <div
-                  className={`w-14 h-14 rounded-2xl flex items-center justify-center transition-all ${
-                    active === index
-                      ? "bg-black text-white"
-                      : "bg-black/[0.04] text-black"
+          <motion.h2
+            initial={{
+              opacity: 0,
+              y: 15,
+            }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+            }}
+            transition={{
+              delay: 0.1,
+            }}
+            viewport={{
+              once: true,
+            }}
+            className="mt-8 text-5xl sm:text-7xl lg:text-[88px] font-black tracking-[-0.04em] leading-[0.9]"
+          >
+            Solutions built
+            <br />
+            for real
+            businesses.
+          </motion.h2>
+
+          <motion.p
+            initial={{
+              opacity: 0,
+              y: 15,
+            }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+            }}
+            transition={{
+              delay: 0.2,
+            }}
+            viewport={{
+              once: true,
+            }}
+            className="mt-7 text-xl leading-relaxed text-black/60 dark:text-white/60 max-w-2xl"
+          >
+            We create
+            websites,
+            systems and
+            digital products
+            that improve
+            operations,
+            generate leads
+            and help
+            businesses grow
+            online.
+          </motion.p>
+        </div>
+
+        {/* MAIN */}
+
+        <div className="mt-24 grid lg:grid-cols-[340px_1fr] gap-10 items-start">
+          {/* LEFT */}
+
+          <div className="space-y-4 lg:sticky lg:top-28">
+            {services.map(
+              (
+                item,
+                index
+              ) => (
+                <button
+                  key={
+                    item.title
+                  }
+                  onClick={() =>
+                    setActive(
+                      index
+                    )
+                  }
+                  className={`group relative w-full rounded-[32px] p-5 text-left border transition-all duration-300 overflow-hidden ${
+                    active ===
+                    index
+                      ? "border-lime-300/40 bg-white dark:bg-neutral-950 shadow-[0_20px_60px_rgba(163,230,53,0.12)]"
+                      : "border-black/6 dark:border-white/10 bg-white/70 dark:bg-white/[0.03] hover:bg-white dark:hover:bg-white/[0.05]"
                   }`}
                 >
-                  <item.icon size={24} />
+                  {active ===
+                    index && (
+                    <motion.div
+                      layoutId="active-service"
+                      className="absolute inset-0 bg-gradient-to-b from-lime-100/40 dark:from-lime-500/10 to-transparent"
+                    />
+                  )}
+
+                  <div className="relative z-10 flex items-start gap-4">
+                    <div
+                      className={`w-14 h-14 rounded-2xl flex items-center justify-center transition-all ${
+                        active ===
+                        index
+                          ? "bg-black text-white dark:bg-white dark:text-black"
+                          : "bg-black/[0.04] dark:bg-white/[0.06]"
+                      }`}
+                    >
+                      <item.icon
+                        size={
+                          24
+                        }
+                      />
+                    </div>
+
+                    <div className="flex-1">
+                      <p className="text-xs uppercase tracking-[0.2em] text-black/35 dark:text-white/40 mb-2">
+                        {
+                          item.tag
+                        }
+                      </p>
+
+                      <h3 className="font-black text-xl tracking-tight">
+                        {
+                          item.title
+                        }
+                      </h3>
+
+                      <div className="mt-4 flex items-center justify-between">
+                        <span className="text-sm text-black/40 dark:text-white/40">
+                          Starting
+                        </span>
+
+                        <span className="text-lg font-black">
+                          {
+                            item.price
+                          }
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </button>
+              )
+            )}
+          </div>
+
+          {/* RIGHT */}
+
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={
+                service.title
+              }
+              initial={{
+                opacity: 0,
+                y: 20,
+              }}
+              animate={{
+                opacity: 1,
+                y: 0,
+              }}
+              exit={{
+                opacity: 0,
+                y: -20,
+              }}
+              transition={{
+                duration: 0.35,
+              }}
+              whileHover={{
+                y: -4,
+              }}
+              className="rounded-[40px] border border-black/6 dark:border-white/10 bg-white/80 dark:bg-neutral-950 backdrop-blur-2xl overflow-hidden shadow-[0_20px_80px_rgba(0,0,0,0.06)]"
+            >
+              {/* TOP BAR */}
+
+              <div className="h-14 border-b border-black/6 dark:border-white/10 bg-black/[0.02] dark:bg-white/[0.03] flex items-center px-5 gap-2">
+                <div className="w-3 h-3 rounded-full bg-red-400" />
+
+                <div className="w-3 h-3 rounded-full bg-yellow-400" />
+
+                <div className="w-3 h-3 rounded-full bg-green-400" />
+
+                <div className="ml-4 text-xs text-black/30 dark:text-white/30 font-medium">
+                  growupcraft
+                  .in/services
                 </div>
+              </div>
 
-                <div className="flex-1">
-                  <p className="text-xs uppercase tracking-[0.2em] text-black/35 mb-2">
-                    {item.tag}
-                  </p>
+              {/* TOP */}
 
-                  <h3 className="font-black text-xl tracking-tight">
-                    {item.title}
-                  </h3>
+              <div className="border-b border-black/6 dark:border-white/10 p-8 lg:p-10">
+                <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-8">
+                  <div className="max-w-2xl">
+                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-lime-100 dark:bg-lime-500/20 text-black dark:text-lime-300 text-sm font-semibold">
+                      <Sparkles
+                        size={
+                          15
+                        }
+                      />
 
-                  <div className="mt-4 flex items-center justify-between">
-                    <span className="text-sm text-black/40">
+                      {
+                        service.tag
+                      }
+                    </div>
+
+                    <h3 className="mt-7 text-5xl font-black tracking-tight leading-none">
+                      {
+                        service.title
+                      }
+                    </h3>
+
+                    <p className="mt-6 text-xl leading-relaxed text-black/60 dark:text-white/60">
+                      {
+                        service.description
+                      }
+                    </p>
+                  </div>
+
+                  {/* PRICE */}
+
+                  <div className="rounded-[32px] bg-black text-white dark:bg-white dark:text-black px-8 py-7 min-w-fit shadow-2xl">
+                    <p className="text-sm opacity-60">
                       Starting
-                    </span>
+                      from
+                    </p>
 
-                    <span className="text-lg font-black">
-                      {item.price}
-                    </span>
+                    <h4 className="mt-2 text-5xl font-black tracking-tight">
+                      {
+                        service.price
+                      }
+                    </h4>
                   </div>
                 </div>
               </div>
-            </button>
-          )
-        )}
-      </div>
 
-      {/* RIGHT */}
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={service.title}
-          initial={{
-            opacity: 0,
-            y: 20,
-          }}
-          animate={{
-            opacity: 1,
-            y: 0,
-          }}
-          exit={{
-            opacity: 0,
-            y: -20,
-          }}
-          transition={{
-            duration: 0.35,
-          }}
-          whileHover={{
-            y: -4,
-          }}
-          className="rounded-[40px] border border-black/6 bg-white/80 backdrop-blur-2xl overflow-hidden shadow-[0_20px_80px_rgba(0,0,0,0.06)]"
-        >
-          {/* BROWSER TOP */}
-          <div className="h-14 border-b border-black/6 bg-black/[0.02] flex items-center px-5 gap-2">
-            <div className="w-3 h-3 rounded-full bg-red-400" />
-            <div className="w-3 h-3 rounded-full bg-yellow-400" />
-            <div className="w-3 h-3 rounded-full bg-green-400" />
+              {/* BODY */}
 
-            <div className="ml-4 text-xs text-black/30 font-medium">
-              growupcraft.in/services
-            </div>
-          </div>
+              <div className="p-8 lg:p-10">
+                {/* RESULT */}
 
-          {/* TOP */}
-          <div className="border-b border-black/6 p-8 lg:p-10">
-            <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-8">
-              <div className="max-w-2xl">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-lime-100 text-black text-sm font-semibold">
-                  <Sparkles size={15} />
-                  {service.tag}
+                <div className="rounded-[32px] bg-lime-100 dark:bg-lime-500/10 p-7">
+                  <div className="flex items-start gap-5">
+                    <div className="w-14 h-14 rounded-2xl bg-black text-white dark:bg-white dark:text-black flex items-center justify-center">
+                      <CheckCircle2
+                        size={
+                          24
+                        }
+                      />
+                    </div>
+
+                    <div>
+                      <p className="text-sm font-medium text-black/50 dark:text-white/50">
+                        Expected
+                        Result
+                      </p>
+
+                      <h4 className="mt-2 text-3xl font-black tracking-tight">
+                        {
+                          service.result
+                        }
+                      </h4>
+                    </div>
+                  </div>
                 </div>
 
-                <h3 className="mt-7 text-5xl font-black tracking-tight leading-none">
-                  {service.title}
-                </h3>
+                {/* FEATURES */}
 
-                <p className="mt-6 text-xl leading-relaxed text-black/60">
-                  {service.description}
-                </p>
-              </div>
+                <div className="mt-10 grid sm:grid-cols-2 gap-4">
+                  {service.includes.map(
+                    (
+                      item,
+                      index
+                    ) => (
+                      <motion.div
+                        key={
+                          item
+                        }
+                        initial={{
+                          opacity: 0,
+                          y: 10,
+                        }}
+                        animate={{
+                          opacity: 1,
+                          y: 0,
+                        }}
+                        transition={{
+                          delay:
+                            index *
+                            0.05,
+                        }}
+                        className="rounded-2xl border border-black/6 dark:border-white/10 bg-black/[0.02] dark:bg-white/[0.03] px-5 py-4 flex items-center gap-3"
+                      >
+                        <div className="w-2 h-2 rounded-full bg-lime-500" />
 
-              {/* PRICE */}
-              <div className="rounded-[32px] bg-black text-white px-8 py-7 min-w-fit shadow-2xl">
-                <p className="text-sm text-white/50">
-                  Starting from
-                </p>
-
-                <h4 className="mt-2 text-5xl font-black tracking-tight">
-                  {service.price}
-                </h4>
-              </div>
-            </div>
-          </div>
-
-          {/* BODY */}
-          <div className="p-8 lg:p-10">
-            {/* RESULT */}
-            <div className="rounded-[32px] bg-lime-100 p-7">
-              <div className="flex items-start gap-5">
-                <div className="w-14 h-14 rounded-2xl bg-black text-white flex items-center justify-center">
-                  <CheckCircle2 size={24} />
+                        <span className="text-black/70 dark:text-white/70 text-sm">
+                          {
+                            item
+                          }
+                        </span>
+                      </motion.div>
+                    )
+                  )}
                 </div>
 
-                <div>
-                  <p className="text-sm font-medium text-black/50">
-                    Expected Result
-                  </p>
+                {/* CTA */}
 
-                  <h4 className="mt-2 text-3xl font-black tracking-tight">
-                    {service.result}
-                  </h4>
-                </div>
-              </div>
-            </div>
-
-            {/* FEATURES */}
-            <div className="mt-10 grid sm:grid-cols-2 gap-4">
-              {service.includes.map(
-                (item, index) => (
-                  <motion.div
-                    key={item}
-                    initial={{
-                      opacity: 0,
-                      y: 10,
+                <div className="mt-12 flex flex-wrap gap-4">
+                  <motion.a
+                    whileHover={{
+                      scale: 1.03,
+                      y: -2,
                     }}
-                    animate={{
-                      opacity: 1,
-                      y: 0,
+                    whileTap={{
+                      scale: 0.98,
                     }}
-                    transition={{
-                      delay:
-                        index * 0.05,
-                    }}
-                    className="rounded-2xl border border-black/6 bg-black/[0.02] px-5 py-4 flex items-center gap-3"
+                    href={`https://wa.me/918930296001?text=Hi%2C%20I%20want%20${encodeURIComponent(
+                      service.title
+                    )}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group h-14 px-8 rounded-2xl bg-black text-white dark:bg-white dark:text-black font-semibold flex items-center gap-2 shadow-2xl"
                   >
-                    <div className="w-2 h-2 rounded-full bg-lime-500" />
+                    Discuss Your
+                    Project
 
-                    <span className="text-black/70 text-sm">
-                      {item}
-                    </span>
-                  </motion.div>
-                )
-              )}
-            </div>
+                    <ArrowRight
+                      size={
+                        18
+                      }
+                      className="transition-transform duration-300 group-hover:translate-x-1"
+                    />
+                  </motion.a>
 
-            {/* CTA */}
-            <div className="mt-12 flex flex-wrap gap-4">
-              <motion.a
-                whileHover={{
-                  scale: 1.03,
-                  y: -2,
-                }}
-                whileTap={{
-                  scale: 0.98,
-                }}
-                href={`https://wa.me/918930296001?text=Hi%2C%20I%20want%20${encodeURIComponent(
-                  service.title
-                )}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group h-14 px-8 rounded-2xl bg-black text-white font-semibold flex items-center gap-2 shadow-2xl"
-              >
-                Discuss Your Project
-
-                <ArrowRight
-                  size={18}
-                  className="transition-transform duration-300 group-hover:translate-x-1"
-                />
-              </motion.a>
-
-              <div className="h-14 px-6 rounded-2xl border border-black/8 bg-white/80 backdrop-blur-xl flex items-center text-sm text-black/50">
-                Typical delivery:
-                5–15 days
+                  <div className="h-14 px-6 rounded-2xl border border-black/8 dark:border-white/10 bg-white/80 dark:bg-white/[0.03] backdrop-blur-xl flex items-center text-sm text-black/50 dark:text-white/50">
+                    Typical
+                    delivery:
+                    5–15 days
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-        </motion.div>
-      </AnimatePresence>
-    </div>
-  </div>
-</section>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+      </div>
+    </section>
   );
 }

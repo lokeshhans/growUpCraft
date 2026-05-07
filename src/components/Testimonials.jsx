@@ -2,7 +2,6 @@ import React from "react";
 
 import {
   motion,
-  AnimatePresence,
 } from "framer-motion";
 
 import {
@@ -17,9 +16,11 @@ const testimonials = [
   {
     id: 1,
 
-    name: "Rajesh Yadav",
+    name:
+      "Rajesh Yadav",
 
-    role: "Gym Owner • Palwal",
+    role:
+      "Gym Owner • Palwal",
 
     emoji: "💪",
 
@@ -38,7 +39,8 @@ const testimonials = [
   {
     id: 2,
 
-    name: "Sunita Sharma",
+    name:
+      "Sunita Sharma",
 
     role:
       "Coaching Director • Star Institute",
@@ -60,7 +62,8 @@ const testimonials = [
   {
     id: 3,
 
-    name: "Vinod Kalra",
+    name:
+      "Vinod Kalra",
 
     role:
       "Property Dealer • NCR",
@@ -82,7 +85,8 @@ const testimonials = [
   {
     id: 4,
 
-    name: "Pooja Agarwal",
+    name:
+      "Pooja Agarwal",
 
     role:
       "Boutique Owner • Palwal",
@@ -104,26 +108,30 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section className="relative overflow-hidden bg-black text-white py-28 lg:py-36">
-      {/* BACKGROUND */}
-      <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
+    <section className="relative overflow-hidden bg-[#f8f8f6] dark:bg-black text-black dark:text-white py-28 lg:py-36 transition-colors duration-500">
+      {/* GRID */}
+
+      <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.04] pointer-events-none">
         <div
           className="absolute inset-0"
           style={{
             backgroundImage: `
-              linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px)
+              linear-gradient(rgba(0,0,0,.08) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(0,0,0,.08) 1px, transparent 1px)
             `,
-            backgroundSize: "70px 70px",
+            backgroundSize:
+              "70px 70px",
           }}
         />
       </div>
 
       {/* GLOW */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[700px] rounded-full bg-lime-300/10 blur-3xl" />
+
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[700px] rounded-full bg-lime-100/40 dark:bg-lime-500/10 blur-3xl" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
         {/* HEADER */}
+
         <div className="max-w-3xl">
           <motion.span
             initial={{
@@ -134,10 +142,13 @@ export default function Testimonials() {
               opacity: 1,
               y: 0,
             }}
-            viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/[0.03] text-sm font-medium"
+            viewport={{
+              once: true,
+            }}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-black/10 dark:border-white/10 bg-white dark:bg-white/[0.03] text-sm font-medium text-black dark:text-white shadow-sm backdrop-blur-xl"
           >
-            ⭐ Client Reviews
+            ⭐ Client
+            Reviews
           </motion.span>
 
           <motion.h2
@@ -152,10 +163,13 @@ export default function Testimonials() {
             transition={{
               delay: 0.1,
             }}
-            viewport={{ once: true }}
-            className="mt-7 text-4xl sm:text-6xl font-black tracking-tight leading-[0.95]"
+            viewport={{
+              once: true,
+            }}
+            className="mt-7 text-4xl sm:text-6xl font-black tracking-tight leading-[0.95] text-black dark:text-white"
           >
-            Businesses that
+            Businesses
+            that
             <br />
             trusted us.
           </motion.h2>
@@ -172,21 +186,33 @@ export default function Testimonials() {
             transition={{
               delay: 0.2,
             }}
-            viewport={{ once: true }}
-            className="mt-6 text-lg leading-relaxed text-white/55 max-w-2xl"
+            viewport={{
+              once: true,
+            }}
+            className="mt-6 text-lg leading-relaxed text-black/60 dark:text-white/55 max-w-2xl"
           >
-            Real feedback from local businesses
-            using websites and systems built by
+            Real feedback
+            from local
+            businesses
+            using websites
+            and systems
+            built by
             GrowUpCraft.
           </motion.p>
         </div>
 
-        {/* TESTIMONIAL GRID */}
+        {/* GRID */}
+
         <div className="mt-20 grid lg:grid-cols-2 gap-6">
           {testimonials.map(
-            (item, index) => (
+            (
+              item,
+              index
+            ) => (
               <motion.div
-                key={item.id}
+                key={
+                  item.id
+                }
                 initial={{
                   opacity: 0,
                   y: 30,
@@ -196,29 +222,49 @@ export default function Testimonials() {
                   y: 0,
                 }}
                 transition={{
-                  delay: index * 0.08,
+                  delay:
+                    index *
+                    0.08,
                 }}
-                viewport={{ once: true }}
+                viewport={{
+                  once: true,
+                }}
                 whileHover={{
                   y: -6,
                 }}
-                className="group relative rounded-[32px] border border-white/8 bg-white/[0.03] backdrop-blur-xl p-7 lg:p-8 overflow-hidden"
+                className="group relative rounded-[32px] border border-black/6 dark:border-white/10 bg-white dark:bg-neutral-950 backdrop-blur-xl p-7 lg:p-8 overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.05)]"
               >
-                {/* TOP GRADIENT */}
-                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent" />
+                {/* TOP LINE */}
+
+                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-black/20 dark:via-white/20 to-transparent" />
 
                 {/* QUOTE */}
-                <div className="absolute top-7 right-7 text-white/10">
-                  <Quote size={42} />
+
+                <div className="absolute top-7 right-7 text-black/10 dark:text-white/10">
+                  <Quote
+                    size={
+                      42
+                    }
+                  />
                 </div>
 
                 {/* STARS */}
+
                 <div className="flex items-center gap-1 mb-6">
-                  {[...Array(item.stars)].map(
-                    (_, i) => (
+                  {[...Array(
+                    item.stars
+                  )].map(
+                    (
+                      _,
+                      i
+                    ) => (
                       <Star
-                        key={i}
-                        size={15}
+                        key={
+                          i
+                        }
+                        size={
+                          15
+                        }
                         className="fill-yellow-400 text-yellow-400"
                       />
                     )
@@ -226,23 +272,35 @@ export default function Testimonials() {
                 </div>
 
                 {/* TEXT */}
-                <p className="text-white/70 leading-relaxed text-[15px]">
-                  "{item.text}"
+
+                <p className="text-black/70 dark:text-white/70 leading-relaxed text-[15px]">
+                  "
+                  {
+                    item.text
+                  }
+                  "
                 </p>
 
                 {/* RESULT */}
+
                 <div className="mt-7 flex flex-wrap gap-3">
-                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-lime-100 text-black text-sm font-semibold">
+                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-lime-100 dark:bg-lime-500/20 text-black dark:text-lime-300 text-sm font-semibold">
                     <TrendingUp
-                      size={15}
+                      size={
+                        15
+                      }
                     />
 
-                    {item.result}
+                    {
+                      item.result
+                    }
                   </div>
 
-                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.04] border border-white/5 text-sm text-white/60">
+                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-black/[0.03] dark:bg-white/[0.03] border border-black/5 dark:border-white/5 text-sm text-black/60 dark:text-white/60">
                     <CheckCircle2
-                      size={15}
+                      size={
+                        15
+                      }
                     />
 
                     {
@@ -252,30 +310,39 @@ export default function Testimonials() {
                 </div>
 
                 {/* USER */}
-                <div className="mt-8 pt-6 border-t border-white/8 flex items-center gap-4">
-                  <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/5 flex items-center justify-center text-2xl">
-                    {item.emoji}
+
+                <div className="mt-8 pt-6 border-t border-black/6 dark:border-white/8 flex items-center gap-4">
+                  <div className="w-14 h-14 rounded-2xl bg-black/[0.03] dark:bg-white/[0.05] border border-black/5 dark:border-white/5 flex items-center justify-center text-2xl">
+                    {
+                      item.emoji
+                    }
                   </div>
 
                   <div>
-                    <h3 className="font-bold text-lg tracking-tight">
-                      {item.name}
+                    <h3 className="font-bold text-lg tracking-tight text-black dark:text-white">
+                      {
+                        item.name
+                      }
                     </h3>
 
-                    <p className="text-sm text-white/40">
-                      {item.role}
+                    <p className="text-sm text-black/40 dark:text-white/40">
+                      {
+                        item.role
+                      }
                     </p>
                   </div>
                 </div>
 
-                {/* HOVER EFFECT */}
-                <div className="absolute inset-0 rounded-[32px] border border-lime-300/0 group-hover:border-lime-300/20 transition-all duration-500 pointer-events-none" />
+                {/* HOVER BORDER */}
+
+                <div className="absolute inset-0 rounded-[32px] border border-lime-300/0 group-hover:border-lime-300/30 transition-all duration-500 pointer-events-none" />
               </motion.div>
             )
           )}
         </div>
 
-        {/* BOTTOM CTA */}
+        {/* CTA */}
+
         <motion.div
           initial={{
             opacity: 0,
@@ -285,29 +352,43 @@ export default function Testimonials() {
             opacity: 1,
             y: 0,
           }}
-          viewport={{ once: true }}
+          viewport={{
+            once: true,
+          }}
           className="mt-20"
         >
-          <div className="rounded-[36px] border border-white/8 bg-white/[0.03] backdrop-blur-xl p-8 lg:p-10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
+          <div className="rounded-[36px] border border-black/6 dark:border-white/10 bg-white dark:bg-neutral-950 backdrop-blur-xl p-8 lg:p-10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 shadow-[0_20px_60px_rgba(0,0,0,0.05)]">
             {/* LEFT */}
+
             <div className="max-w-2xl">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-lime-100 text-black text-sm font-semibold">
-                🚀 Ready to Start?
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-lime-100 dark:bg-lime-500/20 text-black dark:text-lime-300 text-sm font-semibold">
+                🚀 Ready to
+                Start?
               </div>
 
-              <h3 className="mt-6 text-3xl sm:text-4xl font-black tracking-tight leading-[1]">
-                Your business could be
-                the next success story.
+              <h3 className="mt-6 text-3xl sm:text-4xl font-black tracking-tight leading-[1] text-black dark:text-white">
+                Your business
+                could be the
+                next success
+                story.
               </h3>
 
-              <p className="mt-5 text-white/55 leading-relaxed text-lg">
-                Whether you need a modern website,
-                booking system or complete business
-                dashboard — we can help you build it.
+              <p className="mt-5 text-black/60 dark:text-white/55 leading-relaxed text-lg">
+                Whether you
+                need a modern
+                website,
+                booking
+                system or
+                complete
+                business
+                dashboard —
+                we can help
+                you build it.
               </p>
             </div>
 
-            {/* CTA */}
+            {/* BUTTON */}
+
             <motion.a
               whileHover={{
                 scale: 1.03,
@@ -317,12 +398,15 @@ export default function Testimonials() {
                 scale: 0.98,
               }}
               href="#contact"
-              className="group h-14 px-7 rounded-2xl bg-white text-black font-semibold flex items-center gap-2 shadow-2xl"
+              className="group h-14 px-7 rounded-2xl bg-black text-white dark:bg-white dark:text-black font-semibold flex items-center gap-2 shadow-2xl"
             >
-              Discuss Your Project
+              Discuss Your
+              Project
 
               <ArrowRight
-                size={18}
+                size={
+                  18
+                }
                 className="transition-transform duration-300 group-hover:translate-x-1"
               />
             </motion.a>

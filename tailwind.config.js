@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+  darkMode: "class",
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
@@ -8,7 +9,6 @@ export default {
         body: ['"DM Sans"', "sans-serif"],
         mono: ['"JetBrains Mono"', "monospace"],
       },
-      darkMode: "class",
       colors: {
         ink: "#0D0D0D",
         paper: "#F5F2EC",
