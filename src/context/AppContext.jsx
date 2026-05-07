@@ -1,22 +1,12 @@
-import {
-  createContext,
-  useContext,
-  useReducer,
-  useMemo,
-} from "react";
+import { createContext, useContext, useReducer, useMemo } from "react";
 
 import AppReducer from "./AppReducer";
-import initialState from "./initialState"
+import initialState from "./initialState";
 
 const AppContext = createContext();
 
-export const AppProvider = ({
-  children,
-}) => {
-  const [state, dispatch] = useReducer(
-    AppReducer,
-    initialState
-  );
+export const AppProvider = ({ children }) => {
+  const [state, dispatch] = useReducer(AppReducer, initialState);
 
   /*
   |--------------------------------------------------------------------------
@@ -79,11 +69,11 @@ export const AppProvider = ({
   | HERO ACTIVE WORD
   |--------------------------------------------------------------------------
   */
-
-  const setActiveWord = (index) => {
+  const setActiveWord = (value) => {
     dispatch({
       type: "SET_ACTIVE_WORD",
-      payload: index,
+      payload:
+        typeof value === "function" ? value(state.activeWordIndex) : value,
     });
   };
 
@@ -93,9 +83,7 @@ export const AppProvider = ({
   |--------------------------------------------------------------------------
   */
 
-  const openModal = (
-    data = null
-  ) => {
+  const openModal = (data = null) => {
     dispatch({
       type: "OPEN_MODAL",
       payload: data,
@@ -114,10 +102,7 @@ export const AppProvider = ({
   |--------------------------------------------------------------------------
   */
 
-  const showToast = (
-    message,
-    type = "success"
-  ) => {
+  const showToast = (message, type = "success") => {
     dispatch({
       type: "SHOW_TOAST",
       payload: {
@@ -139,9 +124,7 @@ export const AppProvider = ({
   |--------------------------------------------------------------------------
   */
 
-  const setActiveSection = (
-    section
-  ) => {
+  const setActiveSection = (section) => {
     dispatch({
       type: "SET_ACTIVE_SECTION",
       payload: section,
@@ -154,13 +137,9 @@ export const AppProvider = ({
   |--------------------------------------------------------------------------
   */
 
-  const updateContactForm = (
-    name,
-    value
-  ) => {
+  const updateContactForm = (name, value) => {
     dispatch({
-      type:
-        "UPDATE_CONTACT_FORM",
+      type: "UPDATE_CONTACT_FORM",
       payload: {
         name,
         value,
@@ -170,37 +149,27 @@ export const AppProvider = ({
 
   const resetContactForm = () => {
     dispatch({
-      type:
-        "RESET_CONTACT_FORM",
+      type: "RESET_CONTACT_FORM",
     });
   };
 
-  const setContactLoading = (
-    value
-  ) => {
+  const setContactLoading = (value) => {
     dispatch({
-      type:
-        "SET_CONTACT_LOADING",
+      type: "SET_CONTACT_LOADING",
       payload: value,
     });
   };
 
-  const setContactSuccess = (
-    value
-  ) => {
+  const setContactSuccess = (value) => {
     dispatch({
-      type:
-        "SET_CONTACT_SUCCESS",
+      type: "SET_CONTACT_SUCCESS",
       payload: value,
     });
   };
 
-  const setContactError = (
-    value
-  ) => {
+  const setContactError = (value) => {
     dispatch({
-      type:
-        "SET_CONTACT_ERROR",
+      type: "SET_CONTACT_ERROR",
       payload: value,
     });
   };
@@ -213,58 +182,43 @@ export const AppProvider = ({
 
   const openDashboard = () => {
     dispatch({
-      type:
-        "OPEN_DASHBOARD",
+      type: "OPEN_DASHBOARD",
     });
   };
 
   const closeDashboard = () => {
     dispatch({
-      type:
-        "CLOSE_DASHBOARD",
+      type: "CLOSE_DASHBOARD",
     });
   };
 
-  const setDashboardTab = (
-    tab
-  ) => {
+  const setDashboardTab = (tab) => {
     dispatch({
-      type:
-        "SET_DASHBOARD_TAB",
+      type: "SET_DASHBOARD_TAB",
       payload: tab,
     });
   };
 
-  const setNewMemberName = (
-    value
-  ) => {
+  const setNewMemberName = (value) => {
     dispatch({
-      type:
-        "SET_NEW_MEMBER_NAME",
+      type: "SET_NEW_MEMBER_NAME",
       payload: value,
     });
   };
 
   const toggleAddMember = () => {
     dispatch({
-      type:
-        "TOGGLE_ADD_MEMBER",
+      type: "TOGGLE_ADD_MEMBER",
     });
   };
 
   const addMember = () => {
-    if (
-      !state.dashboard
-        .newMemberName.trim()
-    )
-      return;
+    if (!state.dashboard.newMemberName.trim()) return;
 
     const newMember = {
       id: Date.now(),
 
-      name:
-        state.dashboard
-          .newMemberName,
+      name: state.dashboard.newMemberName,
 
       plan: "Monthly ₹800",
 
@@ -282,8 +236,7 @@ export const AppProvider = ({
 
     setTimeout(() => {
       dispatch({
-        type:
-          "HIDE_MEMBER_MESSAGE",
+        type: "HIDE_MEMBER_MESSAGE",
       });
     }, 2500);
   };
@@ -390,16 +343,10 @@ export const AppProvider = ({
 
       addMember,
     }),
-    [state]
+    [state],
   );
 
-  return (
-    <AppContext.Provider
-      value={value}
-    >
-      {children}
-    </AppContext.Provider>
-  );
+  return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 };
 
 /*
@@ -409,13 +356,10 @@ export const AppProvider = ({
 */
 
 export const useAppContext = () => {
-  const context =
-    useContext(AppContext);
+  const context = useContext(AppContext);
 
   if (!context) {
-    throw new Error(
-      "useAppContext must be used inside AppProvider"
-    );
+    throw new Error("useAppContext must be used inside AppProvider");
   }
 
   return context;

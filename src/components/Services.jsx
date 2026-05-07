@@ -166,7 +166,7 @@ export default function Services() {
   return (
     <section
   id="services"
-  className="relative overflow-hidden bg-[#f8f8f6] text-black py-32 lg:py-40 [transform-style:preserve-3d] perspective-[2000px]"
+ className="relative overflow-hidden bg-[#f8f8f6] text-black py-32 lg:py-40"
 >
   {/* BACKGROUND GRID */}
   <div className="absolute inset-0 opacity-[0.04] pointer-events-none">
@@ -189,7 +189,7 @@ export default function Services() {
   <div className="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full bg-black/[0.03] blur-3xl" />
 
   {/* NOISE */}
-  <div className="absolute inset-0 opacity-[0.015] mix-blend-multiply bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.04)_1px,transparent_1px)] bg-[size:24px_24px]" />
+  <div className="absolute inset-0 opacity-[0.015] mix-blend-multiply bg-[radial-gradient(circle,rgba(0,0,0,0.04)_1px,transparent_1px)] bg-[size:24px_24px]" />
 
   <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
     {/* HEADER */}

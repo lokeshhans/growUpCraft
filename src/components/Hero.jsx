@@ -2,31 +2,20 @@ import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle2, MapPin } from "lucide-react";
 import { useAppContext } from "../context/AppContext";
-import hero from '../assets/hero.webp'
+import hero from "../assets/hero.webp";
 
-const rotatingWords = [
-  "schools",
-  "gyms",
-  "businesses",
-  "brands",
-];
+const rotatingWords = ["schools", "gyms", "businesses", "brands"];
 
 export default function Hero() {
-  const {
-    activeWordIndex,
-    setActiveWord,
-    openModal,
-  } = useAppContext();
+  const { activeWordIndex, setActiveWord, openModal } = useAppContext();
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setActiveWord(
-        (activeWordIndex + 1) % rotatingWords.length
-      );
+      setActiveWord((prev) => (prev + 1) % rotatingWords.length);
     }, 2200);
 
     return () => clearInterval(interval);
-  }, [activeWordIndex]);
+  }, []);
 
   return (
     <section className="relative overflow-hidden pt-32 pb-20 lg:pt-40 lg:pb-28 bg-white">
@@ -81,9 +70,8 @@ export default function Hero() {
               transition={{ delay: 0.15 }}
               className="mt-6 text-lg leading-relaxed text-neutral-600 max-w-xl"
             >
-              We design clean, fast and mobile-first
-              websites that help local businesses build
-              trust and get more enquiries online.
+              We design clean, fast and mobile-first websites that help local
+              businesses build trust and get more enquiries online.
             </motion.p>
 
             {/* CTA */}
@@ -122,22 +110,17 @@ export default function Hero() {
               transition={{ delay: 0.3 }}
               className="mt-10 flex flex-col sm:flex-row gap-4 sm:gap-6"
             >
-              {[
-                "Mobile First Design",
-                "Fast Delivery",
-                "WhatsApp Support",
-              ].map((item) => (
-                <div
-                  key={item}
-                  className="flex items-center gap-2 text-sm text-neutral-700"
-                >
-                  <CheckCircle2
-                    size={16}
-                    className="text-lime-700"
-                  />
-                  {item}
-                </div>
-              ))}
+              {["Mobile First Design", "Fast Delivery", "WhatsApp Support"].map(
+                (item) => (
+                  <div
+                    key={item}
+                    className="flex items-center gap-2 text-sm text-neutral-700"
+                  >
+                    <CheckCircle2 size={16} className="text-lime-700" />
+                    {item}
+                  </div>
+                ),
+              )}
             </motion.div>
 
             {/* STATS */}
@@ -166,9 +149,7 @@ export default function Hero() {
                     {item.value}
                   </h3>
 
-                  <p className="text-sm text-neutral-500 mt-1">
-                    {item.label}
-                  </p>
+                  <p className="text-sm text-neutral-500 mt-1">{item.label}</p>
                 </div>
               ))}
             </motion.div>
@@ -206,9 +187,7 @@ export default function Hero() {
 
                 <div className="mt-6 flex items-center justify-between">
                   <div>
-                    <h3 className="font-bold text-lg">
-                      School Website
-                    </h3>
+                    <h3 className="font-bold text-lg">School Website</h3>
 
                     <p className="text-sm text-neutral-500">
                       Modern admission-focused UI
@@ -231,13 +210,9 @@ export default function Hero() {
               }}
               className="absolute -bottom-6 -left-8 bg-black text-white p-5 rounded-3xl shadow-2xl"
             >
-              <p className="text-xs text-white/60">
-                Delivered in
-              </p>
+              <p className="text-xs text-white/60">Delivered in</p>
 
-              <h4 className="text-xl font-bold mt-1">
-                5 Days 🚀
-              </h4>
+              <h4 className="text-xl font-bold mt-1">5 Days 🚀</h4>
             </motion.div>
           </motion.div>
         </div>
