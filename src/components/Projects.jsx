@@ -12,6 +12,7 @@ import {
   TrendingUp,
   Clock3,
   CheckCircle2,
+  Sparkles,
 } from "lucide-react";
 
 const projects = [
@@ -175,7 +176,7 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="relative overflow-hidden bg-white dark:bg-black py-28 lg:py-36 transition-colors duration-500"
+      className="relative overflow-hidden bg-[#f8f8f6] dark:bg-[#050505] py-20 sm:py-28 lg:py-36 transition-colors duration-500"
     >
       {/* GRID */}
 
@@ -195,7 +196,7 @@ export default function Projects() {
 
       {/* GLOW */}
 
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] rounded-full bg-lime-100/40 dark:bg-lime-500/10 blur-3xl" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] rounded-full bg-lime-100/50 dark:bg-lime-500/10 blur-3xl" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
         {/* HEADER */}
@@ -213,10 +214,14 @@ export default function Projects() {
             viewport={{
               once: true,
             }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-black/10 dark:border-white/10 bg-white dark:bg-white/[0.04] shadow-sm text-sm font-medium text-black dark:text-white"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-black/10 dark:border-white/10 bg-white/80 dark:bg-white/[0.04] backdrop-blur-xl shadow-sm text-xs sm:text-sm font-medium text-black dark:text-white"
           >
-            📁 Selected
-            Work
+            <Sparkles
+              size={
+                15
+              }
+            />
+            Selected Work
           </motion.span>
 
           <motion.h2
@@ -234,7 +239,7 @@ export default function Projects() {
             viewport={{
               once: true,
             }}
-            className="mt-7 text-4xl sm:text-6xl font-black tracking-tight leading-[0.95] text-black dark:text-white"
+            className="mt-6 text-[2.2rem] leading-[0.98] sm:text-6xl lg:text-7xl font-black tracking-[-0.04em] text-black dark:text-white"
           >
             Real projects
             <br />
@@ -257,7 +262,7 @@ export default function Projects() {
             viewport={{
               once: true,
             }}
-            className="mt-6 text-lg leading-relaxed text-neutral-600 dark:text-neutral-300 max-w-2xl"
+            className="mt-6 text-[15px] sm:text-lg leading-[1.8] text-black/70 dark:text-white/70 max-w-2xl"
           >
             We build
             systems and
@@ -275,10 +280,10 @@ export default function Projects() {
 
         {/* MAIN */}
 
-        <div className="mt-20 grid lg:grid-cols-[320px_1fr] gap-10 items-start">
+        <div className="mt-14 sm:mt-20 grid lg:grid-cols-[320px_1fr] gap-6 lg:gap-10 items-start">
           {/* LEFT */}
 
-          <div className="lg:sticky lg:top-28 space-y-4">
+          <div className="lg:sticky lg:top-28 space-y-4 overflow-x-auto lg:overflow-visible flex lg:flex-col gap-4 lg:gap-0 pb-2 lg:pb-0">
             {projects.map(
               (
                 item,
@@ -293,11 +298,11 @@ export default function Projects() {
                       index
                     )
                   }
-                  className={`relative w-full text-left rounded-[28px] p-5 border transition-all duration-300 ${
+                  className={`relative min-w-[260px] lg:min-w-0 w-full text-left rounded-[28px] p-5 border transition-all duration-300 backdrop-blur-xl ${
                     active ===
                     index
                       ? "bg-black text-white dark:bg-white dark:text-black border-black dark:border-white shadow-2xl"
-                      : "bg-white dark:bg-neutral-950 border-black/5 dark:border-white/10 hover:border-black/15 dark:hover:border-white/20"
+                      : "bg-white/80 dark:bg-white/[0.03] border-black/5 dark:border-white/10 hover:border-black/15 dark:hover:border-white/20"
                   }`}
                 >
                   {active ===
@@ -337,7 +342,7 @@ export default function Projects() {
                           }
                         </p>
 
-                        <h3 className="font-black text-lg tracking-tight">
+                        <h3 className="font-black text-lg tracking-tight leading-tight">
                           {
                             item.title
                           }
@@ -389,7 +394,7 @@ export default function Projects() {
             >
               {/* BROWSER */}
 
-              <div className="rounded-[36px] border border-black/5 dark:border-white/10 bg-white dark:bg-neutral-950 overflow-hidden shadow-[0_20px_80px_rgba(0,0,0,0.08)]">
+              <div className="rounded-[32px] sm:rounded-[36px] border border-black/5 dark:border-white/10 bg-white/80 dark:bg-neutral-950/90 overflow-hidden shadow-[0_20px_80px_rgba(0,0,0,0.08)] backdrop-blur-2xl">
                 {/* TOP BAR */}
 
                 <div className="h-14 border-b border-black/5 dark:border-white/10 bg-neutral-50 dark:bg-white/[0.03] flex items-center px-5 gap-2">
@@ -401,16 +406,16 @@ export default function Projects() {
 
                   <div className="ml-4 text-xs text-neutral-400 dark:text-neutral-500 font-medium">
                     growupcraft
-                    .in/project
+                    .vercel.app
                   </div>
                 </div>
 
                 {/* CONTENT */}
 
-                <div className="p-8 lg:p-10">
+                <div className="p-5 sm:p-8 lg:p-10">
                   {/* TOP */}
 
-                  <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-8">
+                  <div className="flex flex-col xl:flex-row xl:items-start justify-between gap-8">
                     <div className="max-w-2xl">
                       <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-lime-100 dark:bg-lime-500/20 text-lime-800 dark:text-lime-300 text-sm font-semibold">
                         <CheckCircle2
@@ -423,13 +428,13 @@ export default function Projects() {
                         Project
                       </div>
 
-                      <h3 className="mt-6 text-4xl font-black tracking-tight leading-none text-black dark:text-white">
+                      <h3 className="mt-6 text-[2rem] sm:text-5xl font-black tracking-[-0.04em] leading-[0.95] text-black dark:text-white">
                         {
                           project.title
                         }
                       </h3>
 
-                      <p className="mt-5 text-lg text-neutral-600 dark:text-neutral-300 leading-relaxed">
+                      <p className="mt-5 text-[15px] sm:text-lg text-black/70 dark:text-white/70 leading-[1.8]">
                         {
                           project.description
                         }
@@ -438,7 +443,7 @@ export default function Projects() {
 
                     {/* METRICS */}
 
-                    <div className="grid grid-cols-3 gap-4 min-w-fit">
+                    <div className="grid grid-cols-3 gap-3 sm:gap-4 min-w-fit">
                       {project.metrics.map(
                         (
                           metric
@@ -447,15 +452,15 @@ export default function Projects() {
                             key={
                               metric.label
                             }
-                            className="rounded-2xl border border-black/5 dark:border-white/10 bg-neutral-50 dark:bg-white/[0.03] px-5 py-4 text-center"
+                            className="rounded-2xl border border-black/5 dark:border-white/10 bg-neutral-50 dark:bg-white/[0.03] px-4 sm:px-5 py-4 text-center backdrop-blur-xl"
                           >
-                            <h4 className="text-2xl font-black text-black dark:text-white">
+                            <h4 className="text-xl sm:text-2xl font-black text-black dark:text-white">
                               {
                                 metric.value
                               }
                             </h4>
 
-                            <p className="text-xs text-neutral-500 dark:text-neutral-400 mt-1">
+                            <p className="text-[11px] sm:text-xs text-neutral-500 dark:text-neutral-400 mt-1">
                               {
                                 metric.label
                               }
@@ -468,7 +473,7 @@ export default function Projects() {
 
                   {/* RESULTS */}
 
-                  <div className="mt-12 grid sm:grid-cols-3 gap-4">
+                  <div className="mt-10 sm:mt-12 grid sm:grid-cols-3 gap-4">
                     {project.stats.map(
                       (
                         stat,
@@ -478,7 +483,7 @@ export default function Projects() {
                           key={
                             index
                           }
-                          className="rounded-2xl border border-black/5 dark:border-white/10 bg-neutral-50 dark:bg-white/[0.03] p-5"
+                          className="rounded-2xl border border-black/5 dark:border-white/10 bg-neutral-50 dark:bg-white/[0.03] p-5 backdrop-blur-xl"
                         >
                           <div className="w-10 h-10 rounded-xl bg-black text-white dark:bg-white dark:text-black flex items-center justify-center mb-4">
                             <TrendingUp
@@ -488,7 +493,7 @@ export default function Projects() {
                             />
                           </div>
 
-                          <p className="text-sm leading-relaxed text-neutral-700 dark:text-neutral-300">
+                          <p className="text-sm leading-[1.8] text-black/75 dark:text-white/70">
                             {
                               stat
                             }
@@ -500,7 +505,7 @@ export default function Projects() {
 
                   {/* CTA */}
 
-                  <div className="mt-12 flex flex-wrap gap-4">
+                  <div className="mt-10 sm:mt-12 flex flex-col sm:flex-row gap-4">
                     <motion.a
                       whileHover={{
                         scale: 1.03,
@@ -512,7 +517,7 @@ export default function Projects() {
                       href="https://wa.me/918930296001"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group h-14 px-7 rounded-2xl bg-black text-white dark:bg-white dark:text-black font-semibold flex items-center gap-2 shadow-xl"
+                      className="group w-full sm:w-auto h-14 px-7 rounded-2xl bg-black text-white dark:bg-white dark:text-black font-semibold flex items-center justify-center gap-2 shadow-xl"
                     >
                       Discuss
                       Your
@@ -526,7 +531,7 @@ export default function Projects() {
                       />
                     </motion.a>
 
-                    <div className="h-14 px-6 rounded-2xl border border-black/10 dark:border-white/10 flex items-center gap-3 text-sm text-neutral-600 dark:text-neutral-300 bg-white dark:bg-white/[0.03]">
+                    <div className="w-full sm:w-auto h-14 px-6 rounded-2xl border border-black/10 dark:border-white/10 flex items-center justify-center gap-3 text-sm text-black/70 dark:text-white/70 bg-white/80 dark:bg-white/[0.03] backdrop-blur-xl">
                       <Clock3
                         size={
                           16

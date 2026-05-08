@@ -1,4 +1,5 @@
 import logo from "/favicon.png";
+
 import { useEffect } from "react";
 
 import {
@@ -61,22 +62,16 @@ export default function Navbar() {
   const location =
     useLocation();
 
-  /*
-  |--------------------------------------------------------------------------
-  | CLOSE MENU ON ROUTE CHANGE
-  |--------------------------------------------------------------------------
-  */
-
   useEffect(() => {
     closeMenu();
   }, [location.pathname]);
 
   return (
     <>
-      {/* TOP SCROLL LINE */}
+      {/* SCROLL LINE */}
 
       <motion.div
-        className="fixed top-0 left-0 right-0 h-[2px] bg-black dark:bg-white origin-left z-[70]"
+        className="fixed top-0 left-0 right-0 h-[2px] bg-black dark:bg-white origin-left z-[80]"
         style={{
           scaleX:
             scrollYProgress,
@@ -97,10 +92,10 @@ export default function Navbar() {
         transition={{
           duration: 0.5,
         }}
-        className="fixed top-0 left-0 right-0 z-50 bg-white/70 dark:bg-black/70 backdrop-blur-2xl border-b border-black/5 dark:border-white/10 transition-colors duration-500"
+        className="fixed top-0 left-0 right-0 z-50 bg-white/85 dark:bg-black/85 supports-[backdrop-filter]:bg-white/70 backdrop-blur-2xl border-b border-black/5 dark:border-white/10 transition-all duration-500"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="h-[78px] flex items-center justify-between">
+          <div className="h-[68px] sm:h-[78px] flex items-center justify-between">
             {/* LOGO */}
 
             <NavLink
@@ -109,25 +104,26 @@ export default function Navbar() {
             >
               <motion.div
                 whileHover={{
-                  rotate: 8,
+                  rotate: 6,
                   scale: 1.05,
                 }}
-                className="w-11 h-11 rounded-2xl bg-black dark:bg-white text-white dark:text-black flex items-center justify-center shadow-lg"
+                className="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-black dark:bg-white text-white dark:text-black flex items-center justify-center shadow-lg"
               >
                 <img
                   src={logo}
                   alt="GrowUpCraft"
-                  className="w-8 h-8 object-contain"
+                  className="w-7 h-7 sm:w-8 sm:h-8 object-contain"
                 />
               </motion.div>
 
               <div>
-                <h2 className="font-black text-lg tracking-tight text-black dark:text-white">
+                <h2 className="font-black text-[17px] sm:text-lg tracking-tight text-black dark:text-white">
                   GrowUpCraft
                 </h2>
 
-                <p className="text-xs text-neutral-500 dark:text-neutral-400">
-                  Modern Web Experiences
+                <p className="text-[11px] sm:text-xs text-neutral-600 dark:text-neutral-300">
+                  Modern Web
+                  Experiences
                 </p>
               </div>
             </NavLink>
@@ -138,15 +134,19 @@ export default function Navbar() {
               {navLinks.map(
                 (item) => (
                   <NavLink
-                    key={item.path}
-                    to={item.path}
+                    key={
+                      item.path
+                    }
+                    to={
+                      item.path
+                    }
                     className={({
                       isActive,
                     }) =>
                       `relative px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${
                         isActive
                           ? "text-black dark:text-white"
-                          : "text-neutral-600 dark:text-neutral-300 hover:text-black dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5"
+                          : "text-neutral-700 dark:text-neutral-300 hover:text-black dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5"
                       }`
                     }
                   >
@@ -166,7 +166,9 @@ export default function Navbar() {
                             <span className="w-1.5 h-1.5 rounded-full bg-black dark:bg-white" />
                           )}
 
-                          {item.label}
+                          {
+                            item.label
+                          }
                         </span>
                       </>
                     )}
@@ -193,17 +195,20 @@ export default function Navbar() {
                 }
                 className="w-11 h-11 rounded-full border border-black/10 dark:border-white/10 bg-white dark:bg-black flex items-center justify-center transition-all duration-300"
               >
-                {theme 
-                !==
+                {theme ===
                 "dark" ? (
                   <Sun
-                    size={18}
+                    size={
+                      18
+                    }
                     className="text-yellow-400"
                   />
                 ) : (
                   <Moon
-                    size={18}
-                    className="text-black"
+                    size={
+                      18
+                    }
+                    className="text-black dark:text-white"
                   />
                 )}
               </motion.button>
@@ -219,7 +224,9 @@ export default function Navbar() {
                 className="flex items-center gap-2 px-4 py-2.5 rounded-full border border-black/10 dark:border-white/10 hover:border-black dark:hover:border-white transition-all duration-300 text-black dark:text-white"
               >
                 <Phone
-                  size={16}
+                  size={
+                    16
+                  }
                 />
 
                 <span className="text-sm font-medium">
@@ -240,29 +247,34 @@ export default function Navbar() {
                 className="group flex items-center gap-2 px-5 py-3 rounded-full bg-black text-white dark:bg-white dark:text-black font-medium shadow-xl"
               >
                 <span>
-                  Start Project
+                  Start
+                  Project
                 </span>
 
                 <ArrowUpRight
-                  size={17}
+                  size={
+                    17
+                  }
                   className="transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1"
                 />
               </motion.a>
             </div>
 
-            {/* MOBILE BUTTON */}
+            {/* MOBILE MENU BUTTON */}
 
             <button
               aria-label="Open Menu"
               onClick={
                 toggleMenu
               }
-              className="lg:hidden w-11 h-11 rounded-xl border border-black/10 dark:border-white/10 flex items-center justify-center text-black dark:text-white"
+              className="lg:hidden w-10 h-10 rounded-xl border border-black/10 dark:border-white/10 flex items-center justify-center text-black dark:text-white"
             >
               {mobileMenu ? (
                 <X size={20} />
               ) : (
-                <Menu size={20} />
+                <Menu
+                  size={20}
+                />
               )}
             </button>
           </div>
@@ -308,7 +320,7 @@ export default function Navbar() {
                 type: "spring",
                 damping: 24,
               }}
-              className="fixed top-0 right-0 w-[85%] max-w-sm h-screen bg-white dark:bg-black z-50 p-6 shadow-2xl flex flex-col"
+              className="fixed top-0 right-0 w-[90%] sm:w-[85%] max-w-sm h-screen bg-[#f8f8f6] dark:bg-[#050505] z-50 p-6 shadow-2xl flex flex-col"
             >
               {/* TOP */}
 
@@ -321,7 +333,7 @@ export default function Navbar() {
                   onClick={
                     closeMenu
                   }
-                  className="text-black dark:text-white"
+                  className="w-10 h-10 rounded-xl border border-black/10 dark:border-white/10 flex items-center justify-center text-black dark:text-white"
                 >
                   <X size={22} />
                 </button>
@@ -369,10 +381,10 @@ export default function Navbar() {
                         className={({
                           isActive,
                         }) =>
-                          `block px-5 py-4 rounded-2xl text-base font-medium transition-all duration-300 ${
+                          `block px-5 py-4 rounded-2xl text-[17px] font-medium transition-all duration-300 ${
                             isActive
                               ? "bg-black text-white dark:bg-white dark:text-black"
-                              : "hover:bg-neutral-100 dark:hover:bg-white/5 text-black dark:text-white"
+                              : "hover:bg-neutral-200 dark:hover:bg-white/5 text-black dark:text-white"
                           }`
                         }
                       >
@@ -388,19 +400,89 @@ export default function Navbar() {
               {/* BOTTOM */}
 
               <div className="mt-auto pt-6 flex flex-col gap-3">
+                {/* DARK MODE */}
+
+                <motion.button
+                  whileTap={{
+                    scale: 0.96,
+                  }}
+                  onClick={
+                    toggleTheme
+                  }
+                  className="w-full h-14 rounded-2xl border border-black/10 dark:border-white/10 bg-neutral-100 dark:bg-white/5 flex items-center justify-between px-5 text-black dark:text-white"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-xl bg-black dark:bg-white flex items-center justify-center">
+                      {theme ===
+                      "dark" ? (
+                        <Sun
+                          size={
+                            18
+                          }
+                          className="text-yellow-400"
+                        />
+                      ) : (
+                        <Moon
+                          size={
+                            18
+                          }
+                          className="text-white dark:text-black"
+                        />
+                      )}
+                    </div>
+
+                    <div className="text-left">
+                      <p className="text-sm font-semibold">
+                        {theme ===
+                        "dark"
+                          ? "Light Mode"
+                          : "Dark Mode"}
+                      </p>
+
+                      <p className="text-xs text-neutral-500 dark:text-neutral-400">
+                        Change
+                        appearance
+                      </p>
+                    </div>
+                  </div>
+
+                  <div
+                    className={`w-12 h-7 rounded-full transition-all duration-300 flex items-center px-1 ${
+                      theme ===
+                      "dark"
+                        ? "bg-white"
+                        : "bg-black"
+                    }`}
+                  >
+                    <motion.div
+                      layout
+                      className={`w-5 h-5 rounded-full ${
+                        theme ===
+                        "dark"
+                          ? "bg-black ml-auto"
+                          : "bg-white"
+                      }`}
+                    />
+                  </div>
+                </motion.button>
+
+                {/* CTA */}
+
                 <a
                   href="https://wa.me/918930296001"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full py-4 rounded-2xl bg-black text-white dark:bg-white dark:text-black text-center font-semibold"
+                  className="w-full h-14 rounded-2xl bg-black text-white dark:bg-white dark:text-black text-center font-semibold flex items-center justify-center"
                 >
                   Start Your
                   Project
                 </a>
 
+                {/* CALL */}
+
                 <a
                   href="tel:+918930296001"
-                  className="w-full py-4 rounded-2xl border border-black/10 dark:border-white/10 text-center font-medium text-black dark:text-white"
+                  className="w-full h-14 rounded-2xl border border-black/10 dark:border-white/10 text-center font-medium text-black dark:text-white flex items-center justify-center"
                 >
                   Call Us
                 </a>

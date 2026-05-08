@@ -12,6 +12,7 @@ import {
   X,
   MessageCircle,
   Sparkles,
+  ArrowRight,
 } from "lucide-react";
 
 export default function WhatsAppFloat() {
@@ -50,8 +51,9 @@ export default function WhatsAppFloat() {
     "https://wa.me/918930296001?text=Hi%20GrowUpCraft%2C%20I%20want%20to%20discuss%20a%20website%20or%20web%20application.";
 
   return (
-    <div className="fixed bottom-5 right-5 sm:bottom-7 sm:right-7 z-[90] flex flex-col items-end gap-4">
+    <div className="fixed bottom-4 right-4 sm:bottom-7 sm:right-7 z-[999] flex flex-col items-end gap-4">
       {/* CHAT BUBBLE */}
+
       <AnimatePresence>
         {showBubble &&
           !hideBubble && (
@@ -59,7 +61,7 @@ export default function WhatsAppFloat() {
               initial={{
                 opacity: 0,
                 y: 20,
-                scale: 0.9,
+                scale: 0.92,
               }}
               animate={{
                 opacity: 1,
@@ -69,67 +71,87 @@ export default function WhatsAppFloat() {
               exit={{
                 opacity: 0,
                 y: 10,
-                scale: 0.9,
+                scale: 0.92,
               }}
               transition={{
                 type: "spring",
                 damping: 20,
               }}
-              className="relative w-[290px] rounded-[28px] border border-white/10 bg-black/95 backdrop-blur-2xl p-5 shadow-[0_20px_60px_rgba(0,0,0,0.35)] overflow-hidden"
+              className="group relative w-[300px] sm:w-[340px] rounded-[34px] border border-black/6 dark:border-white/10 bg-white/80 dark:bg-[#0B0B0B]/90 backdrop-blur-2xl p-5 sm:p-6 shadow-[0_25px_80px_rgba(0,0,0,0.14)] overflow-hidden"
             >
-              {/* GLOW */}
-              <div className="absolute top-0 right-0 w-32 h-32 bg-lime-300/10 blur-3xl rounded-full" />
+              {/* PREMIUM GRADIENT */}
 
-              {/* TOP BORDER */}
-              <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-br from-lime-100/40 via-transparent to-blue-100/20 dark:from-lime-500/10 dark:to-blue-500/10 pointer-events-none" />
+
+              {/* EXTRA GLOW */}
+
+              <div className="absolute -top-10 -right-10 w-40 h-40 bg-lime-300/20 dark:bg-lime-500/10 blur-3xl rounded-full" />
+
+              {/* TOP LINE */}
+
+              <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-black/15 dark:via-white/15 to-transparent" />
 
               {/* CLOSE */}
+
               <button
                 onClick={() =>
                   setHideBubble(true)
                 }
-                className="absolute top-4 right-4 w-7 h-7 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center transition-all"
+                className="absolute top-4 right-4 w-12 h-12 rounded-full bg-black/[0.04] dark:bg-white/[0.05] hover:bg-black/[0.08] dark:hover:bg-white/[0.08] flex items-center justify-center transition-all duration-300"
               >
                 <X
-                  size={14}
-                  className="text-white/50"
+                  size={20}
+                  className="text-black/45 dark:text-white/45"
                 />
               </button>
 
               {/* CONTENT */}
+
               <div className="relative z-10">
                 {/* ICON */}
-                <div className="w-12 h-12 rounded-2xl bg-[#25D366] flex items-center justify-center shadow-lg shadow-green-500/20">
+
+                <div className="w-14 h-14 rounded-[22px] bg-[#25D366] flex items-center justify-center shadow-[0_15px_40px_rgba(37,211,102,0.35)]">
                   <MessageCircle
-                    size={24}
+                    size={26}
                     className="text-white"
                   />
                 </div>
 
-                {/* TEXT */}
-                <div className="mt-5">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.05] border border-white/6 text-xs font-medium text-white/70">
-                    <Sparkles size={12} />
-                    Usually replies quickly
-                  </div>
+                {/* BADGE */}
 
-                  <h3 className="mt-4 text-xl font-black tracking-tight text-white">
-                    Need a website or
-                    dashboard?
-                  </h3>
-
-                  <p className="mt-3 text-sm leading-relaxed text-white/55">
-                    Chat directly on
-                    WhatsApp for demo,
-                    pricing or project
-                    discussion.
-                  </p>
+                <div className="mt-5 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 dark:bg-white/[0.03] border border-black/5 dark:border-white/5 text-xs font-medium text-black/60 dark:text-white/60 backdrop-blur-xl">
+                  <Sparkles
+                    size={12}
+                  />
+                  Usually replies
+                  quickly
                 </div>
 
+                {/* HEADING */}
+
+                <h3 className="mt-5 text-[1.6rem] leading-[1.05] font-black tracking-[-0.03em] text-black dark:text-white">
+                  Need a modern
+                  website or
+                  dashboard?
+                </h3>
+
+                {/* TEXT */}
+
+                <p className="mt-4 text-[14px] sm:text-[15px] leading-[1.8] text-black/65 dark:text-white/60">
+                  Chat directly
+                  on WhatsApp
+                  for pricing,
+                  demo or
+                  project
+                  discussion.
+                </p>
+
                 {/* CTA */}
+
                 <motion.a
                   whileHover={{
                     scale: 1.02,
+                    y: -2,
                   }}
                   whileTap={{
                     scale: 0.98,
@@ -137,20 +159,27 @@ export default function WhatsAppFloat() {
                   href={whatsappLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-5 h-12 rounded-2xl bg-white text-black font-semibold flex items-center justify-center gap-2 shadow-xl"
+                  className="group mt-6 h-14 rounded-2xl bg-gradient-to-r from-black to-neutral-800 dark:from-white dark:to-neutral-200 text-white dark:text-black font-semibold flex items-center justify-center gap-2 shadow-2xl"
                 >
-                  Start Conversation
+                  Start
+                  Conversation
 
-                  <MessageCircle
-                    size={16}
+                  <ArrowRight
+                    size={18}
+                    className="transition-transform duration-300 group-hover:translate-x-1"
                   />
                 </motion.a>
               </div>
+
+              {/* HOVER BORDER */}
+
+              <div className="absolute inset-0 rounded-[34px] border border-lime-300/0 group-hover:border-lime-300/20 transition-all duration-500 pointer-events-none" />
             </motion.div>
           )}
       </AnimatePresence>
 
       {/* FLOAT BUTTON */}
+
       <AnimatePresence>
         {showButton && (
           <motion.a
@@ -184,17 +213,25 @@ export default function WhatsAppFloat() {
             className="relative group"
           >
             {/* PING */}
+
             <div className="absolute inset-0 rounded-full bg-[#25D366] animate-ping opacity-20" />
 
+            {/* GLOW */}
+
+            <div className="absolute inset-0 rounded-full bg-[#25D366]/30 blur-2xl" />
+
             {/* BUTTON */}
-            <div className="relative w-16 h-16 rounded-full bg-[#25D366] shadow-[0_15px_40px_rgba(37,211,102,0.35)] flex items-center justify-center border border-white/10 overflow-hidden">
+
+            <div className="relative w-16 h-16 sm:w-[72px] sm:h-[72px] rounded-full bg-[#25D366] shadow-[0_20px_60px_rgba(37,211,102,0.35)] flex items-center justify-center border border-white/20 overflow-hidden">
               {/* SHINE */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/10 to-white/0" />
+
+              <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/15 to-white/0" />
 
               {/* ICON */}
+
               <svg
-                width="30"
-                height="30"
+                width="32"
+                height="32"
                 viewBox="0 0 24 24"
                 fill="white"
                 className="relative z-10"

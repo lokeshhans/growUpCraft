@@ -10,6 +10,7 @@ import {
   ArrowRight,
   TrendingUp,
   CheckCircle2,
+  Sparkles,
 } from "lucide-react";
 
 const testimonials = [
@@ -34,6 +35,9 @@ const testimonials = [
 
     highlight:
       "2+ hours/day saved",
+
+    gradient:
+      "from-lime-200/30 via-lime-100/10 to-transparent dark:from-lime-500/10 dark:to-lime-400/5",
   },
 
   {
@@ -57,6 +61,9 @@ const testimonials = [
 
     highlight:
       "Admissions simplified",
+
+    gradient:
+      "from-blue-200/30 via-cyan-100/10 to-transparent dark:from-blue-500/10 dark:to-cyan-400/5",
   },
 
   {
@@ -80,6 +87,9 @@ const testimonials = [
 
     highlight:
       "Zero missed leads",
+
+    gradient:
+      "from-orange-200/30 via-yellow-100/10 to-transparent dark:from-orange-500/10 dark:to-yellow-400/5",
   },
 
   {
@@ -103,12 +113,15 @@ const testimonials = [
 
     highlight:
       "Smooth customer experience",
+
+    gradient:
+      "from-pink-200/30 via-purple-100/10 to-transparent dark:from-pink-500/10 dark:to-purple-400/5",
   },
 ];
 
 export default function Testimonials() {
   return (
-    <section className="relative overflow-hidden bg-[#f8f8f6] dark:bg-black text-black dark:text-white py-28 lg:py-36 transition-colors duration-500">
+    <section className="relative overflow-hidden bg-[#F7F8F4] dark:bg-[#050505] text-black dark:text-white py-20 sm:py-28 lg:py-40 transition-colors duration-500">
       {/* GRID */}
 
       <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.04] pointer-events-none">
@@ -129,6 +142,10 @@ export default function Testimonials() {
 
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[700px] rounded-full bg-lime-100/40 dark:bg-lime-500/10 blur-3xl" />
 
+      {/* EXTRA GLOW */}
+
+      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full bg-blue-200/20 dark:bg-blue-500/10 blur-3xl" />
+
       <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
         {/* HEADER */}
 
@@ -145,10 +162,14 @@ export default function Testimonials() {
             viewport={{
               once: true,
             }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-black/10 dark:border-white/10 bg-white dark:bg-white/[0.03] text-sm font-medium text-black dark:text-white shadow-sm backdrop-blur-xl"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-black/10 dark:border-white/10 bg-white/80 dark:bg-white/[0.03] text-xs sm:text-sm font-medium text-black dark:text-white shadow-sm backdrop-blur-2xl"
           >
-            ⭐ Client
-            Reviews
+            <Sparkles
+              size={
+                15
+              }
+            />
+            Client Reviews
           </motion.span>
 
           <motion.h2
@@ -166,12 +187,11 @@ export default function Testimonials() {
             viewport={{
               once: true,
             }}
-            className="mt-7 text-4xl sm:text-6xl font-black tracking-tight leading-[0.95] text-black dark:text-white"
+            className="mt-7 text-[2.4rem] leading-[0.96] sm:text-6xl lg:text-[88px] font-black tracking-[-0.05em] text-black dark:text-white"
           >
             Businesses
-            that
-            <br />
-            trusted us.
+            that trusted
+            us.
           </motion.h2>
 
           <motion.p
@@ -189,7 +209,7 @@ export default function Testimonials() {
             viewport={{
               once: true,
             }}
-            className="mt-6 text-lg leading-relaxed text-black/60 dark:text-white/55 max-w-2xl"
+            className="mt-6 text-[15px] sm:text-xl leading-[1.8] text-black/70 dark:text-white/70 max-w-2xl"
           >
             Real feedback
             from local
@@ -203,7 +223,7 @@ export default function Testimonials() {
 
         {/* GRID */}
 
-        <div className="mt-20 grid lg:grid-cols-2 gap-6">
+        <div className="mt-16 sm:mt-20 grid lg:grid-cols-2 gap-6">
           {testimonials.map(
             (
               item,
@@ -230,27 +250,33 @@ export default function Testimonials() {
                   once: true,
                 }}
                 whileHover={{
-                  y: -6,
+                  y: -8,
                 }}
-                className="group relative rounded-[32px] border border-black/6 dark:border-white/10 bg-white dark:bg-neutral-950 backdrop-blur-xl p-7 lg:p-8 overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.05)]"
+                className="group relative rounded-[36px] border border-black/6 dark:border-white/10 bg-white/80 dark:bg-white/[0.03] backdrop-blur-2xl p-6 sm:p-8 overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.05)] hover:shadow-[0_30px_100px_rgba(163,230,53,0.12)] transition-all duration-500"
               >
+                {/* PREMIUM GRADIENT */}
+
+                <div
+                  className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-0 group-hover:opacity-100 transition-all duration-500 pointer-events-none`}
+                />
+
                 {/* TOP LINE */}
 
                 <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-black/20 dark:via-white/20 to-transparent" />
 
                 {/* QUOTE */}
 
-                <div className="absolute top-7 right-7 text-black/10 dark:text-white/10">
+                <div className="absolute top-7 right-7 text-black/[0.06] dark:text-white/[0.06]">
                   <Quote
                     size={
-                      42
+                      52
                     }
                   />
                 </div>
 
                 {/* STARS */}
 
-                <div className="flex items-center gap-1 mb-6">
+                <div className="relative z-10 flex items-center gap-1 mb-6">
                   {[...Array(
                     item.stars
                   )].map(
@@ -263,7 +289,7 @@ export default function Testimonials() {
                           i
                         }
                         size={
-                          15
+                          16
                         }
                         className="fill-yellow-400 text-yellow-400"
                       />
@@ -273,7 +299,7 @@ export default function Testimonials() {
 
                 {/* TEXT */}
 
-                <p className="text-black/70 dark:text-white/70 leading-relaxed text-[15px]">
+                <p className="relative z-10 text-black/75 dark:text-white/75 leading-[1.9] text-[15px] sm:text-[16px]">
                   "
                   {
                     item.text
@@ -283,7 +309,7 @@ export default function Testimonials() {
 
                 {/* RESULT */}
 
-                <div className="mt-7 flex flex-wrap gap-3">
+                <div className="relative z-10 mt-8 flex flex-wrap gap-3">
                   <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-lime-100 dark:bg-lime-500/20 text-black dark:text-lime-300 text-sm font-semibold">
                     <TrendingUp
                       size={
@@ -296,7 +322,7 @@ export default function Testimonials() {
                     }
                   </div>
 
-                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-black/[0.03] dark:bg-white/[0.03] border border-black/5 dark:border-white/5 text-sm text-black/60 dark:text-white/60">
+                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 dark:bg-white/[0.03] border border-black/5 dark:border-white/5 text-sm text-black/60 dark:text-white/60 backdrop-blur-xl">
                     <CheckCircle2
                       size={
                         15
@@ -311,21 +337,21 @@ export default function Testimonials() {
 
                 {/* USER */}
 
-                <div className="mt-8 pt-6 border-t border-black/6 dark:border-white/8 flex items-center gap-4">
-                  <div className="w-14 h-14 rounded-2xl bg-black/[0.03] dark:bg-white/[0.05] border border-black/5 dark:border-white/5 flex items-center justify-center text-2xl">
+                <div className="relative z-10 mt-9 pt-6 border-t border-black/6 dark:border-white/8 flex items-center gap-4">
+                  <div className="w-16 h-16 rounded-[24px] bg-gradient-to-br from-lime-200 to-lime-100 dark:from-lime-500/20 dark:to-lime-400/10 border border-lime-200/40 dark:border-lime-500/20 flex items-center justify-center text-3xl shadow-xl">
                     {
                       item.emoji
                     }
                   </div>
 
                   <div>
-                    <h3 className="font-bold text-lg tracking-tight text-black dark:text-white">
+                    <h3 className="font-black text-xl tracking-tight text-black dark:text-white">
                       {
                         item.name
                       }
                     </h3>
 
-                    <p className="text-sm text-black/40 dark:text-white/40">
+                    <p className="text-sm text-black/45 dark:text-white/45 mt-1">
                       {
                         item.role
                       }
@@ -335,7 +361,7 @@ export default function Testimonials() {
 
                 {/* HOVER BORDER */}
 
-                <div className="absolute inset-0 rounded-[32px] border border-lime-300/0 group-hover:border-lime-300/30 transition-all duration-500 pointer-events-none" />
+                <div className="absolute inset-0 rounded-[36px] border border-lime-300/0 group-hover:border-lime-300/30 transition-all duration-500 pointer-events-none" />
               </motion.div>
             )
           )}
@@ -357,23 +383,27 @@ export default function Testimonials() {
           }}
           className="mt-20"
         >
-          <div className="rounded-[36px] border border-black/6 dark:border-white/10 bg-white dark:bg-neutral-950 backdrop-blur-xl p-8 lg:p-10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 shadow-[0_20px_60px_rgba(0,0,0,0.05)]">
+          <div className="relative overflow-hidden rounded-[40px] border border-black/6 dark:border-white/10 bg-white/80 dark:bg-white/[0.03] backdrop-blur-2xl p-7 sm:p-10 lg:p-12 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-10 shadow-[0_20px_80px_rgba(0,0,0,0.05)]">
+            {/* GRADIENT */}
+
+            <div className="absolute inset-0 bg-gradient-to-br from-lime-100/30 to-transparent dark:from-lime-500/5 pointer-events-none" />
+
             {/* LEFT */}
 
-            <div className="max-w-2xl">
+            <div className="relative z-10 max-w-2xl">
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-lime-100 dark:bg-lime-500/20 text-black dark:text-lime-300 text-sm font-semibold">
                 🚀 Ready to
                 Start?
               </div>
 
-              <h3 className="mt-6 text-3xl sm:text-4xl font-black tracking-tight leading-[1] text-black dark:text-white">
+              <h3 className="mt-6 text-[2rem] sm:text-5xl font-black tracking-[-0.04em] leading-[0.96] text-black dark:text-white">
                 Your business
                 could be the
                 next success
                 story.
               </h3>
 
-              <p className="mt-5 text-black/60 dark:text-white/55 leading-relaxed text-lg">
+              <p className="mt-5 text-black/70 dark:text-white/70 leading-[1.8] text-[15px] sm:text-lg max-w-xl">
                 Whether you
                 need a modern
                 website,
@@ -398,7 +428,7 @@ export default function Testimonials() {
                 scale: 0.98,
               }}
               href="#contact"
-              className="group h-14 px-7 rounded-2xl bg-black text-white dark:bg-white dark:text-black font-semibold flex items-center gap-2 shadow-2xl"
+              className="group relative z-10 w-full sm:w-auto h-14 px-7 rounded-2xl bg-gradient-to-r from-black to-neutral-800 dark:from-white dark:to-neutral-200 text-white dark:text-black font-semibold flex items-center justify-center gap-2 shadow-2xl"
             >
               Discuss Your
               Project

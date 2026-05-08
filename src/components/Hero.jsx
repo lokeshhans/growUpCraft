@@ -45,13 +45,13 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative overflow-hidden pt-32 pb-20 lg:pt-40 lg:pb-28 bg-white dark:bg-black transition-colors duration-500">
+    <section className="relative overflow-hidden pt-24 pb-16 sm:pt-28 sm:pb-20 lg:pt-40 lg:pb-28 bg-[#f8f8f6] dark:bg-[#050505] transition-colors duration-500">
       {/* BACKGROUND */}
 
       <div className="absolute inset-0 -z-10">
         {/* GLOW */}
 
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-lime-100/40 dark:bg-lime-500/10 blur-3xl rounded-full" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-lime-100/50 dark:bg-lime-500/10 blur-3xl rounded-full" />
 
         {/* GRID */}
 
@@ -69,7 +69,7 @@ export default function Hero() {
       </div>
 
       <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* LEFT */}
 
           <div>
@@ -87,7 +87,7 @@ export default function Hero() {
               transition={{
                 duration: 0.4,
               }}
-              className="inline-flex items-center gap-2 rounded-full border border-black/10 dark:border-white/10 px-4 py-2 text-sm font-medium mb-7 bg-white dark:bg-black text-black dark:text-white shadow-sm"
+              className="inline-flex items-center gap-2 rounded-full border border-black/10 dark:border-white/10 px-4 py-2 text-sm font-medium mb-7 bg-white/80 dark:bg-white/5 text-black dark:text-white backdrop-blur-xl shadow-sm"
             >
               <MapPin
                 size={15}
@@ -110,7 +110,7 @@ export default function Hero() {
               transition={{
                 delay: 0.1,
               }}
-              className="text-[2.7rem] sm:text-6xl font-black tracking-tight leading-[0.95] text-black dark:text-white max-w-2xl"
+              className="text-[2.15rem] leading-[0.98] sm:text-6xl lg:text-7xl font-black tracking-[-0.04em] text-black dark:text-white max-w-2xl"
             >
               Modern websites
               for{" "}
@@ -137,7 +137,7 @@ export default function Hero() {
               transition={{
                 delay: 0.15,
               }}
-              className="mt-6 text-lg leading-relaxed text-neutral-600 dark:text-neutral-300 max-w-xl"
+              className="mt-6 text-[15px] sm:text-lg leading-[1.8] text-black/70 dark:text-white/75 max-w-xl"
             >
               We design
               clean, fast and
@@ -164,13 +164,13 @@ export default function Hero() {
               transition={{
                 delay: 0.2,
               }}
-              className="mt-9 flex flex-wrap items-center gap-4"
+              className="mt-9 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4"
             >
               {/* PRIMARY */}
 
               <motion.button
                 whileHover={{
-                  scale: 1.04,
+                  scale: 1.03,
                   y: -2,
                 }}
                 whileTap={{
@@ -182,7 +182,7 @@ export default function Hero() {
                       "Free Project Discussion",
                   })
                 }
-                className="h-14 px-7 rounded-2xl bg-black text-white dark:bg-white dark:text-black font-semibold flex items-center gap-2 shadow-xl shadow-black/10"
+                className="w-full sm:w-auto h-13 sm:h-14 px-7 rounded-2xl bg-black text-white dark:bg-white dark:text-black font-semibold flex items-center justify-center gap-2 shadow-xl shadow-black/10"
               >
                 Book Free
                 Call
@@ -196,7 +196,7 @@ export default function Hero() {
 
               <a
                 href="#projects"
-                className="h-14 px-7 rounded-2xl border border-black/10 dark:border-white/10 hover:border-black dark:hover:border-white transition-all duration-300 flex items-center font-semibold text-black dark:text-white"
+                className="w-full sm:w-auto h-13 sm:h-14 px-7 rounded-2xl border border-black/10 dark:border-white/10 hover:border-black dark:hover:border-white transition-all duration-300 flex items-center justify-center font-semibold text-black dark:text-white bg-white/60 dark:bg-white/5 backdrop-blur-xl"
               >
                 View Projects
               </a>
@@ -214,7 +214,7 @@ export default function Hero() {
               transition={{
                 delay: 0.3,
               }}
-              className="mt-10 flex flex-col sm:flex-row gap-4 sm:gap-6"
+              className="mt-9 grid grid-cols-1 sm:grid-cols-3 gap-4"
             >
               {[
                 "Mobile First Design",
@@ -228,7 +228,7 @@ export default function Hero() {
                     key={
                       item
                     }
-                    className="flex items-center gap-2 text-sm text-neutral-700 dark:text-neutral-300"
+                    className="flex items-center gap-2 text-sm text-black/70 dark:text-white/70"
                   >
                     <CheckCircle2
                       size={16}
@@ -253,7 +253,7 @@ export default function Hero() {
               transition={{
                 delay: 0.4,
               }}
-              className="mt-12 flex flex-wrap gap-10"
+              className="mt-10 grid grid-cols-3 gap-5 sm:gap-8"
             >
               {[
                 {
@@ -288,13 +288,13 @@ export default function Hero() {
                       item.label
                     }
                   >
-                    <h3 className="text-3xl font-black text-black dark:text-white">
+                    <h3 className="text-2xl sm:text-3xl font-black text-black dark:text-white">
                       {
                         item.value
                       }
                     </h3>
 
-                    <p className="text-sm text-neutral-500 dark:text-neutral-400 mt-1">
+                    <p className="text-xs sm:text-sm text-neutral-500 dark:text-neutral-400 mt-1 leading-relaxed">
                       {
                         item.label
                       }
@@ -319,11 +319,11 @@ export default function Hero() {
             transition={{
               duration: 0.6,
             }}
-            className="relative hidden lg:block"
+            className="relative block"
           >
             {/* BROWSER */}
 
-            <div className="rounded-[32px] border border-black/10 dark:border-white/10 bg-white dark:bg-neutral-950 overflow-hidden shadow-[0_20px_80px_rgba(0,0,0,0.08)]">
+            <div className="rounded-[32px] border border-black/10 dark:border-white/10 bg-white/80 dark:bg-neutral-950/90 overflow-hidden shadow-[0_20px_80px_rgba(0,0,0,0.08)] backdrop-blur-2xl">
               {/* TOP BAR */}
 
               <div className="h-14 border-b border-black/5 dark:border-white/10 flex items-center px-5 gap-2 bg-neutral-50 dark:bg-white/5">
@@ -341,16 +341,16 @@ export default function Hero() {
 
               {/* PREVIEW */}
 
-              <div className="p-6">
+              <div className="p-4 sm:p-6">
                 <div className="rounded-3xl overflow-hidden border border-black/5 dark:border-white/10">
                   <img
                     src={image}
                     alt="Project Preview"
-                    className="w-full h-[360px] object-cover"
+                    className="w-full h-[240px] sm:h-[360px] object-cover"
                   />
                 </div>
 
-                <div className="mt-6 flex items-center justify-between">
+                <div className="mt-6 flex items-center justify-between gap-4">
                   <div>
                     <h3 className="font-bold text-lg text-black dark:text-white">
                       School
@@ -364,7 +364,7 @@ export default function Hero() {
                     </p>
                   </div>
 
-                  <div className="px-4 py-2 rounded-full bg-lime-100 dark:bg-lime-500/20 text-lime-800 dark:text-lime-300 text-sm font-semibold">
+                  <div className="px-4 py-2 rounded-full bg-lime-100 dark:bg-lime-500/20 text-lime-800 dark:text-lime-300 text-sm font-semibold whitespace-nowrap">
                     Live
                     Project
                   </div>
@@ -388,7 +388,7 @@ export default function Hero() {
 
                 duration: 4,
               }}
-              className="absolute -bottom-6 -left-8 bg-black text-white dark:bg-white dark:text-black p-5 rounded-3xl shadow-2xl"
+              className="absolute bottom-4 left-4 sm:-bottom-6 sm:-left-8 bg-black text-white dark:bg-white dark:text-black p-5 rounded-3xl shadow-2xl"
             >
               <p className="text-xs opacity-70">
                 Delivered in

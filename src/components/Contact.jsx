@@ -9,6 +9,8 @@ import {
   MessageCircle,
   MapPin,
   Clock3,
+  Sparkles,
+  Phone,
 } from "lucide-react";
 
 import { useAppContext } from "../context/AppContext";
@@ -56,12 +58,6 @@ export default function Contact() {
   ) => {
     e.preventDefault();
 
-    /*
-    |--------------------------------------------------------------------------
-    | VALIDATION
-    |--------------------------------------------------------------------------
-    */
-
     if (
       !contactForm.name.trim() ||
       !contactForm.phone.trim()
@@ -73,23 +69,11 @@ export default function Contact() {
       return;
     }
 
-    /*
-    |--------------------------------------------------------------------------
-    | RESET ERROR
-    |--------------------------------------------------------------------------
-    */
-
     setContactError("");
 
     setContactLoading(
       true
     );
-
-    /*
-    |--------------------------------------------------------------------------
-    | WHATSAPP MESSAGE
-    |--------------------------------------------------------------------------
-    */
 
     const message = `
 🚀 New Project Enquiry
@@ -106,32 +90,14 @@ ${contactForm.message || "Not provided"}
 — GrowUpCraft Website
 `;
 
-    /*
-    |--------------------------------------------------------------------------
-    | WHATSAPP URL
-    |--------------------------------------------------------------------------
-    */
-
     const whatsappURL = `https://wa.me/918930296001?text=${encodeURIComponent(
       message
     )}`;
-
-    /*
-    |--------------------------------------------------------------------------
-    | OPEN WHATSAPP
-    |--------------------------------------------------------------------------
-    */
 
     window.open(
       whatsappURL,
       "_blank"
     );
-
-    /*
-    |--------------------------------------------------------------------------
-    | SUCCESS UI
-    |--------------------------------------------------------------------------
-    */
 
     setTimeout(() => {
       setContactLoading(
@@ -160,23 +126,17 @@ ${contactForm.message || "Not provided"}
   return (
     <section
       id="contact"
-      className="relative py-28 lg:py-36 overflow-hidden bg-white dark:bg-black transition-colors duration-500"
+      className="relative overflow-hidden py-20 sm:py-28 lg:py-36 bg-[#f8f8f6] dark:bg-[#050505] transition-colors duration-500"
     >
-      {/* BACKGROUND */}
+      {/* GRID */}
 
-      <div className="absolute inset-0 -z-10">
-        {/* GLOW */}
-
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[700px] rounded-full bg-lime-100/40 dark:bg-lime-500/10 blur-3xl" />
-
-        {/* GRID */}
-
+      <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.04] pointer-events-none">
         <div
-          className="absolute inset-0 opacity-[0.03] dark:opacity-[0.04]"
+          className="absolute inset-0"
           style={{
             backgroundImage: `
-              linear-gradient(#000 1px, transparent 1px),
-              linear-gradient(90deg, #000 1px, transparent 1px)
+              linear-gradient(rgba(0,0,0,.08) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(0,0,0,.08) 1px, transparent 1px)
             `,
             backgroundSize:
               "70px 70px",
@@ -184,15 +144,23 @@ ${contactForm.message || "Not provided"}
         />
       </div>
 
-      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
+      {/* MAIN GLOW */}
+
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[850px] h-[850px] rounded-full bg-lime-200/40 dark:bg-lime-500/10 blur-3xl" />
+
+      {/* EXTRA GLOW */}
+
+      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full bg-blue-200/20 dark:bg-blue-500/10 blur-3xl" />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-10 lg:gap-14 items-start">
           {/* LEFT */}
 
-          <div className="max-w-lg">
+          <div className="max-w-xl">
             <motion.div
               initial={{
                 opacity: 0,
-                y: 15,
+                y: 20,
               }}
               whileInView={{
                 opacity: 1,
@@ -204,46 +172,46 @@ ${contactForm.message || "Not provided"}
             >
               {/* TAG */}
 
-              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-black/10 dark:border-white/10 text-sm font-medium bg-white dark:bg-white/[0.03] text-black dark:text-white shadow-sm backdrop-blur-xl">
-                <MessageCircle
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-black/10 dark:border-white/10 bg-white/80 dark:bg-white/[0.04] backdrop-blur-xl shadow-sm text-xs sm:text-sm font-medium text-black dark:text-white">
+                <Sparkles
                   size={
                     15
                   }
                 />
-
-                Let's Talk
-              </span>
+                Let's Build
+                Together
+              </div>
 
               {/* HEADING */}
 
-              <h2 className="mt-7 text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-black dark:text-white">
-                Tell us what
-                you want to
-                build.
+              <h2 className="mt-7 text-[2.3rem] leading-[0.96] sm:text-6xl lg:text-7xl font-black tracking-[-0.05em] text-black dark:text-white">
+                Tell us about
+                your next
+                project.
               </h2>
 
               {/* DESCRIPTION */}
 
-              <p className="mt-6 text-lg leading-relaxed text-neutral-600 dark:text-neutral-300">
-                We build
+              <p className="mt-6 text-[15px] sm:text-xl leading-[1.8] text-black/70 dark:text-white/70 max-w-lg">
+                We design
                 modern,
-                practical and
                 conversion-focused
-                websites for
+                websites and
+                systems for
                 schools,
+                businesses,
                 gyms and
-                local
-                businesses
-                that want a
+                startups that
+                want a
                 stronger
-                digital
+                online
                 presence.
               </p>
             </motion.div>
 
-            {/* INFO */}
+            {/* INFO CARDS */}
 
-            <div className="mt-12 space-y-5">
+            <div className="mt-10 space-y-4">
               {[
                 {
                   icon: Clock3,
@@ -264,9 +232,20 @@ ${contactForm.message || "Not provided"}
                   desc:
                     "Working remotely across India",
                 },
+
+                {
+                  icon: Phone,
+
+                  title:
+                    "Direct WhatsApp Support",
+
+                  desc:
+                    "+91 89302 96001",
+                },
               ].map(
                 (
-                  item
+                  item,
+                  index
                 ) => (
                   <motion.div
                     key={
@@ -280,39 +259,52 @@ ${contactForm.message || "Not provided"}
                       opacity: 1,
                       y: 0,
                     }}
+                    transition={{
+                      delay:
+                        index *
+                        0.08,
+                    }}
                     viewport={{
                       once: true,
                     }}
-                    className="group flex items-start gap-4 p-4 rounded-3xl border border-black/5 dark:border-white/10 bg-white dark:bg-white/[0.03] hover:shadow-xl transition-all duration-300"
+                    whileHover={{
+                      y: -3,
+                    }}
+                    className="group relative overflow-hidden rounded-[28px] border border-black/6 dark:border-white/10 bg-white/80 dark:bg-white/[0.03] backdrop-blur-2xl p-5 sm:p-6 transition-all duration-500 shadow-sm"
                   >
-                    <div className="w-12 h-12 rounded-2xl bg-black/5 dark:bg-white/5 flex items-center justify-center">
-                      <item.icon
-                        size={
-                          18
-                        }
-                        className="text-black dark:text-white"
-                      />
-                    </div>
+                    {/* GRADIENT */}
 
-                    <div>
-                      <h3 className="font-semibold text-black dark:text-white">
-                        {
-                          item.title
-                        }
-                      </h3>
+                    <div className="absolute inset-0 bg-gradient-to-br from-lime-100/30 to-transparent dark:from-lime-500/5 pointer-events-none" />
 
-                      <p className="text-neutral-500 dark:text-neutral-400 text-sm mt-1">
-                        {
-                          item.desc
-                        }
-                      </p>
+                    <div className="relative flex items-start gap-4">
+                      <div className="w-14 h-14 rounded-2xl bg-black text-white dark:bg-white dark:text-black flex items-center justify-center shadow-xl">
+                        <item.icon
+                          size={
+                            22
+                          }
+                        />
+                      </div>
+
+                      <div>
+                        <h3 className="font-black text-lg text-black dark:text-white">
+                          {
+                            item.title
+                          }
+                        </h3>
+
+                        <p className="mt-1 text-sm leading-relaxed text-black/55 dark:text-white/55">
+                          {
+                            item.desc
+                          }
+                        </p>
+                      </div>
                     </div>
                   </motion.div>
                 )
               )}
             </div>
 
-            {/* WHATSAPP */}
+            {/* CTA */}
 
             <motion.a
               whileHover={{
@@ -325,7 +317,7 @@ ${contactForm.message || "Not provided"}
               href="https://wa.me/918930296001"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-10 inline-flex items-center gap-3 px-7 py-4 rounded-2xl bg-[#25D366] text-white font-semibold shadow-2xl shadow-green-200/40"
+              className="group mt-8 w-full sm:w-auto h-14 px-7 rounded-2xl bg-[#25D366] text-white font-semibold flex items-center justify-center gap-3 shadow-[0_20px_60px_rgba(37,211,102,0.25)]"
             >
               <MessageCircle
                 size={
@@ -335,6 +327,13 @@ ${contactForm.message || "Not provided"}
 
               Chat on
               WhatsApp
+
+              <ArrowRight
+                size={
+                  18
+                }
+                className="transition-transform duration-300 group-hover:translate-x-1"
+              />
             </motion.a>
           </div>
 
@@ -343,11 +342,11 @@ ${contactForm.message || "Not provided"}
           <motion.div
             initial={{
               opacity: 0,
-              x: 30,
+              y: 30,
             }}
             whileInView={{
               opacity: 1,
-              x: 0,
+              y: 0,
             }}
             viewport={{
               once: true,
@@ -356,25 +355,29 @@ ${contactForm.message || "Not provided"}
           >
             {/* CARD */}
 
-            <div className="rounded-[36px] border border-black/5 dark:border-white/10 bg-white dark:bg-neutral-950 overflow-hidden shadow-[0_20px_80px_rgba(0,0,0,0.08)]">
+            <div className="relative overflow-hidden rounded-[34px] sm:rounded-[40px] border border-black/6 dark:border-white/10 bg-white/80 dark:bg-neutral-950/90 backdrop-blur-2xl shadow-[0_20px_80px_rgba(0,0,0,0.06)]">
+              {/* GRADIENT */}
+
+              <div className="absolute inset-0 bg-gradient-to-br from-lime-100/40 via-transparent to-blue-100/20 dark:from-lime-500/10 dark:to-blue-500/10 pointer-events-none" />
+
               {/* TOP BAR */}
 
-              <div className="h-14 border-b border-black/5 dark:border-white/10 bg-neutral-50 dark:bg-white/[0.03] flex items-center px-5 gap-2">
+              <div className="relative h-14 border-b border-black/6 dark:border-white/10 bg-black/[0.02] dark:bg-white/[0.03] flex items-center px-5 gap-2">
                 <div className="w-3 h-3 rounded-full bg-red-400" />
 
                 <div className="w-3 h-3 rounded-full bg-yellow-400" />
 
                 <div className="w-3 h-3 rounded-full bg-green-400" />
 
-                <div className="ml-4 text-xs text-neutral-400 dark:text-neutral-500 font-medium">
+                <div className="ml-4 text-xs text-black/30 dark:text-white/30 font-medium">
                   growupcraft
-                  .in/contact
+                  .vercel.app/contact
                 </div>
               </div>
 
               {/* FORM */}
 
-              <div className="p-7 sm:p-9">
+              <div className="relative p-5 sm:p-8 lg:p-10">
                 <AnimatePresence mode="wait">
                   {contactSuccess ? (
                     <motion.div
@@ -392,29 +395,26 @@ ${contactForm.message || "Not provided"}
                       }}
                       className="py-16 text-center"
                     >
-                      <div className="w-20 h-20 rounded-full bg-lime-100 dark:bg-lime-500/20 flex items-center justify-center mx-auto">
+                      <div className="w-24 h-24 rounded-full bg-lime-100 dark:bg-lime-500/20 flex items-center justify-center mx-auto shadow-xl">
                         <CheckCircle2
                           size={
-                            40
+                            42
                           }
                           className="text-lime-700 dark:text-lime-300"
                         />
                       </div>
 
-                      <h3 className="mt-6 text-3xl font-black text-black dark:text-white">
-                        Request
-                        Sent
+                      <h3 className="mt-7 text-3xl sm:text-4xl font-black tracking-tight text-black dark:text-white">
+                        Request Sent
                       </h3>
 
-                      <p className="mt-3 text-neutral-500 dark:text-neutral-400 max-w-sm mx-auto leading-relaxed">
-                        We
-                        received
+                      <p className="mt-4 text-black/55 dark:text-white/55 max-w-sm mx-auto leading-[1.8]">
+                        We received
                         your
-                        details
-                        and will
-                        contact
-                        you
-                        shortly.
+                        details and
+                        will contact
+                        you shortly
+                        on WhatsApp.
                       </p>
                     </motion.div>
                   ) : (
@@ -437,9 +437,8 @@ ${contactForm.message || "Not provided"}
                       {/* NAME */}
 
                       <div>
-                        <label className="text-sm font-medium text-neutral-700 dark:text-neutral-300">
-                          Your
-                          Name
+                        <label className="text-sm font-semibold text-black dark:text-white">
+                          Your Name
                         </label>
 
                         <input
@@ -452,16 +451,15 @@ ${contactForm.message || "Not provided"}
                             handleChange
                           }
                           placeholder="Rohit Sharma"
-                          className="mt-2 w-full h-14 px-5 rounded-2xl border border-black/10 dark:border-white/10 bg-neutral-50 dark:bg-white/[0.03] focus:bg-white dark:focus:bg-black focus:border-black dark:focus:border-white text-black dark:text-white outline-none transition-all"
+                          className="mt-3 w-full h-14 px-5 rounded-2xl border border-black/10 dark:border-white/10 bg-white/70 dark:bg-white/[0.03] backdrop-blur-xl focus:bg-white dark:focus:bg-black focus:border-black dark:focus:border-white text-black dark:text-white outline-none transition-all"
                         />
                       </div>
 
                       {/* PHONE */}
 
                       <div>
-                        <label className="text-sm font-medium text-neutral-700 dark:text-neutral-300">
-                          Phone
-                          Number
+                        <label className="text-sm font-semibold text-black dark:text-white">
+                          Phone Number
                         </label>
 
                         <input
@@ -474,16 +472,15 @@ ${contactForm.message || "Not provided"}
                             handleChange
                           }
                           placeholder="+91 98765 43210"
-                          className="mt-2 w-full h-14 px-5 rounded-2xl border border-black/10 dark:border-white/10 bg-neutral-50 dark:bg-white/[0.03] focus:bg-white dark:focus:bg-black focus:border-black dark:focus:border-white text-black dark:text-white outline-none transition-all"
+                          className="mt-3 w-full h-14 px-5 rounded-2xl border border-black/10 dark:border-white/10 bg-white/70 dark:bg-white/[0.03] backdrop-blur-xl focus:bg-white dark:focus:bg-black focus:border-black dark:focus:border-white text-black dark:text-white outline-none transition-all"
                         />
                       </div>
 
                       {/* MESSAGE */}
 
                       <div>
-                        <label className="text-sm font-medium text-neutral-700 dark:text-neutral-300">
-                          Project
-                          Details
+                        <label className="text-sm font-semibold text-black dark:text-white">
+                          Project Details
                         </label>
 
                         <textarea
@@ -497,8 +494,8 @@ ${contactForm.message || "Not provided"}
                           onChange={
                             handleChange
                           }
-                          placeholder="Tell us a little about your business or project..."
-                          className="mt-2 w-full px-5 py-4 rounded-2xl border border-black/10 dark:border-white/10 bg-neutral-50 dark:bg-white/[0.03] focus:bg-white dark:focus:bg-black focus:border-black dark:focus:border-white text-black dark:text-white outline-none transition-all resize-none"
+                          placeholder="Tell us about your business, idea or website..."
+                          className="mt-3 w-full px-5 py-4 rounded-2xl border border-black/10 dark:border-white/10 bg-white/70 dark:bg-white/[0.03] backdrop-blur-xl focus:bg-white dark:focus:bg-black focus:border-black dark:focus:border-white text-black dark:text-white outline-none transition-all resize-none"
                         />
                       </div>
 
@@ -524,7 +521,7 @@ ${contactForm.message || "Not provided"}
                         disabled={
                           contactLoading
                         }
-                        className="w-full h-14 rounded-2xl bg-black dark:bg-white text-white dark:text-black font-semibold flex items-center justify-center gap-2 disabled:opacity-60 shadow-xl"
+                        className="group w-full h-14 rounded-2xl bg-black dark:bg-white text-white dark:text-black font-semibold flex items-center justify-center gap-2 shadow-2xl disabled:opacity-60"
                       >
                         {contactLoading ? (
                           <span>
@@ -533,25 +530,27 @@ ${contactForm.message || "Not provided"}
                           </span>
                         ) : (
                           <>
-                            Send
-                            Request
+                            Send Request
 
                             <ArrowRight
                               size={
                                 18
                               }
+                              className="transition-transform duration-300 group-hover:translate-x-1"
                             />
                           </>
                         )}
                       </motion.button>
 
-                      <p className="text-center text-sm text-neutral-400 dark:text-neutral-500">
+                      {/* NOTE */}
+
+                      <p className="text-center text-sm leading-relaxed text-black/40 dark:text-white/40">
                         No spam.
                         Just a
                         genuine
-                        conversation
-                        about
-                        your
+                        discussion
+                        about your
+                        business and
                         project.
                       </p>
                     </motion.form>
@@ -564,4 +563,4 @@ ${contactForm.message || "Not provided"}
       </div>
     </section>
   );
-}
+}   

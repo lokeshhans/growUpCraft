@@ -26,6 +26,9 @@ const steps = [
 
     time:
       "30 min discussion",
+
+    gradient:
+      "from-lime-200/40 via-lime-100/20 to-transparent dark:from-lime-500/10 dark:to-lime-400/5",
   },
 
   {
@@ -41,6 +44,9 @@ const steps = [
 
     time:
       "2–3 days",
+
+    gradient:
+      "from-blue-200/30 via-cyan-100/10 to-transparent dark:from-blue-500/10 dark:to-cyan-400/5",
   },
 
   {
@@ -56,6 +62,9 @@ const steps = [
 
     time:
       "5–15 days",
+
+    gradient:
+      "from-orange-200/30 via-yellow-100/10 to-transparent dark:from-orange-500/10 dark:to-yellow-400/5",
   },
 
   {
@@ -71,6 +80,9 @@ const steps = [
 
     time:
       "3 months support",
+
+    gradient:
+      "from-pink-200/30 via-purple-100/10 to-transparent dark:from-pink-500/10 dark:to-purple-400/5",
   },
 ];
 
@@ -78,7 +90,7 @@ export default function HowWeWork() {
   return (
     <section
       id="process"
-      className="relative overflow-hidden bg-[#f8f8f6] dark:bg-black text-black dark:text-white py-28 lg:py-36 transition-colors duration-500"
+      className="relative overflow-hidden bg-[#F7F8F4] dark:bg-[#050505] text-black dark:text-white py-20 sm:py-28 lg:py-40 transition-colors duration-500"
     >
       {/* GRID */}
 
@@ -91,14 +103,18 @@ export default function HowWeWork() {
               linear-gradient(90deg, rgba(0,0,0,.08) 1px, transparent 1px)
             `,
             backgroundSize:
-              "60px 60px",
+              "70px 70px",
           }}
         />
       </div>
 
-      {/* GLOW */}
+      {/* MAIN GLOW */}
 
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[750px] h-[750px] rounded-full bg-lime-100/40 dark:bg-lime-500/10 blur-3xl" />
+
+      {/* EXTRA COLOR GLOW */}
+
+      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full bg-blue-200/20 dark:bg-blue-500/10 blur-3xl" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
         {/* HEADER */}
@@ -116,9 +132,14 @@ export default function HowWeWork() {
             viewport={{
               once: true,
             }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-black/10 dark:border-white/10 bg-white dark:bg-white/[0.03] backdrop-blur-xl text-sm font-medium shadow-sm"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-black/10 dark:border-white/10 bg-white/80 dark:bg-white/[0.03] backdrop-blur-2xl text-xs sm:text-sm font-medium shadow-sm"
           >
-            ⚡ Our Process
+            <Sparkles
+              size={
+                15
+              }
+            />
+            Our Process
           </motion.span>
 
           <motion.h2
@@ -136,7 +157,7 @@ export default function HowWeWork() {
             viewport={{
               once: true,
             }}
-            className="mt-7 text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-[0.95]"
+            className="mt-7 text-[2.4rem] leading-[0.96] sm:text-6xl lg:text-[88px] font-black tracking-[-0.05em]"
           >
             A smooth process
             <br />
@@ -159,7 +180,7 @@ export default function HowWeWork() {
             viewport={{
               once: true,
             }}
-            className="mt-6 text-lg leading-relaxed text-black/60 dark:text-white/55 max-w-2xl"
+            className="mt-6 text-[15px] sm:text-xl leading-[1.8] text-black/70 dark:text-white/70 max-w-2xl"
           >
             Everything stays
             transparent,
@@ -172,7 +193,7 @@ export default function HowWeWork() {
 
         {/* STEPS */}
 
-        <div className="mt-20 grid lg:grid-cols-4 gap-6">
+        <div className="mt-16 sm:mt-20 grid lg:grid-cols-4 gap-6">
           {steps.map(
             (
               step,
@@ -208,19 +229,25 @@ export default function HowWeWork() {
                 {index <
                   steps.length -
                     1 && (
-                  <div className="hidden lg:block absolute top-14 left-full w-full border-t border-dashed border-black/10 dark:border-white/10" />
+                  <div className="hidden lg:block absolute top-16 left-full w-full border-t border-dashed border-black/10 dark:border-white/10" />
                 )}
 
                 {/* CARD */}
 
-                <div className="relative h-full rounded-[32px] border border-black/6 dark:border-white/10 bg-white dark:bg-neutral-950 backdrop-blur-xl p-7 overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.05)] transition-all duration-500 hover:shadow-[0_25px_80px_rgba(0,0,0,0.08)]">
-                  {/* TOP GLOW */}
+                <div className="relative h-full rounded-[36px] border border-black/6 dark:border-white/10 bg-white/80 dark:bg-white/[0.03] backdrop-blur-2xl p-7 overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.05)] transition-all duration-500 hover:shadow-[0_30px_100px_rgba(163,230,53,0.12)]">
+                  {/* PREMIUM GRADIENT */}
+
+                  <div
+                    className={`absolute inset-0 bg-gradient-to-br ${step.gradient} opacity-0 group-hover:opacity-100 transition-all duration-500 pointer-events-none`}
+                  />
+
+                  {/* TOP BORDER */}
 
                   <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-black/20 dark:via-white/20 to-transparent" />
 
-                  {/* NUMBER */}
+                  {/* BIG NUMBER */}
 
-                  <div className="absolute top-6 right-6 text-black/5 dark:text-white/5 text-6xl font-black">
+                  <div className="absolute top-5 right-6 text-black/[0.04] dark:text-white/[0.04] text-7xl font-black tracking-tight">
                     {
                       step.number
                     }
@@ -228,25 +255,25 @@ export default function HowWeWork() {
 
                   {/* ICON */}
 
-                  <div className="relative z-10 w-16 h-16 rounded-3xl bg-lime-100 dark:bg-lime-500/15 border border-lime-200/40 dark:border-lime-500/20 flex items-center justify-center">
+                  <div className="relative z-10 w-16 h-16 rounded-[24px] bg-gradient-to-br from-lime-200 to-lime-100 dark:from-lime-500/20 dark:to-lime-400/10 border border-lime-200/40 dark:border-lime-500/20 flex items-center justify-center shadow-xl">
                     <step.icon
                       size={
                         28
                       }
-                      className="text-black dark:text-lime-300"
+                      className="text-lime-700 dark:text-lime-300"
                     />
                   </div>
 
                   {/* CONTENT */}
 
                   <div className="relative z-10 mt-8">
-                    <h3 className="text-2xl font-black tracking-tight">
+                    <h3 className="text-2xl font-black tracking-tight leading-[1]">
                       {
                         step.title
                       }
                     </h3>
 
-                    <p className="mt-4 text-black/60 dark:text-white/55 leading-relaxed text-sm">
+                    <p className="mt-4 text-black/70 dark:text-white/70 leading-[1.8] text-sm">
                       {
                         step.description
                       }
@@ -255,7 +282,7 @@ export default function HowWeWork() {
 
                   {/* TIME */}
 
-                  <div className="relative z-10 mt-8 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-black/[0.03] dark:bg-white/[0.03] border border-black/5 dark:border-white/5 text-sm text-black/60 dark:text-white/60">
+                  <div className="relative z-10 mt-8 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 dark:bg-white/[0.03] border border-black/5 dark:border-white/5 text-sm text-black/60 dark:text-white/60 backdrop-blur-xl">
                     ⏱{" "}
                     {
                       step.time
@@ -264,7 +291,7 @@ export default function HowWeWork() {
 
                   {/* HOVER BORDER */}
 
-                  <div className="absolute inset-0 rounded-[32px] border border-lime-300/0 group-hover:border-lime-300/30 transition-all duration-500 pointer-events-none" />
+                  <div className="absolute inset-0 rounded-[36px] border border-lime-300/0 group-hover:border-lime-300/30 transition-all duration-500 pointer-events-none" />
                 </div>
               </motion.div>
             )
@@ -287,28 +314,31 @@ export default function HowWeWork() {
           }}
           className="mt-24"
         >
-          <div className="rounded-[36px] border border-black/6 dark:border-white/10 bg-white dark:bg-neutral-950 backdrop-blur-xl p-8 lg:p-10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 shadow-[0_20px_60px_rgba(0,0,0,0.05)]">
+          <div className="relative overflow-hidden rounded-[40px] border border-black/6 dark:border-white/10 bg-white/80 dark:bg-white/[0.03] backdrop-blur-2xl p-7 sm:p-10 lg:p-12 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-10 shadow-[0_20px_80px_rgba(0,0,0,0.05)]">
+            {/* GRADIENT */}
+
+            <div className="absolute inset-0 bg-gradient-to-br from-lime-100/30 to-transparent dark:from-lime-500/5 pointer-events-none" />
+
             {/* LEFT */}
 
-            <div className="max-w-2xl">
+            <div className="relative z-10 max-w-2xl">
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-lime-100 dark:bg-lime-500/15 text-black dark:text-lime-300 text-sm font-semibold">
                 <Sparkles
                   size={
                     15
                   }
                 />
-
                 Simple &
                 Transparent
               </div>
 
-              <h3 className="mt-6 text-3xl sm:text-4xl font-black tracking-tight leading-[1]">
+              <h3 className="mt-6 text-[2rem] sm:text-5xl font-black tracking-[-0.04em] leading-[0.96]">
                 No technical
                 knowledge
                 needed.
               </h3>
 
-              <p className="mt-5 text-black/60 dark:text-white/55 leading-relaxed text-lg">
+              <p className="mt-5 text-black/70 dark:text-white/70 leading-[1.8] text-[15px] sm:text-lg max-w-xl">
                 We guide you
                 through
                 planning,
@@ -323,7 +353,7 @@ export default function HowWeWork() {
 
               {/* FEATURES */}
 
-              <div className="mt-7 flex flex-wrap gap-4">
+              <div className="mt-8 flex flex-wrap gap-5">
                 {[
                   "Fast Delivery",
 
@@ -338,7 +368,7 @@ export default function HowWeWork() {
                       key={
                         item
                       }
-                      className="inline-flex items-center gap-2 text-sm text-black/60 dark:text-white/55"
+                      className="inline-flex items-center gap-2 text-sm text-black/70 dark:text-white/70"
                     >
                       <CheckCircle2
                         size={
@@ -369,7 +399,7 @@ export default function HowWeWork() {
               href="https://wa.me/918930296001"
               target="_blank"
               rel="noopener noreferrer"
-              className="group h-14 px-7 rounded-2xl bg-black text-white dark:bg-white dark:text-black font-semibold flex items-center gap-2 shadow-2xl"
+              className="group relative z-10 w-full sm:w-auto h-14 px-7 rounded-2xl bg-gradient-to-r from-black to-neutral-800 dark:from-white dark:to-neutral-200 text-white dark:text-black font-semibold flex items-center justify-center gap-2 shadow-2xl"
             >
               Book a Free
               Discussion

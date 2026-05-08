@@ -27,6 +27,9 @@ const services = [
 
     tag: "Online Presence",
 
+    gradient:
+      "from-blue-500/20 via-cyan-500/10 to-transparent",
+
     description:
       "Modern websites that help your business look professional and generate more enquiries online.",
 
@@ -44,13 +47,17 @@ const services = [
   },
 
   {
-    icon: LayoutDashboard,
+    icon:
+      LayoutDashboard,
 
     title:
       "Custom Web Application",
 
     tag:
       "Dashboard System",
+
+    gradient:
+      "from-lime-500/20 via-green-500/10 to-transparent",
 
     description:
       "Custom admin panels and business systems for managing data, operations and workflows efficiently.",
@@ -76,6 +83,9 @@ const services = [
 
     tag: "Sales Tracking",
 
+    gradient:
+      "from-orange-500/20 via-yellow-500/10 to-transparent",
+
     description:
       "Track leads, follow-ups and enquiries from one organized dashboard without losing potential customers.",
 
@@ -93,12 +103,16 @@ const services = [
   },
 
   {
-    icon: CalendarCheck,
+    icon:
+      CalendarCheck,
 
     title:
       "Booking System",
 
     tag: "Automation",
+
+    gradient:
+      "from-pink-500/20 via-purple-500/10 to-transparent",
 
     description:
       "Online booking and enquiry systems that automate appointments and customer scheduling.",
@@ -123,6 +137,9 @@ const services = [
       "Website Redesign",
 
     tag: "Modern Upgrade",
+
+    gradient:
+      "from-neutral-500/20 via-zinc-500/10 to-transparent",
 
     description:
       "Upgrade outdated websites into modern, responsive and conversion-focused digital experiences.",
@@ -151,17 +168,17 @@ export default function Services() {
   return (
     <section
       id="services"
-      className="relative overflow-hidden bg-[#f8f8f6] dark:bg-black text-black dark:text-white py-32 lg:py-40 transition-colors duration-500"
+      className="relative overflow-hidden bg-[#f8f8f6] dark:bg-[#050505] text-black dark:text-white py-20 sm:py-28 lg:py-40 transition-colors duration-500"
     >
-      {/* BACKGROUND */}
+      {/* BACKGROUND GRID */}
 
-      <div className="absolute inset-0 opacity-[0.04] dark:opacity-[0.03] pointer-events-none">
+      <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.04] pointer-events-none">
         <div
           className="absolute inset-0"
           style={{
             backgroundImage: `
-              linear-gradient(rgba(0,0,0,.06) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(0,0,0,.06) 1px, transparent 1px)
+              linear-gradient(rgba(0,0,0,.08) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(0,0,0,.08) 1px, transparent 1px)
             `,
             backgroundSize:
               "70px 70px",
@@ -169,13 +186,13 @@ export default function Services() {
         />
       </div>
 
-      {/* GLOW */}
+      {/* MAIN GLOW */}
 
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[850px] h-[850px] rounded-full bg-lime-200/40 dark:bg-lime-500/10 blur-3xl" />
 
-      {/* EXTRA GLOW */}
+      {/* EXTRA COLOR GLOW */}
 
-      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full bg-black/[0.03] dark:bg-white/[0.03] blur-3xl" />
+      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full bg-blue-200/20 dark:bg-blue-500/10 blur-3xl" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
         {/* HEADER */}
@@ -193,9 +210,14 @@ export default function Services() {
             viewport={{
               once: true,
             }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-black/10 dark:border-white/10 bg-white/80 dark:bg-white/5 backdrop-blur-xl text-sm font-medium shadow-sm"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-black/10 dark:border-white/10 bg-white/80 dark:bg-white/[0.04] backdrop-blur-xl text-xs sm:text-sm font-medium shadow-sm"
           >
-            🛠 Services
+            <Sparkles
+              size={
+                15
+              }
+            />
+            Services
           </motion.span>
 
           <motion.h2
@@ -213,11 +235,11 @@ export default function Services() {
             viewport={{
               once: true,
             }}
-            className="mt-8 text-5xl sm:text-7xl lg:text-[88px] font-black tracking-[-0.04em] leading-[0.9]"
+            className="mt-6 text-[2.3rem] leading-[0.96] sm:text-6xl lg:text-[88px] font-black tracking-[-0.05em]"
           >
             Solutions built
             <br />
-            for real
+            for modern
             businesses.
           </motion.h2>
 
@@ -236,27 +258,28 @@ export default function Services() {
             viewport={{
               once: true,
             }}
-            className="mt-7 text-xl leading-relaxed text-black/60 dark:text-white/60 max-w-2xl"
+            className="mt-6 text-[15px] sm:text-xl leading-[1.8] text-black/70 dark:text-white/70 max-w-2xl"
           >
             We create
             websites,
-            systems and
-            digital products
-            that improve
-            operations,
-            generate leads
-            and help
-            businesses grow
-            online.
+            dashboards and
+            automation
+            systems that
+            help local
+            businesses
+            operate faster,
+            look more
+            professional and
+            grow online.
           </motion.p>
         </div>
 
         {/* MAIN */}
 
-        <div className="mt-24 grid lg:grid-cols-[340px_1fr] gap-10 items-start">
+        <div className="mt-14 sm:mt-20 grid lg:grid-cols-[340px_1fr] gap-6 lg:gap-10 items-start">
           {/* LEFT */}
 
-          <div className="space-y-4 lg:sticky lg:top-28">
+          <div className="space-y-4 lg:sticky lg:top-28 overflow-x-auto lg:overflow-visible flex lg:flex-col gap-4 lg:gap-0 pb-2 lg:pb-0">
             {services.map(
               (
                 item,
@@ -271,18 +294,20 @@ export default function Services() {
                       index
                     )
                   }
-                  className={`group relative w-full rounded-[32px] p-5 text-left border transition-all duration-300 overflow-hidden ${
+                  className={`group relative min-w-[280px] lg:min-w-0 w-full rounded-[30px] p-5 text-left border transition-all duration-500 overflow-hidden backdrop-blur-2xl ${
                     active ===
                     index
-                      ? "border-lime-300/40 bg-white dark:bg-neutral-950 shadow-[0_20px_60px_rgba(163,230,53,0.12)]"
+                      ? "border-lime-300/30 bg-white dark:bg-neutral-950 shadow-[0_20px_80px_rgba(163,230,53,0.12)]"
                       : "border-black/6 dark:border-white/10 bg-white/70 dark:bg-white/[0.03] hover:bg-white dark:hover:bg-white/[0.05]"
                   }`}
                 >
+                  {/* ACTIVE GLOW */}
+
                   {active ===
                     index && (
                     <motion.div
                       layoutId="active-service"
-                      className="absolute inset-0 bg-gradient-to-b from-lime-100/40 dark:from-lime-500/10 to-transparent"
+                      className={`absolute inset-0 bg-gradient-to-br ${item.gradient}`}
                     />
                   )}
 
@@ -291,7 +316,7 @@ export default function Services() {
                       className={`w-14 h-14 rounded-2xl flex items-center justify-center transition-all ${
                         active ===
                         index
-                          ? "bg-black text-white dark:bg-white dark:text-black"
+                          ? "bg-black text-white dark:bg-white dark:text-black shadow-xl"
                           : "bg-black/[0.04] dark:bg-white/[0.06]"
                       }`}
                     >
@@ -303,19 +328,19 @@ export default function Services() {
                     </div>
 
                     <div className="flex-1">
-                      <p className="text-xs uppercase tracking-[0.2em] text-black/35 dark:text-white/40 mb-2">
+                      <p className="text-[11px] uppercase tracking-[0.25em] text-black/35 dark:text-white/40 mb-2">
                         {
                           item.tag
                         }
                       </p>
 
-                      <h3 className="font-black text-xl tracking-tight">
+                      <h3 className="font-black text-xl tracking-tight leading-tight">
                         {
                           item.title
                         }
                       </h3>
 
-                      <div className="mt-4 flex items-center justify-between">
+                      <div className="mt-5 flex items-center justify-between">
                         <span className="text-sm text-black/40 dark:text-white/40">
                           Starting
                         </span>
@@ -355,14 +380,17 @@ export default function Services() {
               transition={{
                 duration: 0.35,
               }}
-              whileHover={{
-                y: -4,
-              }}
-              className="rounded-[40px] border border-black/6 dark:border-white/10 bg-white/80 dark:bg-neutral-950 backdrop-blur-2xl overflow-hidden shadow-[0_20px_80px_rgba(0,0,0,0.06)]"
+              className="relative rounded-[34px] sm:rounded-[40px] border border-black/6 dark:border-white/10 bg-white/80 dark:bg-neutral-950/90 backdrop-blur-2xl overflow-hidden shadow-[0_20px_80px_rgba(0,0,0,0.06)]"
             >
+              {/* COLOR BG */}
+
+              <div
+                className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-40 pointer-events-none`}
+              />
+
               {/* TOP BAR */}
 
-              <div className="h-14 border-b border-black/6 dark:border-white/10 bg-black/[0.02] dark:bg-white/[0.03] flex items-center px-5 gap-2">
+              <div className="relative h-14 border-b border-black/6 dark:border-white/10 bg-black/[0.02] dark:bg-white/[0.03] flex items-center px-5 gap-2">
                 <div className="w-3 h-3 rounded-full bg-red-400" />
 
                 <div className="w-3 h-3 rounded-full bg-yellow-400" />
@@ -371,16 +399,16 @@ export default function Services() {
 
                 <div className="ml-4 text-xs text-black/30 dark:text-white/30 font-medium">
                   growupcraft
-                  .in/services
+                  .vercel.app
                 </div>
               </div>
 
               {/* TOP */}
 
-              <div className="border-b border-black/6 dark:border-white/10 p-8 lg:p-10">
-                <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-8">
+              <div className="relative border-b border-black/6 dark:border-white/10 p-5 sm:p-8 lg:p-10">
+                <div className="flex flex-col xl:flex-row xl:items-start justify-between gap-8">
                   <div className="max-w-2xl">
-                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-lime-100 dark:bg-lime-500/20 text-black dark:text-lime-300 text-sm font-semibold">
+                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 dark:bg-white/[0.06] border border-black/5 dark:border-white/10 backdrop-blur-xl text-sm font-semibold">
                       <Sparkles
                         size={
                           15
@@ -392,13 +420,13 @@ export default function Services() {
                       }
                     </div>
 
-                    <h3 className="mt-7 text-5xl font-black tracking-tight leading-none">
+                    <h3 className="mt-6 text-[2rem] sm:text-5xl lg:text-6xl font-black tracking-[-0.05em] leading-[0.95]">
                       {
                         service.title
                       }
                     </h3>
 
-                    <p className="mt-6 text-xl leading-relaxed text-black/60 dark:text-white/60">
+                    <p className="mt-6 text-[15px] sm:text-xl leading-[1.8] text-black/70 dark:text-white/70">
                       {
                         service.description
                       }
@@ -407,13 +435,13 @@ export default function Services() {
 
                   {/* PRICE */}
 
-                  <div className="rounded-[32px] bg-black text-white dark:bg-white dark:text-black px-8 py-7 min-w-fit shadow-2xl">
+                  <div className="rounded-[30px] bg-black text-white dark:bg-white dark:text-black px-7 py-6 sm:px-8 sm:py-7 min-w-fit shadow-2xl">
                     <p className="text-sm opacity-60">
                       Starting
                       from
                     </p>
 
-                    <h4 className="mt-2 text-5xl font-black tracking-tight">
+                    <h4 className="mt-2 text-4xl sm:text-5xl font-black tracking-tight">
                       {
                         service.price
                       }
@@ -424,12 +452,12 @@ export default function Services() {
 
               {/* BODY */}
 
-              <div className="p-8 lg:p-10">
+              <div className="relative p-5 sm:p-8 lg:p-10">
                 {/* RESULT */}
 
-                <div className="rounded-[32px] bg-lime-100 dark:bg-lime-500/10 p-7">
+                <div className="rounded-[28px] bg-lime-100/80 dark:bg-lime-500/10 border border-lime-300/20 dark:border-lime-500/10 p-6 sm:p-7 backdrop-blur-xl">
                   <div className="flex items-start gap-5">
-                    <div className="w-14 h-14 rounded-2xl bg-black text-white dark:bg-white dark:text-black flex items-center justify-center">
+                    <div className="w-14 h-14 rounded-2xl bg-black text-white dark:bg-white dark:text-black flex items-center justify-center shadow-xl">
                       <CheckCircle2
                         size={
                           24
@@ -443,7 +471,7 @@ export default function Services() {
                         Result
                       </p>
 
-                      <h4 className="mt-2 text-3xl font-black tracking-tight">
+                      <h4 className="mt-2 text-2xl sm:text-3xl font-black tracking-tight leading-tight">
                         {
                           service.result
                         }
@@ -454,7 +482,7 @@ export default function Services() {
 
                 {/* FEATURES */}
 
-                <div className="mt-10 grid sm:grid-cols-2 gap-4">
+                <div className="mt-8 sm:mt-10 grid sm:grid-cols-2 gap-4">
                   {service.includes.map(
                     (
                       item,
@@ -477,11 +505,11 @@ export default function Services() {
                             index *
                             0.05,
                         }}
-                        className="rounded-2xl border border-black/6 dark:border-white/10 bg-black/[0.02] dark:bg-white/[0.03] px-5 py-4 flex items-center gap-3"
+                        className="rounded-2xl border border-black/6 dark:border-white/10 bg-white/70 dark:bg-white/[0.03] backdrop-blur-xl px-5 py-4 flex items-center gap-3"
                       >
                         <div className="w-2 h-2 rounded-full bg-lime-500" />
 
-                        <span className="text-black/70 dark:text-white/70 text-sm">
+                        <span className="text-black/75 dark:text-white/75 text-sm leading-relaxed">
                           {
                             item
                           }
@@ -493,7 +521,7 @@ export default function Services() {
 
                 {/* CTA */}
 
-                <div className="mt-12 flex flex-wrap gap-4">
+                <div className="mt-10 sm:mt-12 flex flex-col sm:flex-row gap-4">
                   <motion.a
                     whileHover={{
                       scale: 1.03,
@@ -507,7 +535,7 @@ export default function Services() {
                     )}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group h-14 px-8 rounded-2xl bg-black text-white dark:bg-white dark:text-black font-semibold flex items-center gap-2 shadow-2xl"
+                    className="group w-full sm:w-auto h-14 px-8 rounded-2xl bg-black text-white dark:bg-white dark:text-black font-semibold flex items-center justify-center gap-2 shadow-2xl"
                   >
                     Discuss Your
                     Project
@@ -520,7 +548,7 @@ export default function Services() {
                     />
                   </motion.a>
 
-                  <div className="h-14 px-6 rounded-2xl border border-black/8 dark:border-white/10 bg-white/80 dark:bg-white/[0.03] backdrop-blur-xl flex items-center text-sm text-black/50 dark:text-white/50">
+                  <div className="w-full sm:w-auto h-14 px-6 rounded-2xl border border-black/8 dark:border-white/10 bg-white/80 dark:bg-white/[0.03] backdrop-blur-xl flex items-center justify-center text-sm text-black/55 dark:text-white/55">
                     Typical
                     delivery:
                     5–15 days
