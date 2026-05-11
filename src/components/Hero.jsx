@@ -317,7 +317,7 @@ export default function Hero() {
                 <div className="w-3 h-3 rounded-full bg-green-400" />
 
                 <div className="ml-4 text-xs text-neutral-400 dark:text-neutral-500 font-medium truncate">
-                  growupcraft.vercel.app
+                  growupcraft.com
                 </div>
               </div>
 

@@ -370,8 +370,7 @@ ${contactForm.message || "Not provided"}
                 <div className="w-3 h-3 rounded-full bg-green-400" />
 
                 <div className="ml-4 text-xs text-black/30 dark:text-white/30 font-medium">
-                  growupcraft
-                  .vercel.app/contact
+                  growupcraft.com
                 </div>
               </div>
 
