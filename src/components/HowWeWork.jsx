@@ -55,7 +55,7 @@ const steps = [
     icon: Code2,
 
     title:
-      "Development",
+      "Development Phase",
 
     description:
       "After approval, we build the complete website or system with clean code, mobile-first optimization and smooth animations.",
@@ -90,7 +90,7 @@ export default function HowWeWork() {
   return (
     <section
       id="process"
-      className="relative overflow-hidden bg-[#F7F8F4] dark:bg-[#050505] text-black dark:text-white py-20 sm:py-28 lg:py-40 transition-colors duration-500"
+      className="relative overflow-hidden bg-[#F7F8F4] dark:bg-[#050505] text-black dark:text-white py-4 sm:py-10 lg:py-20 transition-colors duration-500"
     >
       {/* GRID */}
 
@@ -157,7 +157,7 @@ export default function HowWeWork() {
             viewport={{
               once: true,
             }}
-            className="mt-7 text-[2.4rem] leading-[0.96] sm:text-6xl lg:text-[88px] font-black tracking-[-0.05em]"
+            className="mt-2 text-[2rem] leading-[1.02] sm:text-6xl lg:text-[88px] font-black tracking-[-0.05em]"
           >
             A smooth process
             <br />
@@ -180,7 +180,7 @@ export default function HowWeWork() {
             viewport={{
               once: true,
             }}
-            className="mt-6 text-[15px] sm:text-xl leading-[1.8] text-black/70 dark:text-white/70 max-w-2xl"
+            className="mt-4 text-[12px] sm:text-xl leading-[1.8] text-black/70 dark:text-white/70 max-w-2xl"
           >
             Everything stays
             transparent,
@@ -193,7 +193,7 @@ export default function HowWeWork() {
 
         {/* STEPS */}
 
-        <div className="mt-16 sm:mt-20 grid lg:grid-cols-4 gap-6">
+        <div className="mt-10 sm:mt-20 grid lg:grid-cols-4 gap-2">
           {steps.map(
             (
               step,
@@ -266,7 +266,7 @@ export default function HowWeWork() {
 
                   {/* CONTENT */}
 
-                  <div className="relative z-10 mt-8">
+                  <div className="relative z-10 mt-6">
                     <h3 className="text-2xl font-black tracking-tight leading-[1]">
                       {
                         step.title
@@ -282,7 +282,7 @@ export default function HowWeWork() {
 
                   {/* TIME */}
 
-                  <div className="relative z-10 mt-8 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 dark:bg-white/[0.03] border border-black/5 dark:border-white/5 text-sm text-black/60 dark:text-white/60 backdrop-blur-xl">
+                  <div className="relative z-10 mt-4  inline-flex items-center gap-2 px-4 py-2 rounded-full bg-black/80 dark:bg-white border border-black/5 dark:border-white/5 text-sm text-white/60 dark:text-black/60 backdrop-blur-xl">
                     ⏱{" "}
                     {
                       step.time
@@ -322,7 +322,7 @@ export default function HowWeWork() {
             {/* LEFT */}
 
             <div className="relative z-10 max-w-2xl">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-lime-100 dark:bg-lime-500/15 text-black dark:text-lime-300 text-sm font-semibold">
+              <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-lime-100 dark:bg-lime-500/15 text-white dark:text-lime-300 text-sm font-semibold">
                 <Sparkles
                   size={
                     15
@@ -332,13 +332,13 @@ export default function HowWeWork() {
                 Transparent
               </div>
 
-              <h3 className="mt-6 text-[2rem] sm:text-5xl font-black tracking-[-0.04em] leading-[0.96]">
+              <h3 className="mt-4 text-[2rem] sm:text-5xl font-black tracking-[-0.04em] leading-[0.96]">
                 No technical
                 knowledge
                 needed.
               </h3>
 
-              <p className="mt-5 text-black/70 dark:text-white/70 leading-[1.8] text-[15px] sm:text-lg max-w-xl">
+              <p className="mt-4 text-black/70 dark:text-white/70 leading-[1.8] text-[12px] sm:text-lg max-w-xl">
                 We guide you
                 through
                 planning,
@@ -353,7 +353,7 @@ export default function HowWeWork() {
 
               {/* FEATURES */}
 
-              <div className="mt-8 flex flex-wrap gap-5">
+              <div className="mt-4 flex flex-wrap gap-5">
                 {[
                   "Fast Delivery",
 
@@ -399,7 +399,7 @@ export default function HowWeWork() {
               href="https://wa.me/918930296001"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative z-10 w-full sm:w-auto h-14 px-7 rounded-2xl bg-gradient-to-r from-black to-neutral-800 dark:from-white dark:to-neutral-200 text-white dark:text-black font-semibold flex items-center justify-center gap-2 shadow-2xl"
+              className="group relative z-10 w-full sm:w-auto h-14 px-3 rounded-2xl bg-gradient-to-r from-black to-neutral-800 dark:from-white dark:to-neutral-200 text-white dark:text-black font-semibold flex items-center justify-center gap-2 shadow-2xl"
             >
               Book a Free
               Discussion

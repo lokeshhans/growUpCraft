@@ -168,7 +168,7 @@ export default function Services() {
   return (
     <section
       id="services"
-      className="relative overflow-hidden bg-[#f8f8f6] dark:bg-[#050505] text-black dark:text-white py-20 sm:py-28 lg:py-40 transition-colors duration-500"
+      className="relative overflow-hidden bg-[#f8f8f6] dark:bg-[#050505] text-black dark:text-white py-2 sm:py-10 lg:py-20 transition-colors duration-500"
     >
       {/* BACKGROUND GRID */}
 
@@ -235,7 +235,7 @@ export default function Services() {
             viewport={{
               once: true,
             }}
-            className="mt-6 text-[2.3rem] leading-[0.96] sm:text-6xl lg:text-[88px] font-black tracking-[-0.05em]"
+            className="mt-6 text-[2rem] leading-[1.02] sm:text-5xl lg:text-[80px] font-black tracking-[-0.05em]"
           >
             Solutions built
             <br />
@@ -258,7 +258,7 @@ export default function Services() {
             viewport={{
               once: true,
             }}
-            className="mt-6 text-[15px] sm:text-xl leading-[1.8] text-black/70 dark:text-white/70 max-w-2xl"
+            className="mt-4 text-[12px] sm:text-xl leading-[1.8] text-black/70 dark:text-white/70 max-w-2xl"
           >
             We create
             websites,
@@ -276,10 +276,10 @@ export default function Services() {
 
         {/* MAIN */}
 
-        <div className="mt-14 sm:mt-20 grid lg:grid-cols-[340px_1fr] gap-6 lg:gap-10 items-start">
+        <div className="mt-6 sm:mt-10 grid lg:grid-cols-[340px_1fr] gap-6 lg:gap-10 items-start">
           {/* LEFT */}
 
-          <div className="space-y-4 lg:sticky lg:top-28 overflow-x-auto lg:overflow-visible flex lg:flex-col gap-4 lg:gap-0 pb-2 lg:pb-0">
+          <div className="space-y-2 lg:sticky lg:top-28 overflow-x-auto lg:overflow-visible flex lg:flex-col gap-2 lg:gap-0 pb-2 lg:pb-0">
             {services.map(
               (
                 item,
@@ -294,7 +294,7 @@ export default function Services() {
                       index
                     )
                   }
-                  className={`group relative min-w-[280px] lg:min-w-0 w-full rounded-[30px] p-5 text-left border transition-all duration-500 overflow-hidden backdrop-blur-2xl ${
+                  className={`group relative min-w-[220px] lg:min-w-0 w-full rounded-[30px] p-2 text-left border transition-all duration-500 overflow-hidden backdrop-blur-2xl ${
                     active ===
                     index
                       ? "border-lime-300/30 bg-white dark:bg-neutral-950 shadow-[0_20px_80px_rgba(163,230,53,0.12)]"
@@ -311,9 +311,9 @@ export default function Services() {
                     />
                   )}
 
-                  <div className="relative z-10 flex items-start gap-4">
+                  <div className="relative z-10 flex items-start gap-2">
                     <div
-                      className={`w-14 h-14 rounded-2xl flex items-center justify-center transition-all ${
+                      className={`w-10 h-10 rounded-2xl flex items-center justify-center transition-all ${
                         active ===
                         index
                           ? "bg-black text-white dark:bg-white dark:text-black shadow-xl"
@@ -322,19 +322,19 @@ export default function Services() {
                     >
                       <item.icon
                         size={
-                          24
+                          20
                         }
                       />
                     </div>
 
                     <div className="flex-1">
-                      <p className="text-[11px] uppercase tracking-[0.25em] text-black/35 dark:text-white/40 mb-2">
+                      <p className="text-[8px] uppercase tracking-[0.25em] text-black/35 dark:text-white/40 mb-1">
                         {
                           item.tag
                         }
                       </p>
 
-                      <h3 className="font-black text-xl tracking-tight leading-tight">
+                      <h3 className="font-black text-sm tracking-tight leading-tight">
                         {
                           item.title
                         }
@@ -390,7 +390,7 @@ export default function Services() {
 
               {/* TOP BAR */}
 
-              <div className="relative h-14 border-b border-black/6 dark:border-white/10 bg-black/[0.02] dark:bg-white/[0.03] flex items-center px-5 gap-2">
+              <div className="relative h-10 border-b border-black/6 dark:border-white/10 bg-black/[0.02] dark:bg-white/[0.03] flex items-center px-5 gap-2">
                 <div className="w-3 h-3 rounded-full bg-red-400" />
 
                 <div className="w-3 h-3 rounded-full bg-yellow-400" />
@@ -398,20 +398,19 @@ export default function Services() {
                 <div className="w-3 h-3 rounded-full bg-green-400" />
 
                 <div className="ml-4 text-xs text-black/30 dark:text-white/30 font-medium">
-                  growupcraft
-                  .vercel.app
+                  growupcraft.com
                 </div>
               </div>
 
               {/* TOP */}
 
               <div className="relative border-b border-black/6 dark:border-white/10 p-5 sm:p-8 lg:p-10">
-                <div className="flex flex-col xl:flex-row xl:items-start justify-between gap-8">
+                <div className="flex flex-col xl:flex-row xl:items-start justify-between gap-2">
                   <div className="max-w-2xl">
-                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 dark:bg-white/[0.06] border border-black/5 dark:border-white/10 backdrop-blur-xl text-sm font-semibold">
+                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 dark:bg-white/[0.06] border border-black/5 dark:border-white/10 backdrop-blur-xl text-xs font-semibold">
                       <Sparkles
                         size={
-                          15
+                          12
                         }
                       />
 
@@ -420,13 +419,13 @@ export default function Services() {
                       }
                     </div>
 
-                    <h3 className="mt-6 text-[2rem] sm:text-5xl lg:text-6xl font-black tracking-[-0.05em] leading-[0.95]">
+                    <h3 className="mt-4 text-[1.7rem] sm:text-5xl lg:text-6xl font-black tracking-[-0.05em] leading-[0.95]">
                       {
                         service.title
                       }
                     </h3>
 
-                    <p className="mt-6 text-[15px] sm:text-xl leading-[1.8] text-black/70 dark:text-white/70">
+                    <p className="mt-4 text-[12px] sm:text-xl leading-[1.2] text-black/70 dark:text-white/70">
                       {
                         service.description
                       }
@@ -435,13 +434,13 @@ export default function Services() {
 
                   {/* PRICE */}
 
-                  <div className="rounded-[30px] bg-black text-white dark:bg-white dark:text-black px-7 py-6 sm:px-8 sm:py-7 min-w-fit shadow-2xl">
-                    <p className="text-sm opacity-60">
+                  <div className="rounded-[30px] bg-black text-white dark:bg-white dark:text-black px-7 py-2 sm:px-6 sm:py-7 min-w-fit shadow-2xl">
+                    <p className="text-xs opacity-60">
                       Starting
                       from
                     </p>
 
-                    <h4 className="mt-2 text-4xl sm:text-5xl font-black tracking-tight">
+                    <h4 className="mt-1 text-2xl sm:text-4xl font-black tracking-tight">
                       {
                         service.price
                       }
@@ -455,12 +454,12 @@ export default function Services() {
               <div className="relative p-5 sm:p-8 lg:p-10">
                 {/* RESULT */}
 
-                <div className="rounded-[28px] bg-lime-100/80 dark:bg-lime-500/10 border border-lime-300/20 dark:border-lime-500/10 p-6 sm:p-7 backdrop-blur-xl">
-                  <div className="flex items-start gap-5">
-                    <div className="w-14 h-14 rounded-2xl bg-black text-white dark:bg-white dark:text-black flex items-center justify-center shadow-xl">
+                <div className="rounded-[28px] bg-lime-100/80 dark:bg-lime-500/10 border border-lime-300/20 dark:border-lime-500/10 p-4 sm:p-7 backdrop-blur-xl">
+                  <div className="flex items-start gap-3">
+                    <div className="w-10 h-10 rounded-2xl bg-black text-white dark:bg-white dark:text-black flex items-center justify-center shadow-xl">
                       <CheckCircle2
                         size={
-                          24
+                          20
                         }
                       />
                     </div>
@@ -471,7 +470,7 @@ export default function Services() {
                         Result
                       </p>
 
-                      <h4 className="mt-2 text-2xl sm:text-3xl font-black tracking-tight leading-tight">
+                      <h4 className="mt-1 text-xl sm:text-3xl font-black tracking-tight leading-tight">
                         {
                           service.result
                         }
@@ -482,7 +481,7 @@ export default function Services() {
 
                 {/* FEATURES */}
 
-                <div className="mt-8 sm:mt-10 grid sm:grid-cols-2 gap-4">
+                <div className="mt-4 sm:mt-6 grid sm:grid-cols-2 gap-2">
                   {service.includes.map(
                     (
                       item,
@@ -505,7 +504,7 @@ export default function Services() {
                             index *
                             0.05,
                         }}
-                        className="rounded-2xl border border-black/6 dark:border-white/10 bg-white/70 dark:bg-white/[0.03] backdrop-blur-xl px-5 py-4 flex items-center gap-3"
+                        className="rounded-2xl border border-black/6 dark:border-white/10 bg-white/70 dark:bg-white/[0.03] backdrop-blur-xl px-5 py-2 flex items-center gap-2"
                       >
                         <div className="w-2 h-2 rounded-full bg-lime-500" />
 
@@ -521,7 +520,7 @@ export default function Services() {
 
                 {/* CTA */}
 
-                <div className="mt-10 sm:mt-12 flex flex-col sm:flex-row gap-4">
+                <div className="mt-6 sm:mt-10 flex flex-col sm:flex-row gap-2">
                   <motion.a
                     whileHover={{
                       scale: 1.03,

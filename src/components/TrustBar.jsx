@@ -50,7 +50,7 @@ export default function TrustBar() {
   return (
     <section
       aria-label="Technologies and business solutions"
-      className="relative overflow-hidden bg-[#F7F8F4] dark:bg-[#050505] py-8 sm:py-10 transition-colors duration-500"
+      className="relative overflow-hidden bg-[#F7F8F4] dark:bg-[#050505] py-4 sm:py-6 transition-colors duration-500"
     >
       {/* GRID */}
 
@@ -87,7 +87,7 @@ export default function TrustBar() {
       <div className="relative z-10">
         {/* LABEL */}
 
-        <div className="flex justify-center mb-7 px-5">
+        <div className="flex justify-center mb-3 px-5">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-black/10 dark:border-white/10 bg-white/80 dark:bg-white/[0.03] backdrop-blur-2xl shadow-sm text-xs sm:text-sm font-medium text-black dark:text-white">
             <Sparkles
               size={
@@ -119,7 +119,7 @@ export default function TrustBar() {
             }}
             transition={{
               repeat: Infinity,
-              duration: 34,
+              duration: 60,
               ease: "linear",
             }}
             className="flex min-w-max items-center gap-5"
@@ -133,7 +133,7 @@ export default function TrustBar() {
                   key={
                     index
                   }
-                  className="group flex items-center gap-5"
+                  className="group flex items-center gap-3"
                 >
                   {/* CARD */}
 

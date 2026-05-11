@@ -1,44 +1,24 @@
-import React, {
-  useEffect,
-  useState,
-} from "react";
+import React, { useEffect, useState } from "react";
 
-import {
-  motion,
-  AnimatePresence,
-} from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
-import {
-  X,
-  MessageCircle,
-  Sparkles,
-  ArrowRight,
-} from "lucide-react";
+import { X, MessageCircle, Sparkles, ArrowRight } from "lucide-react";
 
 export default function WhatsAppFloat() {
-  const [showButton, setShowButton] =
-    useState(false);
+  const [showButton, setShowButton] = useState(false);
 
-  const [showBubble, setShowBubble] =
-    useState(false);
+  const [showBubble, setShowBubble] = useState(false);
 
-  const [hideBubble, setHideBubble] =
-    useState(false);
+  const [hideBubble, setHideBubble] = useState(false);
 
   useEffect(() => {
-    const buttonTimer = setTimeout(
-      () => {
-        setShowButton(true);
-      },
-      1200
-    );
+    const buttonTimer = setTimeout(() => {
+      setShowButton(true);
+    }, 1200);
 
-    const bubbleTimer = setTimeout(
-      () => {
-        setShowBubble(true);
-      },
-      3200
-    );
+    const bubbleTimer = setTimeout(() => {
+      setShowBubble(true);
+    }, 3200);
 
     return () => {
       clearTimeout(buttonTimer);
@@ -51,131 +31,125 @@ export default function WhatsAppFloat() {
     "https://wa.me/918930296001?text=Hi%20GrowUpCraft%2C%20I%20want%20to%20discuss%20a%20website%20or%20web%20application.";
 
   return (
-    <div className="fixed bottom-4 right-4 sm:bottom-7 sm:right-7 z-[999] flex flex-col items-end gap-4">
+    <div className="fixed bottom-4 right-4 sm:bottom-7 sm:right-7 z-[999] flex flex-col items-end gap-2">
       {/* CHAT BUBBLE */}
 
       <AnimatePresence>
-        {showBubble &&
-          !hideBubble && (
-            <motion.div
-              initial={{
-                opacity: 0,
-                y: 20,
-                scale: 0.92,
-              }}
-              animate={{
-                opacity: 1,
-                y: 0,
-                scale: 1,
-              }}
-              exit={{
-                opacity: 0,
-                y: 10,
-                scale: 0.92,
-              }}
-              transition={{
-                type: "spring",
-                damping: 20,
-              }}
-              className="group relative w-[300px] sm:w-[340px] rounded-[34px] border border-black/6 dark:border-white/10 bg-white/80 dark:bg-[#0B0B0B]/90 backdrop-blur-2xl p-5 sm:p-6 shadow-[0_25px_80px_rgba(0,0,0,0.14)] overflow-hidden"
+        {showBubble && !hideBubble && (
+          <motion.div
+            initial={{
+              opacity: 0,
+              y: 20,
+              scale: 0.92,
+            }}
+            animate={{
+              opacity: 1,
+              y: 0,
+              scale: 1,
+            }}
+            exit={{
+              opacity: 0,
+              y: 10,
+              scale: 0.92,
+            }}
+            transition={{
+              type: "spring",
+              damping: 20,
+            }}
+            className="group relative w-[200px] sm:w-[300px] rounded-[34px] border border-black/6 dark:border-white/10 bg-white/80 dark:bg-[#0B0B0B]/90 backdrop-blur-2xl p-5 sm:p-6 shadow-[0_25px_80px_rgba(0,0,0,0.14)] overflow-hidden"
+          >
+            {/* PREMIUM GRADIENT */}
+
+            <div className="absolute inset-0 bg-gradient-to-br from-lime-100/40 via-transparent to-blue-100/20 dark:from-lime-500/10 dark:to-blue-500/10 pointer-events-none" />
+
+            {/* EXTRA GLOW */}
+
+            <div className="absolute -top-10 -right-10 w-40 h-40 bg-lime-300/20 dark:bg-lime-500/10 blur-3xl rounded-full" />
+
+            {/* TOP LINE */}
+
+            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-black/15 dark:via-white/15 to-transparent" />
+
+            {/* CLOSE */}
+
+            <button
+              onClick={() => setHideBubble(true)}
+              className="
+    absolute top-3 right-3
+    z-50
+    w-9 h-9
+    rounded-full
+    bg-black/[0.06]
+    dark:bg-white/[0.08]
+    hover:bg-black/[0.12]
+    dark:hover:bg-white/[0.12]
+    active:scale-95
+    flex items-center justify-center
+    transition-all duration-200
+    backdrop-blur-md
+    touch-manipulation
+  "
             >
-              {/* PREMIUM GRADIENT */}
+              <X size={16} className="text-black/50 dark:text-white/50" />
+            </button>
 
-              <div className="absolute inset-0 bg-gradient-to-br from-lime-100/40 via-transparent to-blue-100/20 dark:from-lime-500/10 dark:to-blue-500/10 pointer-events-none" />
+            {/* CONTENT */}
 
-              {/* EXTRA GLOW */}
+            <div className="relative z-10">
+              {/* ICON */}
 
-              <div className="absolute -top-10 -right-10 w-40 h-40 bg-lime-300/20 dark:bg-lime-500/10 blur-3xl rounded-full" />
-
-              {/* TOP LINE */}
-
-              <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-black/15 dark:via-white/15 to-transparent" />
-
-              {/* CLOSE */}
-
-              <button
-                onClick={() =>
-                  setHideBubble(true)
-                }
-                className="absolute top-4 right-4 w-12 h-12 rounded-full bg-black/[0.04] dark:bg-white/[0.05] hover:bg-black/[0.08] dark:hover:bg-white/[0.08] flex items-center justify-center transition-all duration-300"
-              >
-                <X
-                  size={20}
-                  className="text-black/45 dark:text-white/45"
-                />
-              </button>
-
-              {/* CONTENT */}
-
-              <div className="relative z-10">
-                {/* ICON */}
-
-                <div className="w-14 h-14 rounded-[22px] bg-[#25D366] flex items-center justify-center shadow-[0_15px_40px_rgba(37,211,102,0.35)]">
-                  <MessageCircle
-                    size={26}
-                    className="text-white"
-                  />
-                </div>
-
-                {/* BADGE */}
-
-                <div className="mt-5 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 dark:bg-white/[0.03] border border-black/5 dark:border-white/5 text-xs font-medium text-black/60 dark:text-white/60 backdrop-blur-xl">
-                  <Sparkles
-                    size={12}
-                  />
-                  Usually replies
-                  quickly
-                </div>
-
-                {/* HEADING */}
-
-                <h3 className="mt-5 text-[1.6rem] leading-[1.05] font-black tracking-[-0.03em] text-black dark:text-white">
-                  Need a modern
-                  website or
-                  dashboard?
-                </h3>
-
-                {/* TEXT */}
-
-                <p className="mt-4 text-[14px] sm:text-[15px] leading-[1.8] text-black/65 dark:text-white/60">
-                  Chat directly
-                  on WhatsApp
-                  for pricing,
-                  demo or
-                  project
-                  discussion.
-                </p>
-
-                {/* CTA */}
-
-                <motion.a
-                  whileHover={{
-                    scale: 1.02,
-                    y: -2,
-                  }}
-                  whileTap={{
-                    scale: 0.98,
-                  }}
-                  href={whatsappLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group mt-6 h-14 rounded-2xl bg-gradient-to-r from-black to-neutral-800 dark:from-white dark:to-neutral-200 text-white dark:text-black font-semibold flex items-center justify-center gap-2 shadow-2xl"
-                >
-                  Start
-                  Conversation
-
-                  <ArrowRight
-                    size={18}
-                    className="transition-transform duration-300 group-hover:translate-x-1"
-                  />
-                </motion.a>
+              <div className="w-14 h-14 rounded-[22px] bg-[#25D366] flex items-center justify-center shadow-[0_15px_40px_rgba(37,211,102,0.35)]">
+                <MessageCircle size={26} className="text-white" />
               </div>
 
-              {/* HOVER BORDER */}
+              {/* BADGE */}
 
-              <div className="absolute inset-0 rounded-[34px] border border-lime-300/0 group-hover:border-lime-300/20 transition-all duration-500 pointer-events-none" />
-            </motion.div>
-          )}
+              <div className="mt-5 inline-flex items-center gap-2 px-4  rounded-full bg-white/80 dark:bg-white/[0.03] border border-black/5 dark:border-white/5 text-xs font-medium text-black/60 dark:text-white/60 backdrop-blur-xl">
+                <Sparkles size={12} />
+                Usually replies quickly
+              </div>
+
+              {/* HEADING */}
+
+              <h3 className="mt-2 text-[1rem] leading-[1.05] font-black tracking-[-0.03em] text-black dark:text-white">
+                Need a modern website or dashboard?
+              </h3>
+
+              {/* TEXT */}
+
+              <p className="mt-2 text-[12px] sm:text-[14px] leading-[1.8] text-black/65 dark:text-white/60">
+                Chat directly on WhatsApp for pricing, demo or project
+                discussion.
+              </p>
+
+              {/* CTA */}
+
+              <motion.a
+                whileHover={{
+                  scale: 1.02,
+                  y: -2,
+                }}
+                whileTap={{
+                  scale: 0.98,
+                }}
+                href={whatsappLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group mt-2 h-14 rounded-2xl text-xs bg-gradient-to-r from-black to-neutral-800 dark:from-white dark:to-neutral-200 text-white dark:text-black font-semibold flex items-center justify-center  shadow-2xl"
+              >
+                Start Conversation
+                <ArrowRight
+                  size={18}
+                  className="transition-transform duration-300 group-hover:translate-x-1"
+                />
+              </motion.a>
+            </div>
+
+            {/* HOVER BORDER */}
+
+            <div className="absolute inset-0 rounded-[34px] border border-lime-300/0 group-hover:border-lime-300/20 transition-all duration-500 pointer-events-none" />
+          </motion.div>
+        )}
       </AnimatePresence>
 
       {/* FLOAT BUTTON */}

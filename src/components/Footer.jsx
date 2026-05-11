@@ -67,7 +67,7 @@ export default function Footer() {
 
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[700px] rounded-full bg-lime-100/50 dark:bg-lime-500/10 blur-3xl" />
 
-      <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 pt-16 sm:pt-24 pb-10">
+      <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-8  sm:pt-1 pb-4">
         {/* TOP CTA */}
 
         <motion.div
@@ -92,7 +92,7 @@ export default function Footer() {
             {/* LEFT */}
 
             <div className="relative z-10 max-w-2xl">
-              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-black/[0.03] dark:bg-white/[0.03] border border-black/10 dark:border-white/10 text-xs sm:text-sm font-medium backdrop-blur-xl">
+              <span className="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-black/[0.03] dark:bg-white/[0.03] border border-black/10 dark:border-white/10 text-xs sm:text-sm font-medium backdrop-blur-xl">
                 <Sparkles
                   size={
                     15
@@ -102,14 +102,14 @@ export default function Footer() {
                 Something
               </span>
 
-              <h2 className="mt-5 text-[2rem] leading-[0.98] sm:text-5xl lg:text-6xl font-black tracking-[-0.04em] text-black dark:text-white">
+              <h2 className="mt-2 text-[2rem] leading-[0.98] sm:text-5xl lg:text-6xl font-black tracking-[-0.04em] text-black dark:text-white">
                 Need a modern
                 website for
                 your
                 business?
               </h2>
 
-              <p className="mt-5 text-black/70 dark:text-white/70 text-[15px] sm:text-lg leading-[1.8] max-w-xl">
+              <p className="mt-2 text-black/70 dark:text-white/70 text-[15px] sm:text-lg leading-[1.8] max-w-xl">
                 We design
                 clean, fast
                 and
@@ -139,7 +139,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               className="relative z-10 w-full sm:w-auto h-14 px-7 rounded-2xl bg-black text-white dark:bg-white dark:text-black font-semibold flex items-center justify-center gap-2 shadow-2xl"
-            >
+            > 
               Start a
               Project
 
@@ -180,7 +180,7 @@ export default function Footer() {
               </motion.div>
 
               <div>
-                <h2 className="text-2xl font-black tracking-tight text-black dark:text-white">
+                <h2 className="text-xl font-black tracking-tight text-black dark:text-white">
                   GrowUpCraft
                 </h2>
 
@@ -191,7 +191,7 @@ export default function Footer() {
               </div>
             </NavLink>
 
-            <p className="mt-6 text-black/70 dark:text-white/65 leading-[1.9] max-w-md text-[15px]">
+            <p className="mt-4 text-black/70 dark:text-white/65 leading-[1.9] max-w-md text-[15px]">
               GrowUpCraft
               is a modern
               web
@@ -351,7 +351,7 @@ export default function Footer() {
 
             {/* SOCIALS */}
 
-            <div className="flex items-center gap-3 pt-6">
+            <div className="flex items-center gap-3 pt-2">
               {/* INSTAGRAM */}
 
               <motion.a
@@ -401,7 +401,7 @@ export default function Footer() {
 
             {/* RESPONSE */}
 
-            <div className="mt-8 rounded-[28px] border border-black/6 dark:border-white/10 bg-white/80 dark:bg-white/[0.03] backdrop-blur-2xl p-5 shadow-sm">
+            <div className="mt-4 rounded-[28px] border border-black/6 dark:border-white/10 bg-white/80 dark:bg-white/[0.03] backdrop-blur-2xl p-5 shadow-sm">
               <p className="text-sm font-medium text-black dark:text-white">
                 Usually
                 replies
@@ -425,7 +425,7 @@ export default function Footer() {
 
         {/* BOTTOM */}
 
-        <div className="pt-8 border-t border-black/5 dark:border-white/10 flex flex-col md:flex-row items-center justify-between gap-5">
+        <div className="pt-4 border-t border-black/5 dark:border-white/10 flex flex-col md:flex-row items-center justify-between gap-5">
           <p className="text-black/35 dark:text-white/25 text-sm text-center md:text-left">
             © 2025
             GrowUpCraft.

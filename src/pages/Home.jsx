@@ -4,6 +4,8 @@ import Projects from "../components/Projects";
 import Testimonials from "../components/Testimonials";
 import HowWeWork from "../components/HowWeWork";
 import TrustBar from "../components/TrustBar";
+import Contact from "../components/Contact";
+
 
 const Home = () => {
   return (
@@ -14,6 +16,7 @@ const Home = () => {
       <TrustBar/>
       <Testimonials />
       <HowWeWork/>
+      <Contact/>
     </>
   );
 };

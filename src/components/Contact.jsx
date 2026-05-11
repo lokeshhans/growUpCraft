@@ -126,7 +126,7 @@ ${contactForm.message || "Not provided"}
   return (
     <section
       id="contact"
-      className="relative overflow-hidden py-20 sm:py-28 lg:py-36 bg-[#f8f8f6] dark:bg-[#050505] transition-colors duration-500"
+      className="relative overflow-hidden py-10 sm:py-20 lg:py-36 bg-[#f8f8f6] dark:bg-[#050505] transition-colors duration-500"
     >
       {/* GRID */}
 
@@ -184,7 +184,7 @@ ${contactForm.message || "Not provided"}
 
               {/* HEADING */}
 
-              <h2 className="mt-7 text-[2.3rem] leading-[0.96] sm:text-6xl lg:text-7xl font-black tracking-[-0.05em] text-black dark:text-white">
+              <h2 className="mt-4 text-[2rem] leading-[1.02] sm:text-6xl lg:text-7xl font-black tracking-[-0.05em] text-black dark:text-white">
                 Tell us about
                 your next
                 project.
@@ -192,7 +192,7 @@ ${contactForm.message || "Not provided"}
 
               {/* DESCRIPTION */}
 
-              <p className="mt-6 text-[15px] sm:text-xl leading-[1.8] text-black/70 dark:text-white/70 max-w-lg">
+              <p className="mt-4 text-[12px] sm:text-xl leading-[1.8] text-black/70 dark:text-white/70 max-w-lg">
                 We design
                 modern,
                 conversion-focused
@@ -211,7 +211,7 @@ ${contactForm.message || "Not provided"}
 
             {/* INFO CARDS */}
 
-            <div className="mt-10 space-y-4">
+            <div className="mt-4 space-y-4">
               {[
                 {
                   icon: Clock3,
@@ -280,19 +280,19 @@ ${contactForm.message || "Not provided"}
                       <div className="w-14 h-14 rounded-2xl bg-black text-white dark:bg-white dark:text-black flex items-center justify-center shadow-xl">
                         <item.icon
                           size={
-                            22
+                            12
                           }
                         />
                       </div>
 
                       <div>
-                        <h3 className="font-black text-lg text-black dark:text-white">
+                        <h3 className="font-black text-sm text-black dark:text-white">
                           {
                             item.title
                           }
                         </h3>
 
-                        <p className="mt-1 text-sm leading-relaxed text-black/55 dark:text-white/55">
+                        <p className="mt-1 text-xs leading-relaxed text-black/55 dark:text-white/55">
                           {
                             item.desc
                           }

@@ -176,7 +176,7 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="relative overflow-hidden bg-[#f8f8f6] dark:bg-[#050505] py-20 sm:py-28 lg:py-36 transition-colors duration-500"
+      className="relative overflow-hidden bg-[#f8f8f6] dark:bg-[#050505] py-10 sm:py-20 lg:py-30 transition-colors duration-500"
     >
       {/* GRID */}
 
@@ -218,7 +218,7 @@ export default function Projects() {
           >
             <Sparkles
               size={
-                15
+                12
               }
             />
             Selected Work
@@ -239,7 +239,7 @@ export default function Projects() {
             viewport={{
               once: true,
             }}
-            className="mt-6 text-[2.2rem] leading-[0.98] sm:text-6xl lg:text-7xl font-black tracking-[-0.04em] text-black dark:text-white"
+            className="mt-4 text-[2rem] leading-[1.02] sm:text-5xl lg:text-6xl font-black tracking-[-0.04em] text-black dark:text-white"
           >
             Real projects
             <br />
@@ -262,7 +262,7 @@ export default function Projects() {
             viewport={{
               once: true,
             }}
-            className="mt-6 text-[15px] sm:text-lg leading-[1.8] text-black/70 dark:text-white/70 max-w-2xl"
+            className="mt-4 text-[12px] sm:text-lg leading-[1.8] text-black/70 dark:text-white/70 max-w-2xl"
           >
             We build
             systems and
@@ -280,10 +280,10 @@ export default function Projects() {
 
         {/* MAIN */}
 
-        <div className="mt-14 sm:mt-20 grid lg:grid-cols-[320px_1fr] gap-6 lg:gap-10 items-start">
+        <div className="mt-10 sm:mt-20 grid lg:grid-cols-[320px_1fr] gap-2 lg:gap-4 items-start">
           {/* LEFT */}
 
-          <div className="lg:sticky lg:top-28 space-y-4 overflow-x-auto lg:overflow-visible flex lg:flex-col gap-4 lg:gap-0 pb-2 lg:pb-0">
+          <div className="lg:sticky lg:top-20 space-y-2 overflow-x-auto lg:overflow-visible flex lg:flex-col gap-2 lg:gap-0 pb-2 lg:pb-0">
             {projects.map(
               (
                 item,
@@ -298,7 +298,7 @@ export default function Projects() {
                       index
                     )
                   }
-                  className={`relative min-w-[260px] lg:min-w-0 w-full text-left rounded-[28px] p-5 border transition-all duration-300 backdrop-blur-xl ${
+                  className={`relative min-w-[220px] lg:min-w-0 w-full text-left rounded-[28px] p-2 border transition-all duration-300 backdrop-blur-xl ${
                     active ===
                     index
                       ? "bg-black text-white dark:bg-white dark:text-black border-black dark:border-white shadow-2xl"
@@ -316,7 +316,7 @@ export default function Projects() {
                   <div className="relative z-10">
                     <div className="flex items-center gap-3">
                       <div
-                        className={`w-12 h-12 rounded-2xl flex items-center justify-center text-2xl ${
+                        className={`w-10 h-10 rounded-2xl flex items-center justify-center text-xl ${
                           active ===
                           index
                             ? "bg-white/10 dark:bg-black/10"
@@ -342,7 +342,7 @@ export default function Projects() {
                           }
                         </p>
 
-                        <h3 className="font-black text-lg tracking-tight leading-tight">
+                        <h3 className="font-black text-sm  tracking-tight leading-tight">
                           {
                             item.title
                           }
@@ -351,7 +351,7 @@ export default function Projects() {
                     </div>
 
                     <div
-                      className={`mt-5 flex items-center gap-2 text-sm ${
+                      className={`mt-2 flex items-center gap-2 text-sm ${
                         active ===
                         index
                           ? "text-white/60 dark:text-black/60"
@@ -404,9 +404,8 @@ export default function Projects() {
 
                   <div className="w-3 h-3 rounded-full bg-green-400" />
 
-                  <div className="ml-4 text-xs text-neutral-400 dark:text-neutral-500 font-medium">
-                    growupcraft
-                    .vercel.app
+                  <div className="ml-2 text-xs text-neutral-400 dark:text-neutral-500 font-medium">
+                    growupcraft.com
                   </div>
                 </div>
 
@@ -415,12 +414,12 @@ export default function Projects() {
                 <div className="p-5 sm:p-8 lg:p-10">
                   {/* TOP */}
 
-                  <div className="flex flex-col xl:flex-row xl:items-start justify-between gap-8">
+                  <div className="flex flex-col xl:flex-row xl:items-start justify-between gap-4">
                     <div className="max-w-2xl">
-                      <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-lime-100 dark:bg-lime-500/20 text-lime-800 dark:text-lime-300 text-sm font-semibold">
+                      <div className="inline-flex items-center gap-2 px-4 py-2   rounded-full bg-lime-100 dark:bg-lime-500/20 text-lime-800 dark:text-lime-300 text-sm font-semibold">
                         <CheckCircle2
                           size={
-                            16
+                            12
                           }
                         />
 
@@ -428,13 +427,13 @@ export default function Projects() {
                         Project
                       </div>
 
-                      <h3 className="mt-6 text-[2rem] sm:text-5xl font-black tracking-[-0.04em] leading-[0.95] text-black dark:text-white">
+                      <h3 className="mt-2 text-[2rem] sm:text-5xl font-black tracking-[-0.04em] leading-[0.95] text-black dark:text-white">
                         {
                           project.title
                         }
                       </h3>
 
-                      <p className="mt-5 text-[15px] sm:text-lg text-black/70 dark:text-white/70 leading-[1.8]">
+                      <p className="mt-5 text-[12px] sm:text-lg text-black/70 dark:text-white/70 leading-[1.8]">
                         {
                           project.description
                         }
@@ -443,7 +442,7 @@ export default function Projects() {
 
                     {/* METRICS */}
 
-                    <div className="grid grid-cols-3 gap-3 sm:gap-4 min-w-fit">
+                    <div className="grid grid-cols-3 gap-2 sm:gap-4 min-w-fit">
                       {project.metrics.map(
                         (
                           metric
@@ -452,9 +451,9 @@ export default function Projects() {
                             key={
                               metric.label
                             }
-                            className="rounded-2xl border border-black/5 dark:border-white/10 bg-neutral-50 dark:bg-white/[0.03] px-4 sm:px-5 py-4 text-center backdrop-blur-xl"
+                            className="rounded-2xl border border-black/5 dark:border-white/10 bg-neutral-50 dark:bg-white/[0.03] px-4 sm:px-5 py-2 text-center backdrop-blur-xl "
                           >
-                            <h4 className="text-xl sm:text-2xl font-black text-black dark:text-white">
+                            <h4 className="text-sm sm:text-2xl font-black text-black dark:text-white">
                               {
                                 metric.value
                               }
@@ -473,7 +472,7 @@ export default function Projects() {
 
                   {/* RESULTS */}
 
-                  <div className="mt-10 sm:mt-12 grid sm:grid-cols-3 gap-4">
+                  <div className="mt-6 sm:mt-8 grid sm:grid-cols-3 gap-2">
                     {project.stats.map(
                       (
                         stat,
@@ -483,9 +482,9 @@ export default function Projects() {
                           key={
                             index
                           }
-                          className="rounded-2xl border border-black/5 dark:border-white/10 bg-neutral-50 dark:bg-white/[0.03] p-5 backdrop-blur-xl"
+                          className="flex gap-2 rounded-2xl border border-black/5 dark:border-white/10 bg-neutral-50 dark:bg-white/[0.03] p-5 backdrop-blur-xl"
                         >
-                          <div className="w-10 h-10 rounded-xl bg-black text-white dark:bg-white dark:text-black flex items-center justify-center mb-4">
+                          <div className="w-10 h-10 rounded-xl bg-black text-white dark:bg-white dark:text-black flex items-center justify-center ">
                             <TrendingUp
                               size={
                                 18
@@ -493,7 +492,7 @@ export default function Projects() {
                             />
                           </div>
 
-                          <p className="text-sm leading-[1.8] text-black/75 dark:text-white/70">
+                          <p className="text-sm leading-[1.8] text-black/75 dark:text-white/70 flex items-center">
                             {
                               stat
                             }
