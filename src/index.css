@@ -13,14 +13,18 @@
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
     overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
   }
 
   body {
     font-family: "DM Sans", sans-serif;
     background-color: #f8f8f6;
     color: #0d0d0d;
+
     overflow-x: hidden;
     min-height: 100vh;
+
+    touch-action: pan-y;
 
     transition:
       background-color 0.35s ease,
@@ -66,6 +70,9 @@
     -webkit-user-drag: none;
     max-width: 100%;
     height: auto;
+
+    transform: translateZ(0);
+    backface-visibility: hidden;
   }
 
   button,
@@ -75,7 +82,6 @@
 
   section {
     position: relative;
-    overflow: hidden;
   }
 
   ::selection {
@@ -125,9 +131,9 @@
     inset: 0;
     pointer-events: none;
     z-index: 0;
-    opacity: 0.12;
+    opacity: 0.08;
 
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
   }
 
   /* SECTION TAG */
@@ -141,7 +147,7 @@
 
     border: 1px solid rgba(190, 242, 100, 0.16);
 
-    backdrop-filter: blur(14px);
+    backdrop-filter: blur(8px);
   }
 
   .dark .section-tag {
@@ -172,7 +178,7 @@
     color: #ffffff;
 
     box-shadow:
-      0 12px 40px rgba(0, 0, 0, 0.08);
+      0 10px 35px rgba(0, 0, 0, 0.06);
   }
 
   .btn-primary:hover {
@@ -181,7 +187,7 @@
     background: #1a1a1a;
 
     box-shadow:
-      0 18px 50px rgba(0, 0, 0, 0.14);
+      0 14px 40px rgba(0, 0, 0, 0.10);
   }
 
   .dark .btn-primary {
@@ -200,7 +206,7 @@
     color: #ffffff;
 
     box-shadow:
-      0 12px 40px rgba(37, 211, 102, 0.18);
+      0 10px 35px rgba(37, 211, 102, 0.18);
   }
 
   .btn-whatsapp:hover {
@@ -209,7 +215,7 @@
     transform: translateY(-2px);
 
     box-shadow:
-      0 18px 50px rgba(37, 211, 102, 0.28);
+      0 14px 40px rgba(37, 211, 102, 0.22);
   }
 
   /* OUTLINE */
@@ -221,7 +227,7 @@
 
     background: rgba(255, 255, 255, 0.72);
 
-    backdrop-filter: blur(14px);
+    backdrop-filter: blur(8px);
   }
 
   .btn-outline:hover {
@@ -248,20 +254,22 @@
   /* CARD */
 
   .card-hover {
-    @apply transition-all duration-500 rounded-3xl;
+    @apply transition-all duration-300 rounded-3xl;
+
     will-change: transform;
+    transform: translateZ(0);
   }
 
   .card-hover:hover {
-    transform: translateY(-6px);
+    transform: translateY(-4px);
 
     box-shadow:
-      0 24px 70px rgba(0, 0, 0, 0.08);
+      0 10px 35px rgba(0, 0, 0, 0.06);
   }
 
   .dark .card-hover:hover {
     box-shadow:
-      0 24px 70px rgba(0, 0, 0, 0.4);
+      0 10px 35px rgba(0, 0, 0, 0.25);
   }
 
   /* GLASS */
@@ -269,12 +277,12 @@
   .glass-card {
     background: rgba(255, 255, 255, 0.72);
 
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(10px);
 
     border: 1px solid rgba(0, 0, 0, 0.06);
 
     box-shadow:
-      0 10px 40px rgba(0, 0, 0, 0.04);
+      0 6px 24px rgba(0, 0, 0, 0.04);
   }
 
   .dark .glass-card {
@@ -293,10 +301,11 @@
     color: rgba(255, 255, 255, 0.72);
   }
 
-  /* TRUST SECTION */
+  /* TRUST */
 
   .trust-card {
     @apply rounded-3xl p-6 sm:p-8;
+
     background: linear-gradient(
       180deg,
       rgba(255,255,255,0.8),
@@ -326,7 +335,7 @@
     }
 
     .glass-card {
-      backdrop-filter: blur(14px);
+      backdrop-filter: blur(6px);
     }
   }
 }
@@ -334,7 +343,7 @@
 /* SCROLLBAR */
 
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 5px;
 }
 
 ::-webkit-scrollbar-track {
@@ -367,7 +376,7 @@
 }
 
 .animate-marquee {
-  animation: marquee 22s linear infinite;
+  animation: marquee 28s linear infinite;
 }
 
 /* CURSOR */
